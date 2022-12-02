@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup >
 import TheWelcome from "../components/TheWelcome.vue";
 </script>
 
@@ -23,10 +23,6 @@ import TheWelcome from "../components/TheWelcome.vue";
         <button> <span class="material-icons">favorite </span>
           </button>
 
-        
-
-  
-     
     
     </div>
   

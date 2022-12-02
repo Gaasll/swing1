@@ -160,7 +160,7 @@ aside {
 	&.is-expanded {
 		width: var(--sidebar-width);
 		.menu-toggle-wrap {
-			top: -3rem;
+			top: -1rem;
 			
 			.menu-toggle {
 				transform: rotate(-180deg);
