@@ -29,7 +29,7 @@ const ToggleMenu = () => {
                     <span class="text">Home</span>
            
 			</router-link>
-			<router-link to="/about" class="button">
+			<router-link to="/emotion" class="button">
 				<span ></span>
                 <span class="material-icons">add_reaction</span>
 				<span class="text">Emotions</span>
