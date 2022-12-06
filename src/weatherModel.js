@@ -1,0 +1,1 @@
+import {getCurrentWeather} from "../apiConfig.js";
