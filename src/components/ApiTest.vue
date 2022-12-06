@@ -5,7 +5,12 @@ const weatherData = params.setWeatherData();
 //console.log(weather);
 
 export default{
-    props: {weather: weatherData.weather}
+    data() {
+        return {
+            weather: weatherData.weather 
+                    
+        }
+    }
 }
 
 
@@ -13,6 +18,6 @@ export default{
 
 <template>
     <div>
-        Hello, dear devs!{{weather}}
+        Hello, dear devs <span>{{ weather }}</span>
     </div>
 </template>

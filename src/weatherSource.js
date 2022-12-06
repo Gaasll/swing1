@@ -6,7 +6,7 @@ const lon = 17.95;
 
 function formatWeatherDataACB(responseData){
     let data = {weather: responseData.weather[0].main, country: responseData.name};
-    console.log(responseData);
+    //console.log(responseData);
     return data;
     
     console.log(responseData);
