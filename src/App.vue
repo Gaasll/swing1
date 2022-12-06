@@ -15,20 +15,22 @@ import Sidebar from './components/Sidebar.vue'
 <style lang="scss">
 :root {
 	
-	--grey: #64748b;
-	--dark: #1e293b;
-	--dark-alt: #334155;
-	--light: #f1f5f9;
+	
+	--light: #222;
 	--sidebar-width: 300px;
+	margin-top: 0px;
+	margin-left: 0px;
+	max-width: 10000px
 }
 * {
-	margin: 0;
+	margin: 10;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Fira sans', sans-serif;
 }
 body {
 	background: var(--light);
+	
 }
 button {
 	cursor: pointer;
@@ -41,9 +43,9 @@ button {
 	display: flex;
 	main {
 		flex: 1 1 0;
-		padding: 2rem;
-		@media (max-width: 1024px) {
-			padding-left: 6rem;
+		padding: 5rem;
+		@media (max-width: 5000px) {
+			padding-left: 10rem;
 		}
 	}
 }

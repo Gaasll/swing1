@@ -1,17 +1,19 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+
 import { ref } from 'vue'
 const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
 const ToggleMenu = () => {
 	is_expanded.value = !is_expanded.value
 	localStorage.setItem("is_expanded", is_expanded.value)}
 
+	
+
 </script>
 
 <template>
   <aside :class="`${is_expanded ? 'is-expanded' : ''}`">
 		<div class="logo">
-			<img src="logot.png" alt="Vue" /> 
+		 
 		</div>
 
 		<div class="menu-toggle-wrap">
@@ -20,7 +22,7 @@ const ToggleMenu = () => {
 			</button>
 		</div>
     
-
+		
 		<h3>Menu</h3>
 		<div class="menu">
 			<router-link to="/" class="button">
@@ -56,15 +58,18 @@ const ToggleMenu = () => {
 				<span class="text">Settings</span>
 			</router-link>
 		</div>
+	
 	</aside>
 </template>
 
 <style lang="scss" scoped>
+
 aside {
 	display: flex;
-   
+	float: left;
+	margin-top: 0px;
 	flex-direction: column;
-	background: #222;
+	background: rgb(255, 253, 253);
 	color: var(--light);
 	width: calc(5rem + 32px);
 	overflow: hidden;
@@ -142,7 +147,7 @@ aside {
 			}
 			&.router-link-exact-active {
 				background-color: var(--dark-alt);
-				border-right: 5px solid rgb(35, 161, 224);
+				
 				.material-icons, .text {
 					color: rgb(108, 179, 214);
 				}
