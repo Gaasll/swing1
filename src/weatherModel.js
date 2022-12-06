@@ -1,20 +1,26 @@
-import {getCurrentWeather} from "./weatherSource.js";
+import {getCurrentWeatherInfo} from "./weatherSource.js";
 
 class WeatherModel{
 
-    constructor(location, weather){
+    constructor(location = 'king city', weather = 'sunny', timeOfDay){
         //this.observers= [];
         this.location;
         this.weather;
+        this.timeOfDay;
         //this.searchResultsPromiseState = {};
         //this.currentDishPromiseState = {};
     }
 
-    setLocation(newLocation){
-        this.location = newLocation}
+    async setWeatherData(){
+        let data = await getCurrentWeatherInfo();
+        this.weather = data.weather;
+        this.location = data.location;
+        this.timeOfDay = data.location;
 
-    setWeather(newWeather){
-        this.weather= newWeather}
+    }
+        
+
+    
 }
 
 export default WeatherModel;
