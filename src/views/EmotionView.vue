@@ -1,10 +1,10 @@
-<script setup lang="ts">
-import Index from "../components/IndexPresenter.vue";
+<script setup>
+import Emotions from "../presenters/Emotions.vue";
 </script>
 
 <template>
   <main>
-    <Index title="How are you feeling today?"/>
+    <Emotions title="How are you feeling today?"/>
   </main>
 </template>
 
@@ -18,4 +18,3 @@ import Index from "../components/IndexPresenter.vue";
   }
 } 
 </style>
-

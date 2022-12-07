@@ -22,7 +22,10 @@
         </div>
 
         <div>
-            <button href=""> <router-link to="/result"></router-link>Find your playlist </button>
+            <router-link to="/weather" class="button">
+            <span class="material-icons">chevron_right</span>
+            </router-link>
+            <!-- <button href=""> <router-link to="/result"></router-link>Find your playlist </button> -->
         </div>
     </div>
 </template>

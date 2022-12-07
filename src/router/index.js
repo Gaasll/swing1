@@ -1,30 +1,30 @@
-import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
-import weatherView from "../views/weather.vue"
+import {createRouter, createWebHistory} from 'vue-router'
+//import HomeView from '../views/HomeView.vue'
+import IndexView from '../views/IndexView.vue'
+//import WeatherView from '../views/WeatherView.vue'
+//import PlayingNow from '../views/WeatherView.vue'
 
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
+const routes = [
     {
-      path: "/",
-      name: "home",
-      component: () => import("../views/HomeView.vue"),
+        path: '/',
+        component: () => import('../views/IndexView.vue'),
     },
     {
-			path: '/emotion',
-			component: () => import('../views/Emotion.vue')
-		},
-
+        path: '/emotion',
+        component: () => import('../views/EmotionView.vue'),
+    },
     {
-			path: '/playing',
-			component: () => import('../views/playing.vue')
-		},
-
+        path: '/playing',
+        component: () => import('../views/PlayingNow.vue'),
+    },
     {
-			path: '/weather',
-			component: () => import('../views/Weather.vue')
-		},
-  ],
-});
+        path: '/weather',
+        component: () => import('../views/WeatherView.vue'),
+    },
+]
 
-export default router;
+const router = createRouter({
+    history: createWebHistory(process.env.BASE_URL), routes,
+})
+
+export default router

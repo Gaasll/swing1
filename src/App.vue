@@ -1,52 +1,35 @@
-<template>
-	<div class="app">
-		<!-- Sidebar -->
-		<Sidebar />
+// in App.vue you only want the components that you want visible on every page
 
-		<!-- Content -->
-		<router-view />
-	</div>
+<template>
+  <div>
+    <router-view />
+    <Footer/>
+  </div>
 </template>
 
-<script setup>
-import Sidebar from './components/Sidebar.vue'
+<script>
+import Footer from "./presenters/Footer.vue"
+export default {
+  name: 'App',
+  components: {
+    Footer,
+  }
+}
 </script>
 
-<style lang="scss">
-:root {
-	
-	
-	--light: #222;
-	--sidebar-width: 300px;
-	margin-top: 0px;
-	margin-left: 0px;
-	max-width: 10000px
+<style>
+#app {
+  font-family: Didact Gothic;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: black;
+  margin-top: 60px;
 }
-* {
-	margin: 10;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Fira sans', sans-serif;
-}
-body {
-	background: var(--light);
-	
-}
-button {
-	cursor: pointer;
-	appearance: none;
-	border: none;
-	outline: none;
-	background: none;
-}
-.app {
-	display: flex;
-	main {
-		flex: 1 1 0;
-		padding: 5rem;
-		@media (max-width: 5000px) {
-			padding-left: 10rem;
-		}
-	}
+Footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem; 
 }
 </style>

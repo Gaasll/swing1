@@ -1,39 +1,29 @@
-<script setup >
-import TheWelcome from "../components/TheWelcome.vue";
+<script>
+//import TheWelcome from "../components/TheWelcome.vue";
 </script>
 
-
-
-<template>
-    <div class="playing">
-    <h1 >Playing now</h1>
-    
-   
-  </div>
-
-
+<template>   
+    <div class="weather">
+        <h1> 
+        Let's talk weather 
+    </h1>
+</div>
+      
       <div class="card">
       
-      
-    <div class="box box1"><img src="song.jpg" alt="a balloon"></div>
-      <br>
-        <div  class="box desc" > Say What You Say</div>
-        <div  class="box desc" > issa-e</div>
-
-        <button> <span class="material-icons">favorite </span>
-          </button>
-
-    
+      <div class="search">
+        <input type="text" class="search-bar" placeholder="Search">
+        <button><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.5em"
+            width="1.5em" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z">
+            </path>
+          </svg></button>
+      </div>
     </div>
-  
-    <div class="scrolling">
-		<h2>PLAYING MUSIC FOR BEING HAPPY. THE WEATHER IS SUNNY.</h2>
-	</div>
-    
   </template>
   
-  
-  <style>
+<style>
 h1 {
   font-weight: 500;
   font-size: 2.6rem;
@@ -45,13 +35,12 @@ h3 {
   font-family: 'Didact Gothic';
 }
   @media (min-width: 600px) {
-    .playing {
-        min-height: 15vh;
+    .weather {
+      min-height: 100vh;
       min-width: 100vh;
       display: flex;
       align-items: center;
-     
-    
+      justify-content: center;
     }
   } 
 .card {
@@ -63,17 +52,10 @@ h3 {
   max-width: 420px;
   margin: 1em;
 }
-.box {
+.search {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.box img {
-    width: 100%;
-    height: 100%;
-}
-.box1 img {
-    object-fit: cover;
 }
 button {
   margin: 0.5em;
@@ -87,7 +69,7 @@ button {
   cursor: pointer;
   transition: 0.2s ease-in-out;
 }
-.box desc {
+input.search-bar {
   border: none;
   outline: none;
   padding: 0.4em 1em;
@@ -126,34 +108,5 @@ h1.temp {
   top: 0;
   left: 20px;
 }
-.scrolling {
-	position: relative;
-	width: 100%;
-	height: 50px;
-	overflow: hidden;
-	margin-top: 50px;
-}
-.scrolling h2 {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	font-size: 4em;
-	text-align: center;
-	line-height: 50px;
-	color: #fff;
-	transform: translateX(100%);
-	animation: scrolling 15s linear infinite;
-}
-@keyframes scrolling {
-	0% {
-		transform: translateX(100%);
-	}
-	100% {
-		transform: translateX(-100%);
-	}
-}
   
-  
-  </style>
+</style>
