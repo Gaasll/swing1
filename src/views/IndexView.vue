@@ -1,7 +1,7 @@
 <script setup>
-import Index from "../presenters/IndexPresenter.vue";
+import IndexPresenter from "../presenters/IndexPresenter.vue";
 </script>
 
 <template>
-    <Index title="Hello, how are you feeling today?"/>
+    <IndexPresenter title="Hello, how are you feeling today?"/>
 </template>
