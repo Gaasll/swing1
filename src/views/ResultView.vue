@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Header from '../presenters/HeaderPresenter.vue'
+import Header from '../components/HeaderPresenter.vue'
 
 export default {
     name: "Result",

@@ -1,8 +1,4 @@
 import {createRouter, createWebHistory} from 'vue-router'
-//import HomeView from '../views/HomeView.vue'
-//import IndexView from '../views/IndexView.vue'
-//import WeatherView from '../views/WeatherView.vue'
-//import PlayingNow from '../views/WeatherView.vue'
 
 const routes = [
     {
@@ -33,6 +29,10 @@ const routes = [
         path: '/weathersidebar',
         component: () => import('../views/WeatherSidebar.vue'),
     },
+    {
+        path: '/test',
+        component: () => import('../views/TestView.vue')
+      },
 ]
 
 const router = createRouter({

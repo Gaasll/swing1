@@ -1,6 +1,6 @@
 <script setup>
-import Emotions from "../presenters/Emotions.vue";
-import Sidebar from "../presenters/Sidebar.vue";
+import Emotions from "../components/Emotions.vue";
+import Sidebar from "../components/Sidebar.vue";
 </script>
 
 <template>

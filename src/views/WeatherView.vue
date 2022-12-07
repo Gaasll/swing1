@@ -1,16 +1,18 @@
 <script setup>
-import WeatherWidget from "../presenters/WeatherWidget.vue";
+import WeatherWidget from "../components/WeatherWidget.vue";
+import NextButton from "../components/NextButton.vue";
 </script>
 
 <template>   
     <div class="weather">
       <h1> The weather in your current location, {{name}} </h1>
       <WeatherWidget/>
-      <router-link to="/playing" class="button">
+      <NextButton path="/playing" />
+      <!-- <router-link to="/playing" class="button">
         <button>
             <span class="material-icons">chevron_right</span>
         </button>
-      </router-link>
+      </router-link> -->
     </div>   
 </template>
   
@@ -18,16 +20,5 @@ import WeatherWidget from "../presenters/WeatherWidget.vue";
 .weather{
   display: block;
 }
-button {
-		background: #7c7c7c2b;
-		margin: 0.5em;
-		border-radius: 50%;
-		border: none;
-		height: 44px;
-		width: 44px;
-		outline: none;
-		color: white;
-		cursor: pointer;
-		transition: 0.2s ease-in-out;
-	}
+
 </style>

@@ -1,6 +1,6 @@
 <script setup>
-import Playing from "../presenters/Playing.vue";
-import Sidebar from "../presenters/Sidebar.vue";
+import Playing from "../components/Playing.vue";
+import Sidebar from "../components/Sidebar.vue";
 </script> 
 
 <template>

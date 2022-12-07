@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Footer from "./presenters/Footer.vue"
+import Footer from "./components/Footer.vue"
 export default {
   name: 'App',
   components: {
@@ -26,6 +26,18 @@ export default {
   color: black;
   margin-top: 60px;
 }
+button {
+		background: #000000d0;
+		margin: 0.5em;
+		border-radius: 50%;
+		border: none;
+		height: 44px;
+		width: 44px;
+		outline: none;
+		color: white;
+		cursor: pointer;
+		transition: 0.2s ease-in-out;
+	}
 Footer{
   position: absolute;
   bottom: 0;

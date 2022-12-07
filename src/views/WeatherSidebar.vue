@@ -1,6 +1,6 @@
 <script setup>
-import Sidebar from "../presenters/Sidebar.vue";
-import WeatherWidget from "../presenters/WeatherWidget.vue";
+import Sidebar from "../components/Sidebar.vue";
+import WeatherWidget from "../components/WeatherWidget.vue";
 </script>
 
 <template>   
