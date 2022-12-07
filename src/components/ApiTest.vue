@@ -1,19 +1,30 @@
 <script>
 import MusicModel from "../MusicModel.js";
-//mm.searchPlaylists();
-let hi = "HII!!";
 export default {
     data() {
         return {
-            hi: "HII!!",
-            mm: new MusicModel(),
+            reactive: "",
+            mm: new MusicModel(this.notify),
         }
-    }
+    },
+    methods: {
+        notify(){
+            if(this.mm && this.mm.tokenPromiseState.data){
+                this.reactive = this.reactive ? "" : " ";
+            }
+        },
+        getSearch(){
+            this.mm.searchPlaylists();
+        }
+    },
 }
 </script>
 
 <template>
     <div>
-        Hello, dear devs! {{mm.tokenPromiseState.data || hi}}
+        Hello, dear devs! {{(this.mm.tokenPromiseState.data || this.reactive)}}
+    </div>
+    <div>
+        <button @click="getSearch">Search</button>
     </div>
 </template>

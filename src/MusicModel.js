@@ -2,9 +2,9 @@ import {getToken, getGenres, searchPlaylist} from "./musicSource.js";
 import resolvePromise from "./resolvePromise.js";
 
 class MusicModel{
-    constructor(){
+    constructor(notify){
         this.tokenPromiseState = {};
-        resolvePromise(getToken(), this.tokenPromiseState);
+        resolvePromise(getToken(), this.tokenPromiseState, notify);
         this.playlist = [];
 
         console.log(this.tokenPromiseState.data)
@@ -13,10 +13,14 @@ class MusicModel{
     async searchPlaylists(){
         let categoriesPromiseState = {};
         let playlistsPromiseState = {};
-        resolvePromise(getGenres(this.tokenPromiseState.data), categoriesPromiseState);
-        resolvePromise(searchPlaylist("blabla", this.tokenPromiseState.data), playlistsPromiseState);
-        console.log(categoriesPromiseState.data)
-        console.log(playlistsPromiseState.data)
+
+        function printData() {
+            console.log(categoriesPromiseState.data)
+            console.log(playlistsPromiseState.data)
+        }
+
+        resolvePromise(getGenres(this.tokenPromiseState.data), categoriesPromiseState, printData);
+        resolvePromise(searchPlaylist("blabla", this.tokenPromiseState.data), playlistsPromiseState, printData);
     }
 }
 
