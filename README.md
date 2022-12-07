@@ -1,3 +1,5 @@
+#Swing/SwingMood
+
 
 The web-app SwingMood/MoodMusic aims to create a tailored listening experience for the lazy or 
 uninspired music listener. A simple scaled down interface, devoid of distractions lets the user input their 
@@ -41,6 +43,7 @@ They also use seperate files for the models (for now) namely, weatherModel.js an
 API:s use the component ApiTest.vue, and the view TestView.vue to demonstrate their functionality in 
 the deployed app. They both have an API config file containing keys and endpoints (excluded from the 
 repository).
+
 The component IndexPresenter and the view IndexView are the first page that appears to the user who writes
 their name and presses the "toggle" button to the next page. The user gets to another page where the Emotions 
 component and the EmotionView view are used for the user to check on some emotions they are feeling right now. 
@@ -49,5 +52,6 @@ emotions/ feelings. After choosing emotions the user presses on the "toggle" but
 the current weather based on location. Here is the Weather View used to showcase the weather information.
 The user gets a new page suggesting music based on emotions chosen and the current weather. The component 
 called Playing and the view called playingNow are used for the suggested music.
+
 From now on a sidebar is presented in all the views for the users to choose to go back and change emotions, 
 recheck the weather and even see the history. The sidebar uses the component Sidebar under components.
