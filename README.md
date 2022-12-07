@@ -1,4 +1,5 @@
-#Swing/SwingMood
+Swing/SwingMood
+===========
 
 
 The web-app SwingMood/MoodMusic aims to create a tailored listening experience for the lazy or 
