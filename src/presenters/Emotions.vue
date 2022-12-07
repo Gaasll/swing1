@@ -16,16 +16,9 @@
             <Checkbox text="angry" />
             <Checkbox text="lonely" />
             <Checkbox text="hungry" />
-            <Checkbox text="..." />
-            <Checkbox text="..." />
-            <Checkbox text="..." />
-        </div>
-
-        <div>
-            <router-link to="/weather" class="button">
-            <span class="material-icons">chevron_right</span>
-            </router-link>
-            <!-- <button href=""> <router-link to="/result"></router-link>Find your playlist </button> -->
+            <Checkbox text="silly" />
+            <Checkbox text="flirty" />
+            <Checkbox text="melancholic" />
         </div>
     </div>
 </template>
@@ -62,8 +55,21 @@ import Checkbox from './Checkbox.vue'
         margin: 20px;
         /* shorthand: columns: 250px 3; */
     }
+
+    button {
+		background: #7c7c7c2b;
+		margin: 0.5em;
+		border-radius: 50%;
+		border: none;
+		height: 44px;
+		width: 44px;
+		outline: none;
+		color: white;
+		cursor: pointer;
+		transition: 0.2s ease-in-out;
+	}
     
-    button{ 
+    /* button{ 
         align-self: center;
         cursor: pointer;
         border-radius: 20px;
@@ -71,6 +77,6 @@ import Checkbox from './Checkbox.vue'
         border: none;
         color: white;
         padding: 10px 50px;
-        /* box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); */
-        }
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        } */
 </style>

@@ -3,9 +3,17 @@ import Emotions from "../presenters/Emotions.vue";
 </script>
 
 <template>
-  <main>
+  <div>
     <Emotions title="How are you feeling today?"/>
-  </main>
+     <div>
+            <router-link to="/weather" class="button">
+                <button>
+                    <span class="material-icons">chevron_right</span>
+                </button>
+            </router-link>
+            <!-- <button href=""> <router-link to="/result"></router-link>Find your playlist </button> -->
+      </div>
+  </div>
 </template>
 
 <style>

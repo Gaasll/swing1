@@ -10,8 +10,16 @@ const routes = [
         component: () => import('../views/IndexView.vue'),
     },
     {
+        path: '/home',
+        component: () => import('../views/HomeView.vue'),
+    },
+    {
         path: '/emotion',
         component: () => import('../views/EmotionView.vue'),
+    },
+    {
+        path: '/emotionsidebar',
+        component: () => import('../views/EmotionSidebar.vue'),
     },
     {
         path: '/playing',
@@ -20,6 +28,10 @@ const routes = [
     {
         path: '/weather',
         component: () => import('../views/WeatherView.vue'),
+    },
+    {
+        path: '/weathersidebar',
+        component: () => import('../views/WeatherSidebar.vue'),
     },
 ]
 
