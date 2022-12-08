@@ -11,6 +11,7 @@ export default {
         notify(){
             if(this.mm && this.mm.tokenPromiseState.data){
                 this.reactive = this.reactive ? "" : " ";
+                console.log(this.mm.playlistsPromiseState.data)
             }
         },
         getSearch(){
@@ -26,5 +27,8 @@ export default {
     </div>
     <div>
         <button @click="getSearch">Search</button>
+    </div>
+    <div>
+        {{this.mm.playlist || this.reactive}}
     </div>
 </template>

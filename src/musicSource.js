@@ -22,24 +22,23 @@ function getGenres(token){
     .then((data) => data.categories.items)
 }
 
-function searchPlaylist(searchParameters, token){
-    const moodTags = "sad";
-    const weather = "rain";
-
+function searchPlaylists(searchParams, token){
     let params = {client_id: CLIENT_ID,
               response_type: "code",
               redirect_uri: REDIRECT_URI,
               code_challenge_method: "s256",
-              code_challenge: generateHash,
+              code_challenge: generateHash(),
             }
 
-    return fetch("https://api.spotify.com/v1/search?q=sunshine&type=playlist&limit=20", {
+    return fetch("https://api.spotify.com/v1/search?" + 
+                new URLSearchParams(searchParams), {
         method: 'GET',
         headers: {
             "Authorization": "Bearer " + token,
         }
     })
     .then((response) => response.json())
+    .then((data) => data.playlists.items)
 }
 
 async function generateHash(){
@@ -84,4 +83,4 @@ async function generateHash(){
       return challenge;
 }
 
-export {getToken, getGenres, searchPlaylist}
+export {getToken, getGenres, searchPlaylists}
