@@ -73,6 +73,7 @@ aside {
 		color: white;
 		cursor: pointer;
 		transition: 0.2s ease-in-out;
+		background-image: url('../assets/button.jpg');
 	}
 	.logo {
 		margin-bottom: 1rem;
@@ -126,25 +127,26 @@ aside {
 			padding: 0.5rem 1rem;
 			.material-icons {
 				font-size: 2rem;
-				color: var(--light);
+				color:rgb(54, 54, 54); 
 				transition: 0.2s ease-in-out;
 			}
 			.text {
-				color: var(--light);
+				color:rgb(25, 24, 25);
 				transition: 0.2s ease-in-out;
                 font-family: 'Open Sans', sans-serif;
+				
 			}
 			&:hover {
 				background-color: var(--dark-alt);
 				.material-icons, .text {
-					color: rgb(108, 179, 214);
+					color: rgb(120, 92, 130);
 				}
 			}
 			&.router-link-exact-active {
 				background-color: var(--dark-alt);
 				
 				.material-icons, .text {
-					color: rgb(108, 179, 214);
+					color: rgb(120, 92, 130);
 				}
 			}
 		}

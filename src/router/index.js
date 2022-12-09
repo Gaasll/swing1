@@ -11,7 +11,7 @@ const routes = [
     },
     {
         path: '/emotion',
-        component: () => import('../views/EmotionView.vue'),
+        component: () => import('../presenters/EmotionPresenter.vue'),
     },
     {
         path: '/emotionsidebar',

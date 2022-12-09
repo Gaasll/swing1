@@ -25,9 +25,10 @@ export default {
   text-align: center;
   color: black;
   margin-top: 60px;
+  
 }
 button {
-		background: #000000d0;
+  background-image: url('./assets/button.jpg');
 		margin: 0.5em;
 		border-radius: 50%;
 		border: none;
@@ -43,5 +44,6 @@ Footer{
   bottom: 0;
   width: 100%;
   height: 2.5rem; 
+ 
 }
 </style>

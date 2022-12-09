@@ -42,7 +42,6 @@ import Checkbox from './Checkbox.vue'
         margin: 50px;
     }
     span{ margin-top: 0;}
-
     span > input{
         background-color: lightgrey;
     }
@@ -55,7 +54,6 @@ import Checkbox from './Checkbox.vue'
         margin: 20px;
         /* shorthand: columns: 250px 3; */
     }
-
     button {
 		background: #7c7c7c2b;
 		margin: 0.5em;

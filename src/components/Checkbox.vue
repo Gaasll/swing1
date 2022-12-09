@@ -26,6 +26,7 @@ export default {
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        visibility: inherit;
     }
     /* Hide the browser's default checkbox */
     .container input {

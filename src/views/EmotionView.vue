@@ -1,34 +1,123 @@
-<script setup>
-import Emotions from "../components/Emotions.vue";
-import NextButton from "../components/NextButton.vue";
-</script>
 
 <template>
-  <div>
-    <Emotions path="/emotion" title="How are you feeling today?"/>
-     <div>
-       <NextButton path="weather" />
-            <!-- <router-link to="/weather" class="button">
-                <button>
-                    <span class="material-icons">chevron_right</span>
-                </button>
-            </router-link> -->
-            <!-- <button href=""> <router-link to="/result"></router-link>Find your playlist </button> -->
-      </div>
-  </div>
+  
+  <div class="wrapper">
+        <header>
+        <div class=" question"> How are you feeling today?
+
+        </div>
+        <p>{{title}}</p>
+        <p>{{counter}}</p>
+        <button @click="counterIncrement">+</button>
+        </header>
+        <div class="columns">
+            <Checkbox text="Happy" />
+            <Checkbox text="Sad" />
+            <Checkbox text="Stressed" />
+            <Checkbox text="Scared" />
+            <Checkbox text="Embarassed" />
+            <Checkbox text="Confident" />
+            <Checkbox text="Horny" />
+            <Checkbox text="Cozy" />
+            <Checkbox text="Queer" />
+            <Checkbox text="Angry" />
+            <Checkbox text="Lonely" />
+            <Checkbox text="Hungry" />
+            <Checkbox text="Silly" />
+            <Checkbox text="Flirty" />
+            <Checkbox text="Melancholic" />
+        </div>
+        <NextButton path="weather" />
+    </div>
 </template>
 
-<style>
-@media (min-width: 1024px) {
+
+<script  >
+//using the components checkbox and NextButton under component section below. 
+import Checkbox from "../components/Checkbox.vue"
+import NextButton from "../components/NextButton.vue"
+
+export default {
+  name: "EmotiionView",
+  components: {
+    Checkbox,
+    NextButton,
+  },
+  props: {
+    title: String,
+    counter: Number,
+  },
+  methods: {
+    counterIncrement() {
+      this.$emit("counter-increment");
+    },
+
+  },
+};
+</script>
+
+<style scoped>
+  
+    header{
+        text-align: center;
+        margin: 50px;
+        font-family: 'Didact Gothic';
+        
+    }
+
+    .question{
+      text-align:center;
+      font-size: xx-large;
+      font-family: 'Didact Gothic';
+    }
+    span{ margin-top: 0;}
+
+    span > input{
+        background-color: lightgrey;
+    }
+    .columns{
+        
+        text-align:left;
+        column-count: 3;
+        column-width: 100px;
+        column-gap: 0em;
+        margin: 20px;
+        font-family: 'Didact Gothic';
+        /* shorthand: columns: 250px 3; */
+    }
+
+    button {
+		background: #0606062b;
+		margin: 0.5em;
+		border-radius: 50%;
+		border: none;
+		height: 44px;
+		width: 44px;
+		outline: none;
+		color: rgb(60, 59, 59);
+		cursor: pointer;
+		transition: 0.2s ease-in-out;
+	}
+
+  @media (min-width: 1024px) {
   .about {
     min-height: 100vh;
     display: flex;
     align-items: center;
     font-family: 'Didact Gothic';
   }
-} 
-
-
+}
+    
+    /* button{ 
+        align-self: center;
+        cursor: pointer;
+        border-radius: 20px;
+        background-color: black;
+        border: none;
+        color: white;
+        padding: 10px 50px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        } */
 </style>
 
 
