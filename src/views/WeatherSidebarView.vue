@@ -1,13 +1,13 @@
 <script setup>
 import Sidebar from "../components/Sidebar.vue";
-import WeatherWidget from "../components/WeatherWidget.vue";
+import WeatherView from "../views/WeatherView.vue";
 </script>
 
 <template>   
     <div class="weather">
         <Sidebar/>
       <h1> The weather in your current location, {{name}} </h1>
-      <WeatherWidget/>
+      <WeatherView/>
       <!-- <router-link to="/playing" class="button">
         <button>
             <span class="material-icons">chevron_right</span>

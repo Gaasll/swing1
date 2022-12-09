@@ -1,21 +1,18 @@
-<script setup>
-// import WeatherWidget from './WeatherWidget.vue'
-// export default{
-//   name: "Playing",
-//   components: {
-//     WeatherWidget
-//   },
-// }
-</script>
+
 
 <template>
-    <div class="playing">
+  
+    <div class="sidebar">
+      <Sidebar/>
+    </div>
+    
+      <div class="playing">
     <h1 >[name]</h1>
 		<h2>PLAYING MUSIC FOR BEING HAPPY </h2>
     <h2>THE WEATHER IS SUNNY </h2>
     </div>
     <div class="card">
-      <div class="box box1"><img src="song.jpg" alt="a balloon"></div>
+      <div class="box box1"><img src="../assets/song.jpg" alt="a balloon"/></div>
       <br>
         <div  class="box desc" > Say What You Say</div>
         <div  class="box desc" > issa-e</div>
@@ -24,13 +21,44 @@
     <div class="scrolling">
 	</div>
 </template>
-  
-<style>
+
+<script  >
+//using the components checkbox and NextButton under component section below. 
+import Sidebar from "../components/Sidebar.vue";
+
+
+export default {
+  name: "PlayingView",
+  components: {
+    Sidebar,
+   
+  },
+  props: {
+    title: String,
+    counter: Number,
+  },
+  methods: {
+    counterIncrement() {
+      this.$emit("counter-increment");
+    },
+
+  },
+};
+</script>
+
+<style scoped>
+.playing{
+  margin-left: 25%;
+  margin-right: 25%;
+  display: block;
+}
+
+
 
 .card {
   background: #000000d0;
   color: white;
-  margin-left: 25%;
+  margin-left: 30%;
   margin-right: 25%;
   padding: 2em;
   border-radius: 30px;
@@ -141,4 +169,5 @@ h1.temp {
 	}
 }
    */
+
 </style>

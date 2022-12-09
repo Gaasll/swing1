@@ -3,11 +3,11 @@ import {createRouter, createWebHistory} from 'vue-router'
 const routes = [
     {
         path: '/',
-        component: () => import('../views/IndexView.vue'),
+        component: () => import('../presenters/StartpagePresenter.vue'),
     },
     {
         path: '/home',
-        component: () => import('../views/HomeView.vue'),
+        component: () => import('../presenters/HomePresenter.vue'),
     },
     {
         path: '/emotion',
@@ -15,19 +15,19 @@ const routes = [
     },
     {
         path: '/emotionsidebar',
-        component: () => import('../views/EmotionSidebar.vue'),
+        component: () => import('../presenters/EmotionSidebarPresenter.vue'),
     },
     {
         path: '/playing',
-        component: () => import('../views/PlayingNow.vue'),
+        component: () => import('../presenters/PlayingPresenter.vue'),
     },
     {
         path: '/weather',
-        component: () => import('../views/WeatherView.vue'),
+        component: () => import('../presenters/WeatherPresenter.vue'),
     },
     {
         path: '/weathersidebar',
-        component: () => import('../views/WeatherSidebar.vue'),
+        component: () => import('../presenters/WeatherSidebarPresenter.vue'),
     },
     {
         path: '/test',

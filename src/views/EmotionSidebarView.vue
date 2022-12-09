@@ -1,12 +1,12 @@
 <script setup>
-import Emotions from "../components/Emotions.vue";
+import EmotionView from "../views/EmotionView.vue";
 import Sidebar from "../components/Sidebar.vue";
 </script>
 
 <template>
   <main>
     <Sidebar/>
-    <Emotions title="How are you feeling today?"/>
+    <EmotionView />
   </main>
 </template>
 
