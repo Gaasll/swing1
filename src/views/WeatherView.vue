@@ -20,7 +20,13 @@
           </svg></button>
       </div> -->
       <div>
-        <h2 class="city">Weather in Denver</h2>
+        <button @click="weatherInfo">show</button>
+
+        <h2 class="city">Weather in {{main}}</h2>
+        <div class="location text-center text-3xl dark:text-white">
+            
+         
+          </div>
         <h1 class="temp">51°C</h1>
         <div class="flex">
           <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
@@ -29,6 +35,7 @@
         <div class="humidity">Humidity: 60%</div>
         <div class="wind">Wind speed: 6.2 km/h</div>
       </div>
+    
       <NextButton path="playing" />
   </template>
 
@@ -37,21 +44,36 @@
 //using the components checkbox and NextButton under component section below. 
 
 import NextButton from "../components/NextButton.vue"
+//import {constructor} from "..weatherModel";
+
 
 export default {
-  name: "EmotiionView",
+  name: "WeatherView",
+  data() {
+    return {
+      name: '',
+      weather: {},
+ 
+    }
+  },
   components: {
     
-    NextButton,
+    NextButton, 
   },
   props: {
     title: String,
-    counter: Number,
+    
   },
   methods: {
     counterIncrement() {
       this.$emit("counter-increment");
     },
+
+
+    weatherInfo(){
+      this.$emit("get-info");  
+    }
+
 
   },
 };

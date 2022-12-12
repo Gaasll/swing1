@@ -1,5 +1,6 @@
 <script>
 import WeatherView from "../views/WeatherView.vue"
+import {getCurrentWeatherInfo} from "../weatherSource"
 export default {
     name: "WeatherPresenter",
     components: {
@@ -17,6 +18,10 @@ export default {
         increment() {
             this.counter++;
         },
+
+        getInfo(){
+            getCurrentWeatherInfo();
+        },
     },
 };
 
@@ -27,5 +32,6 @@ export default {
     :title="title" 
     :counter="counter" 
     @counter-increment="increment"
+    @get-info="getInfo"
     ></WeatherView>
 </template>

@@ -9,9 +9,9 @@ function formatWeatherDataACB(responseData){
     //console.log(responseData);
     return data;
     
-    console.log(responseData);
-    console.log(responseData.weather[0].main);
-    console.log(responseData.name);
+    //console.log(responseData);
+    //console.log(responseData.weather[0].main);
+    //console.log(responseData.name);
 
 }
 
