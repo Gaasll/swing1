@@ -1,27 +1,51 @@
-import {getToken, getGenres, searchPlaylist} from "./musicSource.js";
+import {search} from "./musicSource.js";
 import resolvePromise from "./resolvePromise.js";
+
+const MAX_NO_ELEMENTS = 20;
+//const NO_PLAYLISTS = 5;
+//const NO_SONGS_PER_PLAYLIST = 4;
 
 class MusicModel{
     constructor(notify){
-        // const username = "";
-        this.tokenPromiseState = {};
-        resolvePromise(getToken(), this.tokenPromiseState, notify);
+        this.observers = [notify];
+
+        this.searchParams = {q: "cloud", style_exact: "Acoustic"};
+
+        this.songsPromiseState = {};
         this.playlist = [];
 
-        console.log(this.tokenPromiseState.data)
+        this.emotions = {"happy": "",
+                         "sad": "",
+                         "angry": "",
+                         "excited": "",
+                         "stressed": "",
+                         "scared": "",
+                         "confident": "",
+                         "embarassed": "",
+                         "horny": "",
+                         "cozy": "",
+                         "queer": ""}
     }
 
-    async searchPlaylists(){
-        let categoriesPromiseState = {};
-        let playlistsPromiseState = {};
+    searchSongs(){
+        resolvePromise(search(this.searchParams), this.songsPromiseState, this.notifyObservers.bind(this));
+    }
 
-        function printData() {
-            console.log(categoriesPromiseState.data)
-            console.log(playlistsPromiseState.data)
+    randInt(){
+        return Math.floor(Math.random() * MAX_NO_ELEMENTS);
+    }
+
+    notifyObservers(payload){
+        function callObserverCallback(obs){
+            try{
+                obs(payload);
+            }
+            catch(err){
+                console.error(err);
+            }
         }
 
-        resolvePromise(getGenres(this.tokenPromiseState.data), categoriesPromiseState, printData);
-        resolvePromise(searchPlaylist("blabla", this.tokenPromiseState.data), playlistsPromiseState, printData);
+        this.observers.forEach(callObserverCallback);
     }
 }
 

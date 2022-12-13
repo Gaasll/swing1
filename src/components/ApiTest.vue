@@ -9,12 +9,11 @@ export default {
     },
     methods: {
         notify(){
-            if(this.mm && this.mm.tokenPromiseState.data){
-                this.reactive = this.reactive ? "" : " ";
-            }
+            this.reactive = this.reactive ? "" : " ";
+            console.log(this.mm.songsPromiseState.data)
         },
         getSearch(){
-            this.mm.searchPlaylists();
+            this.mm.searchSongs();
         }
     },
 }
@@ -22,9 +21,12 @@ export default {
 
 <template>
     <div>
-        Hello, dear devs! {{(this.mm.tokenPromiseState.data || this.reactive)}}
+        Hello, dear devs!
     </div>
     <div>
         <button @click="getSearch">Search</button>
+    </div>
+    <div>
+        {{this.mm.playlist || this.reactive}}
     </div>
 </template>
