@@ -6,40 +6,26 @@
         <div class=" question"> How are you feeling today?
 
         </div>
-        <p>{{title}}</p>
-        <p>{{counter}}</p>
-        <button @click="counterIncrement">+</button>
+       
         </header>
         
-            <div >
-            <input type="checkbox" name="acs" value="Happy" /> Happy
-            <input  type="checkbox" name="acs" value="Sad" /> Sad
-            <input  type="checkbox" name="acs" value="Stressed" />Stressed
-            </div>
-            <div>
-            <input  type="checkbox" name="acs" value="Scared" />Scared
-            <input type="checkbox" name="acs" value="Embarassed" />Embarassed
-            <input type="checkbox" name="acs" value="Confident" />Confident
-            </div>
-            <div>
-            <input type="checkbox" name="acs" value="Horny" />Horny
-            <input type="checkbox" name="acs" value="Cozy" />Cozy
-            <input type="checkbox" name="acs" value="Queer"  />Queer
-          </div>
-          <div>
-            <input type="checkbox" name="acs" value="Angry" />Angry
-            <input type="checkbox" name="acs" value="Lonely" />Lonely
-            <input type="checkbox" name="acs" value="Hungry" />Hungry
-          </div>
-            <input type="checkbox" name="acs" value="Silly" />Silly
-            <input type="checkbox" name="acs" value="Flirty" />Flirty
-            <input type="checkbox" name="acs" value="Melancholic" />Melancholic
-     
-   
-        <p>
-            <input type="button" @click="printChecked" value="see Selected Items" />
-        </p>
+<div v-for="emotion in emotions" :key="emotion">
+  
+        
+  <input class=""  type="checkbox" name="acs" :value="emotion"/> {{emotion}}
+ 
+      </div>
 
+
+
+
+          <input class="button" type="button" @click="printEmotions" value="Your emotions" />
+        
+
+        <div>
+          <input class="output" type="text" id="order" size="50"> 
+        </div>
+        
         
 
         <NextButton path="weather" />
@@ -61,7 +47,12 @@ export default {
   props: {
     title: String,
     counter: Number,
+    emotions: Array,
   },
+  created() {
+console.log(this.emotions);
+  },
+
   methods: {
     counterIncrement() {
       this.$emit("counter-increment");
@@ -73,7 +64,9 @@ export default {
       this.$emit("choose-emo");
       },
      
-    
+      printEmotions() {
+      this.$emit("print-emo");
+      },
   },
 };
 </script>
@@ -205,7 +198,13 @@ export default {
     }
 
 
-
+.output {
+  border: none;
+background-color: transparent;
+resize: none;
+outline: none;
+font-family: 'Didact Gothic';
+}
 
 </style>
 

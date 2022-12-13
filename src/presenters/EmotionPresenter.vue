@@ -9,9 +9,8 @@ export default {
     
     data() {
         return {
-            title: "heyy Emo!",
-            counter: 0,
-            text: "tt",
+      
+            emotions: [ "Sad","Silly","Cozy","Flirty", "Angry", "Queer","Horny","Happy","Scared",   "Lonely", "Hungry", "Stressed",   "Confident","Melancholic", "Embarassed"],
 
         };
     },
@@ -34,8 +33,19 @@ export default {
                 }
             }
             alert("you have selected: "+ result);
-        }
-   
+        },
+
+    printEmo() {
+  var checkboxes = document.getElementsByName('acs');
+  var txt = "";
+  var i;
+  for (i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      txt = txt + checkboxes[i].value + ", ";
+    }
+  }
+  document.getElementById("order").value = "" + txt;
+}
     },
 };
 
@@ -45,7 +55,9 @@ export default {
     <EmotionView 
     :title="title" 
     :counter="counter" 
+    :emotions="emotions"
     @counter-increment="increment"
     @choose-emo="getValue"
+    @print-emo="printEmo"
     ></EmotionView>
 </template>
