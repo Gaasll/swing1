@@ -1,21 +1,33 @@
-<script setup>
-// import WeatherWidget from './WeatherWidget.vue'
-// export default{
-//   name: "Playing",
-//   components: {
-//     WeatherWidget
-//   },
-// }
+<script>
+import Sidebar from "../components/Sidebar.vue";
+
+export default{
+    name: "PlaylistView",
+    components: {
+      Sidebar
+    },
+    props: {
+      username: {
+        type: String,
+        required: true
+      }
+    },
+}
 </script>
 
 <template>
     <div class="playing">
-    <h1 >[name]</h1>
-		<h2>PLAYING MUSIC FOR BEING HAPPY </h2>
-    <h2>THE WEATHER IS SUNNY </h2>
+      <div class="sidebar">
+        <Sidebar/>
+      </div>
+      <div class="header">
+        <h1> {{username}} </h1>
+        <h2>PLAYING MUSIC FOR BEING HAPPY </h2>
+        <h2>THE WEATHER IS SUNNY </h2>
+      </div>
     </div>
     <div class="card">
-      <div class="box box1"><img src="song.jpg" alt="a balloon"></div>
+      <div class="box box1"><img src="../assets/song.jpg" alt="a balloon"></div>
       <br>
         <div  class="box desc" > Say What You Say</div>
         <div  class="box desc" > issa-e</div>
@@ -26,16 +38,22 @@
 </template>
   
 <style>
+.header{
+  display: block;
+  margin-left: 25%;
+  margin-right: 25%;
+}
 
 .card {
+  justify-content: center;
   background: #000000d0;
   color: white;
   margin-left: 25%;
   margin-right: 25%;
   padding: 2em;
   border-radius: 30px;
-  max-width: 50%;
-  max-width: 420px;
+  /* max-width: 50%; */
+  /* max-width: 420px; */
 }
 
 .box {
@@ -87,58 +105,8 @@ h1.temp {
   margin-bottom: 0.4em;
 }
 
-/* .flex {
-  display: flex;
-  align-items: center;
-} */
-
 .description {
   text-transform: capitalize;
   margin-left: 8px;
 }
-/* 
-.weather.loading {
-  visibility: hidden;
-  max-height: 20px;
-  position: relative;
-}
-
-.weather.loading:after {
-  visibility: visible;
-  content: "Loading...";
-  color: white;
-  position: absolute;
-  top: 0;
-  left: 20px;
-} */
-/* 
-.scrolling {
-	position: relative;
-	width: 100%;
-	height: 50px;
-	overflow: hidden;
-	margin-top: 50px;
-} */
-/* .scrolling h2 {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-	font-size: 4em;
-	text-align: center;
-	line-height: 50px;
-	color: #fff;
-	transform: translateX(100%);
-	animation: scrolling 15s linear infinite;
-} */
-/* @keyframes scrolling {
-	0% {
-		transform: translateX(100%);
-	}
-	100% {
-		transform: translateX(-100%);
-	}
-}
-   */
 </style>

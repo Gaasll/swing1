@@ -3,6 +3,7 @@ import resolvePromise from "./resolvePromise.js";
 
 class MusicModel{
     constructor(notify){
+        // const username = "";
         this.tokenPromiseState = {};
         resolvePromise(getToken(), this.tokenPromiseState, notify);
         this.playlist = [];

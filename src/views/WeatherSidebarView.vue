@@ -1,21 +1,21 @@
 <script>
+import Sidebar from "../components/Sidebar.vue";
 import WeatherWidget from "../components/WeatherWidget.vue";
-import NextButton from "../components/NextButton.vue";
 
 export default {
-  name: "WeatherView",
+  name: "WeatherSidebarView",
   components: {
     WeatherWidget,
-    NextButton
+    Sidebar,
   }
 }
 </script>
 
 <template>   
     <div class="weather">
+        <Sidebar/>
       <h1> The weather in your current location, {{name}} </h1>
       <WeatherWidget/>
-      <NextButton path="/playing" />
     </div>   
 </template>
   

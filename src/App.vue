@@ -2,17 +2,29 @@
 
 <template>
   <div>
-    <router-view />
+    <router-view v-bind:username="username" v-on:setUsername="setName($event)" />
     <Footer/>
   </div>
 </template>
 
 <script>
-import Footer from "./components/Footer.vue"
+import Footer from "./presenters/FooterPresenter.vue"
+//import Sidebar from "./components/Sidebar.vue"
+//import ApiTest from "./components/ApiTest.vue"
 export default {
   name: 'App',
   components: {
     Footer,
+  },
+  data() {
+    return{
+      username: "",
+    }
+  },
+  methods: {
+    setName(newName){
+      this.username = newName;
+    }
   }
 }
 </script>

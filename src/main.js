@@ -1,5 +1,12 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+const app = createApp(App);
 
-createApp(App).use(router).mount('#app')
+// attempt at making event buses
+// import mitt from 'mitt';
+// const emitter = mitt();
+// app.config.globalProperties.emitter = emitter;
+//export const eventBus = new Vue();
+
+app.use(router).mount('#app')

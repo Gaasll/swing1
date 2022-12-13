@@ -1,9 +1,10 @@
 <template>  
   <div class="wrapper">
-        <header>
+    <Sidebar/>
+        
         <div class=" question"> How are you feeling today?
         </div>
-        </header>
+        
         <div class="columns">
             <Checkbox text="Happy" />
             <Checkbox text="Sad" />
@@ -21,7 +22,6 @@
             <Checkbox text="Flirty" />
             <Checkbox text="Melancholic" />
         </div>
-        <NextButton path="weather" />
     </div>
 </template>
 
@@ -29,13 +29,13 @@
 <script >
 //using the components checkbox and NextButton under component section below. 
 import Checkbox from "../components/Checkbox.vue"
-import NextButton from "../components/NextButton.vue"
+import Sidebar from "../components/Sidebar.vue"
 
 export default {
-  name: "EmotionView",
+  name: "EmotionSidebarView",
   components: {
     Checkbox,
-    NextButton,
+    Sidebar,
   },
   props: {
     title: String,
@@ -101,15 +101,4 @@ export default {
     font-family: 'Didact Gothic';
   }
 }
-    
-    /* button{ 
-        align-self: center;
-        cursor: pointer;
-        border-radius: 20px;
-        background-color: black;
-        border: none;
-        color: white;
-        padding: 10px 50px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-        } */
 </style>
