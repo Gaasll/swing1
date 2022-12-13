@@ -13,16 +13,27 @@ export default {
         }
     },
     methods: {
-        // displayEmo() {
-        //     var checkboxes = document.getElementById("emo");
-            
-        // },
+        printEmo() {
+  var checkboxes = document.getElementsByName('acs');
+  var txt = "";
+  var i;
+  for (i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      txt = txt + checkboxes[i].value + ", ";
+    }
+  }
+  document.getElementById("order").value = "" + txt;
+}
     },
+    
 };
 
 </script>
 
 <template>
-    <EmotionView :emotions="emotions" >
+    <EmotionView 
+    :emotions="emotions" 
+    @print-emo="printEmo"
+    >
     </EmotionView>
 </template>

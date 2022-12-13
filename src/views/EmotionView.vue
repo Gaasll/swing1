@@ -5,8 +5,14 @@
         </header>
           <!-- <form @submit="handleSubmit"> -->
             <div class="columns" v-for="emotion in emotions" :key="emotion">
-              <input type="checkbox" id="emo"> {{emotion}}
+              <input type="checkbox" name="acs" :value="emotion" id="emo"> {{emotion}}
             </div>
+            <input class="button" type="button" @click="printEmotions" value="Your emotions" />
+        
+
+        <div>
+          <input class="output" type="text" id="order" size="50"> 
+        </div>
           <!-- </form> -->
         <NextButton path="weather" />
         <!-- <p>selected feelings: </p>
@@ -31,13 +37,22 @@ export default {
   props: {
     emotions: Array,
   },
+
+  created() {
+console.log(this.emotions);
+  },
+
   methods: {
     counterIncrement() {
       this.$emit("counter-increment");
     },
     handleSubmit(){
 
-    }
+    },
+
+    printEmotions() {
+      this.$emit("print-emo");
+      },
   },
   
 };
@@ -103,4 +118,13 @@ export default {
         padding: 10px 50px;
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
         } */
+
+.output {
+  border: none;
+background-color: transparent;
+resize: none;
+outline: none;
+font-family: 'Didact Gothic';
+}
+
 </style>

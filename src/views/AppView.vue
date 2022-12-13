@@ -28,7 +28,7 @@ export default {
   margin-top: 60px;
 }
 button {
-		background: #000000d0;
+  background-image: url('../assets/button.jpg');
 		margin: 0.5em;
 		border-radius: 50%;
 		border: none;
