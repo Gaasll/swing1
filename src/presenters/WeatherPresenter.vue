@@ -11,6 +11,7 @@ export default {
         return {
             title: "heyy Emo!",
             counter: 0,
+            name: "",
         };
     },
 

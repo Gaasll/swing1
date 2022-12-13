@@ -25,6 +25,7 @@ export default {
   text-align: center;
   color: black;
   margin-top: 60px;
+ 
   
 }
 button {
@@ -35,7 +36,7 @@ button {
 		height: 44px;
 		width: 44px;
 		outline: none;
-		color: white;
+		color: rgb(248, 246, 246);
 		cursor: pointer;
 		transition: 0.2s ease-in-out;
 	}
@@ -43,7 +44,7 @@ Footer{
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 2.5rem; 
+  height: 2.0rem; 
  
 }
 </style>

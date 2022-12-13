@@ -11,8 +11,8 @@
         <button @click="counterIncrement">+</button>
         </header>
         
-            <div>
-            <input  type="checkbox" name="acs" value="Happy" /> Happy
+            <div >
+            <input type="checkbox" name="acs" value="Happy" /> Happy
             <input  type="checkbox" name="acs" value="Sad" /> Sad
             <input  type="checkbox" name="acs" value="Stressed" />Stressed
             </div>
@@ -37,8 +37,11 @@
      
    
         <p>
-            <input type="button" @click="printChecked" value="Print Selected Items" />
+            <input type="button" @click="printChecked" value="see Selected Items" />
         </p>
+
+        
+
         <NextButton path="weather" />
     </div>
 </template>
@@ -200,6 +203,9 @@ export default {
         -ms-transform: rotate(45deg);
         transform: rotate(45deg);
     }
+
+
+
 
 </style>
 

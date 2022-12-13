@@ -35,6 +35,7 @@
         <div class="humidity">Humidity: 60%</div>
         <div class="wind">Wind speed: 6.2 km/h</div>
       </div>
+      
     
       <NextButton path="playing" />
   </template>
