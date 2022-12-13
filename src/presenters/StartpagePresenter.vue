@@ -6,6 +6,7 @@ export default {
     name: "Startpage",
     components: {
         StartView,
+        
     },
     props: {
       username: {
@@ -17,7 +18,7 @@ export default {
 </script>
 
 <template>
-    <StartView :username="username" />
+    <StartView />
     <!-- <NextButton/> -->
 </template>
 

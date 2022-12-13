@@ -1,52 +1,45 @@
 <template>  
   <div class="wrapper">
         <header>
-        <div class=" question"> How are you feeling today?
-        </div>
+          <div class="question"> How are you feeling today?</div>
         </header>
-        <div class="columns">
-            <Checkbox text="Happy" />
-            <Checkbox text="Sad" />
-            <Checkbox text="Stressed" />
-            <Checkbox text="Scared" />
-            <Checkbox text="Embarassed" />
-            <Checkbox text="Confident" />
-            <Checkbox text="Horny" />
-            <Checkbox text="Cozy" />
-            <Checkbox text="Queer" />
-            <Checkbox text="Angry" />
-            <Checkbox text="Lonely" />
-            <Checkbox text="Hungry" />
-            <Checkbox text="Silly" />
-            <Checkbox text="Flirty" />
-            <Checkbox text="Melancholic" />
-        </div>
+          <!-- <form @submit="handleSubmit"> -->
+            <div class="columns" v-for="emotion in emotions" :key="emotion">
+              <input type="checkbox" id="emo"> {{emotion}}
+            </div>
+          <!-- </form> -->
         <NextButton path="weather" />
+        <!-- <p>selected feelings: </p>
+        <p v-for="emotion in emotions" :key="emotion" >{{emotion}}</p> -->
     </div>
 </template>
 
-
-<script >
+<script>
 //using the components checkbox and NextButton under component section below. 
-import Checkbox from "../components/Checkbox.vue"
+// import Checkbox from "../components/Checkbox.vue"
 import NextButton from "../components/NextButton.vue"
 
 export default {
   name: "EmotionView",
   components: {
-    Checkbox,
     NextButton,
   },
+  data() { 
+        return {
+        }
+    },
   props: {
-    title: String,
-    counter: Number,
+    emotions: Array,
   },
   methods: {
     counterIncrement() {
       this.$emit("counter-increment");
     },
+    handleSubmit(){
 
+    }
   },
+  
 };
 </script>
 
@@ -70,13 +63,11 @@ export default {
         background-color: lightgrey;
     }
     .columns{
-        
         text-align:left;
         column-count: 3;
         column-width: 100px;
         column-gap: 0em;
         margin: 20px;
-        font-family: 'Didact Gothic';
         /* shorthand: columns: 250px 3; */
     }
 

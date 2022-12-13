@@ -8,24 +8,21 @@ export default {
     
     data() {
         return {
-            title: "heyy Emo!",
-            counter: 0,
-        };
+          emotions:["happy", "sad", "angry", "excited", "stressed", "scared", 
+                    "confident", "embarassed", "horny", "cozy", "queer"],
+        }
     },
-
     methods: {
-        increment() {
-            this.counter++;
-        },
+        // displayEmo() {
+        //     var checkboxes = document.getElementById("emo");
+            
+        // },
     },
 };
 
 </script>
 
 <template>
-    <EmotionView 
-    :title="title" 
-    :counter="counter" 
-    @counter-increment="increment"
-    ></EmotionView>
+    <EmotionView :emotions="emotions" >
+    </EmotionView>
 </template>

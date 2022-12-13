@@ -1,45 +1,30 @@
 <template>  
   <div class="wrapper">
     <Sidebar/>
-        
-        <div class=" question"> How are you feeling today?
+      <header>
+        <div class="question"> How are you feeling today?</div>
+      </header>
+      <!-- <form @submit="handleSubmit"> -->
+        <div class="columns" v-for="emotion in emotions" :key="emotion">
+          <input type="checkbox" id="emo"> {{emotion}}
         </div>
-        
-        <div class="columns">
-            <Checkbox text="Happy" />
-            <Checkbox text="Sad" />
-            <Checkbox text="Stressed" />
-            <Checkbox text="Scared" />
-            <Checkbox text="Embarassed" />
-            <Checkbox text="Confident" />
-            <Checkbox text="Horny" />
-            <Checkbox text="Cozy" />
-            <Checkbox text="Queer" />
-            <Checkbox text="Angry" />
-            <Checkbox text="Lonely" />
-            <Checkbox text="Hungry" />
-            <Checkbox text="Silly" />
-            <Checkbox text="Flirty" />
-            <Checkbox text="Melancholic" />
-        </div>
-    </div>
+      <!-- </form> -->
+      <!-- <NextButton path="weather" /> -->
+  </div>
 </template>
-
 
 <script >
 //using the components checkbox and NextButton under component section below. 
-import Checkbox from "../components/Checkbox.vue"
+// import Checkbox from "../components/Checkbox.vue"
 import Sidebar from "../components/Sidebar.vue"
 
 export default {
   name: "EmotionSidebarView",
   components: {
-    Checkbox,
     Sidebar,
   },
   props: {
-    title: String,
-    counter: Number,
+    emotions: Array,
   },
   methods: {
     counterIncrement() {
@@ -51,14 +36,11 @@ export default {
 </script>
 
 <style scoped>
-  
     header{
         text-align: center;
         margin: 50px;
-        font-family: 'Didact Gothic';
-        
+        font-family: 'Didact Gothic'; 
     }
-
     .question{
       text-align:center;
       font-size: xx-large;
@@ -70,7 +52,6 @@ export default {
         background-color: lightgrey;
     }
     .columns{
-        
         text-align:left;
         column-count: 3;
         column-width: 100px;

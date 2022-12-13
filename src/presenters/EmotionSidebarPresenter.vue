@@ -5,15 +5,22 @@ export default {
     components: {
         EmotionSidebarView,
     },
+    data() {
+        return {
+          emotions:["happy", "sad", "angry", "excited", "stressed", "scared", 
+                    "confident", "embarassed", "horny", "cozy", "queer"],
+        };
+    },
     methods: {
-        increment() {
-            this.counter++;
-        },
+        // increment() {
+        //     this.counter++;
+        // },
     },
 };
 
 </script>
 
 <template>
-    <EmotionSidebarView/>
+    <EmotionSidebarView :emotions="emotions" >
+    </EmotionSidebarView>
 </template>

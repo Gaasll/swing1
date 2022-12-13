@@ -4,10 +4,9 @@
         <h2>We aim to provide you with the perfect playlist, taylored to your mood and current situation. <br> 
             Answer a couple of questions and we will create a soundtrack to your day.
         </h2>
-        <h2>What is your name?</h2>
-        <div class="text">
+        <!-- <div class="text">
         <input type="text" v-on:keyup.enter="logName" autofocus> 
-        </div>
+        </div> -->
         <!-- <p>Hello {{username}}</p> -->
     </div>
     <NextButton v-on:click="logName" path="emotion" />

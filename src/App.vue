@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <router-view v-bind:username="username" v-on:setUsername="setName($event)" />
+    <router-view />
     <Footer/>
   </div>
 </template>
@@ -18,13 +18,11 @@ export default {
   },
   data() {
     return{
-      username: "",
+      
     }
   },
   methods: {
-    setName(newName){
-      this.username = newName;
-    }
+    
   }
 }
 </script>
