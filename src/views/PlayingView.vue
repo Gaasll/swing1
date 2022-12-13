@@ -6,6 +6,11 @@
       <Sidebar/>
     </div>
     
+   
+    <div>
+        <button @click="getPlaylist">Search</button>
+    </div>
+   
       <div class="playing">
     <h1 >[name]</h1>
 		<h2>PLAYING MUSIC FOR BEING HAPPY </h2>
@@ -36,12 +41,17 @@ export default {
   props: {
     title: String,
     counter: Number,
+    mm: Array,
   },
   methods: {
     counterIncrement() {
       this.$emit("counter-increment");
     },
 
+
+    getPlaylist() {
+      this.$emit("get-search");
+    },
   },
 };
 </script>
