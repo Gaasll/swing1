@@ -3,27 +3,18 @@
 <template>
   <div>
     <router-view />
-    <Footer/>
+    <Footer />
   </div>
 </template>
 
 <script>
-import Footer from "./presenters/FooterPresenter.vue"
-//import Sidebar from "./components/Sidebar.vue"
-//import ApiTest from "./components/ApiTest.vue"
+import Footer from '../presenters/FooterPresenter.vue'
+
 export default {
-  name: 'App',
+  name: 'AppView',
   components: {
     Footer,
   },
-  data() {
-    return{
-      
-    }
-  },
-  methods: {
-    
-  }
 }
 </script>
 
