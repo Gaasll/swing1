@@ -1,11 +1,12 @@
 <template>
   <div>
-    <AppView />
+    <AppView :model="musicModel" />
   </div>
 </template>
 
 <script>
 import AppView from '../views/AppView.vue'
+import MusicModel from '../MusicModel.js'
 
 export default {
   name: 'App',
@@ -14,13 +15,14 @@ export default {
   },
   data() {
     return{
-      
+      musicModel: new MusicModel()
     }
   },
   methods: {
     
-  }
+  },
 }
+<<<<<<< HEAD
 </script>
 
 <style>
@@ -51,3 +53,6 @@ Footer{
   height: 2.5rem; 
 }
 </style>
+=======
+</script>
+>>>>>>> d56bd0f6fd7f2945ccfb03dd9b7de052c06d6f29
