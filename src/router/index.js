@@ -12,6 +12,7 @@ const routes = [
     {
         path: '/emotion',
         component: () => import('../presenters/EmotionPresenter.vue'),
+        props: { model: true }
     },
     {
         path: '/emotionsidebar',

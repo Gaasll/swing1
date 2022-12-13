@@ -8,7 +8,7 @@ const MAX_NO_ELEMENTS = 20;
 class MusicModel{
     constructor(notify){
         this.observers = [notify];
-
+        this.test = "Wohoo!";
         this.searchParams = {q: "cloud", style_exact: "Acoustic"};
 
         this.songsPromiseState = {};

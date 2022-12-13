@@ -5,10 +5,10 @@ export default {
     components: {
         EmotionView,
     },
-    
+    props: ["model"],
     data() {
         return {
-          emotions:["happy", "sad", "angry", "excited", "stressed", "scared", 
+          emotions: ["happy", "sad", "angry", "excited", "stressed", "scared", 
                     "confident", "embarassed", "horny", "cozy", "queer"],
         }
     },
@@ -23,6 +23,6 @@ export default {
 </script>
 
 <template>
-    <EmotionView :emotions="emotions" >
+    <EmotionView :emotions="Object.keys(model.emotions)" >
     </EmotionView>
 </template>

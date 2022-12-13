@@ -2,16 +2,17 @@
 
 <template>
   <div>
-    <router-view />
+    <router-view :model="model" />
     <Footer />
   </div>
 </template>
 
 <script>
-import Footer from '../presenters/FooterPresenter.vue'
+import Footer from "../presenters/FooterPresenter.vue";
 
 export default {
-  name: 'AppView',
+  name: "AppView",
+  props: ["model"],
   components: {
     Footer,
   },
