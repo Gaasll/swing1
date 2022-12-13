@@ -1,9 +1,11 @@
 <script>
 import EmotionView from "../views/EmotionView.vue"
+import resolvePromise from "../resolvePromise.js";
 export default {
     name: "EmotionPresenter",
     components: {
         EmotionView,
+        resolvePromise,
     },
     props: ["model"],
     data() {
@@ -13,6 +15,7 @@ export default {
         }
     },
     methods: {
+<<<<<<< HEAD
 <<<<<<< HEAD
         printEmo() {
   var checkboxes = document.getElementsByName('acs');
@@ -43,6 +46,9 @@ export default {
             
         // },
 >>>>>>> 810b16e (emotions handled by model plus half way to working weather widget)
+=======
+
+>>>>>>> de8d190 (minor changes)
     },
     
 };
