@@ -1,8 +1,8 @@
-import {getCurrentWeatherInfo} from "./weatherSource.js";
+/*import {getCurrentWeatherInfo} from "./weatherSource.js";
 
 class WeatherModel{
 
-    constructor(location = 'king city', weather = 'sunny', timeOfDay){
+    constructor(){
         //this.observers= [];
         this.location;
         this.weather;
@@ -24,3 +24,4 @@ class WeatherModel{
 }
 
 export default WeatherModel;
+*/

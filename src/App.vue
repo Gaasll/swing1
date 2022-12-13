@@ -3,16 +3,16 @@
 <template>
   <div>
     <router-view />
-    <Footer/>
+   
   </div>
 </template>
 
 <script>
-import Footer from "./components/Footer.vue"
+//import Footer from "./components/Footer.vue"
 export default {
   name: 'App',
   components: {
-    Footer,
+    
   }
 }
 </script>
@@ -24,9 +24,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: black;
-  margin-top: 60px;
- 
-  
+
 }
 button {
   background-image: url('./assets/button.jpg');
@@ -40,11 +38,5 @@ button {
 		cursor: pointer;
 		transition: 0.2s ease-in-out;
 	}
-Footer{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.0rem; 
- 
-}
+
 </style>

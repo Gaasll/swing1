@@ -10,6 +10,7 @@ export default {
         return {
             title: "heyy Emo!",
             counter: 0,
+            name:"",
         };
     },
 
@@ -25,6 +26,7 @@ export default {
 <template>
     <StartView 
     :title="title" 
+    :name="name"
     :counter="counter" 
     @counter-increment="increment"
     ></StartView>

@@ -1,6 +1,6 @@
 <script>
 import WeatherView from "../views/WeatherView.vue"
-import {getCurrentWeatherInfo} from "../weatherSource"
+//import {getCurrentWeatherInfo} from "../weatherSource"
 export default {
     name: "WeatherPresenter",
     components: {
@@ -11,7 +11,11 @@ export default {
         return {
             title: "heyy Emo!",
             counter: 0,
-            name: "",
+            location: 'Stockholm',
+            apiKey: "088f783dc5b617441af73f93fbd5c0bd",
+            weather: "",
+            displayWeather: false
+           
         };
     },
 
@@ -20,10 +24,20 @@ export default {
             this.counter++;
         },
 
-        getInfo(){
-            getCurrentWeatherInfo();
-        },
+        getWeather()
+        {
+            return this.$http.get('http://api.openweathermap.org/data/2.5/weather?q='+ this.location +'&appid=' + this.apiKey).then((response) => {
+                this.weather = response.body;
+                this.displayWeather = true
+            }, () => {
+                this.weather = [];
+                this.displayWeather = false
+            });
+        }
     },
+
+ 
+
 };
 
 </script>
@@ -33,6 +47,6 @@ export default {
     :title="title" 
     :counter="counter" 
     @counter-increment="increment"
-    @get-info="getInfo"
+    @get-info=" getCurrentWeatherInfo"
     ></WeatherView>
 </template>

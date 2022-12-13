@@ -2,7 +2,7 @@
     <div>
         <footer>
         <p>Copyright &copy; 2022</p>
-        <a href="">About</a>
+        <a href="http://localhost:8080/home">About</a>
         </footer>
     </div>
 </template>
@@ -15,6 +15,7 @@ export default {
 
 <style scoped>
     footer{
+        
         text-align: center;
     }
 </style>

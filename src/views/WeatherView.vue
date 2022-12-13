@@ -19,8 +19,12 @@
             </path>
           </svg></button>
       </div> -->
-      <div>
-        <button @click="weatherInfo">show</button>
+      <div class="">
+        <video id="background-video" autoplay loop muted poster="" >
+<source src="https://media.tenor.com/lkisKQwoy6cAAAPo/raining-bad-weather.mp4" type="video/mp4">
+</video>
+<div class="overlayText">
+        
 
         <h2 class="city">Weather in {{main}}</h2>
         <div class="location text-center text-3xl dark:text-white">
@@ -35,6 +39,11 @@
         <div class="humidity">Humidity: 60%</div>
         <div class="wind">Wind speed: 6.2 km/h</div>
       </div>
+      </div>
+      
+
+  
+
       
     
       <NextButton path="playing" />
@@ -53,7 +62,7 @@ export default {
   data() {
     return {
       name: '',
-      weather: {},
+     
  
     }
   },
@@ -63,7 +72,7 @@ export default {
   },
   props: {
     title: String,
-    
+   
   },
   methods: {
     counterIncrement() {
@@ -81,7 +90,15 @@ export default {
 </script>
 
 <style scoped>
-  
+  .overlayText {
+ position:absolute;
+  top:10%;
+  left:43%;
+  z-index:1;
+  color: antiquewhite;
+}
+
+
     header{
         text-align: center;
         margin: 50px;
@@ -122,6 +139,20 @@ export default {
 		cursor: pointer;
 		transition: 0.2s ease-in-out;
 	}
+
+  .card {
+    align-items: center;
+    justify-content: center;
+    background: black;
+    color: white;
+    padding: 2em;
+    border-radius: 30px;
+    margin: auto;
+    margin-left: 25%;
+    margin-right: 25%;
+   width: 100%;
+    max-width: 360px;
+  }
 
   @media (min-width: 1024px) {
   .about {
