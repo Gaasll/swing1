@@ -3,11 +3,12 @@
         <header>
           <div class="question"> How are you feeling today?</div>
         </header>
-          <!-- <form @submit="handleSubmit"> -->
-            <div class="columns" v-for="emotion in emotions" :key="emotion">
-              <input type="checkbox" id="emo"> {{emotion}}
+          <!--form @submit="handleSubmit"-->
+            <div class="columns" v-for="emotion in emotions" :key="emotion.emotion">
+              <input type="checkbox" id="emo" :onChange="onCheckboxChange" v-if=emotion.checked checked>
+              <input type="checkbox" id="emo" :onChange="onCheckboxChange" v-else> {{emotion.emotion}}
             </div>
-          <!-- </form> -->
+          <!--/form-->
         <NextButton path="weather" />
         <!-- <p>selected feelings: </p>
         <p v-for="emotion in emotions" :key="emotion" >{{emotion}}</p> -->
@@ -30,14 +31,16 @@ export default {
     },
   props: {
     emotions: Array,
+    onEmotionChange: Function,
   },
   methods: {
     counterIncrement() {
       this.$emit("counter-increment");
     },
-    handleSubmit(){
-
-    }
+    onCheckboxChange(e){
+      console.log(e);
+      this.onEmotionChange(e);
+    },
   },
   
 };

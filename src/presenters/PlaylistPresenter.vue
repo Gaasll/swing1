@@ -1,5 +1,5 @@
 <template>
-    <PlaylistView :username="username"/>
+    <PlaylistView :username="username" :model="model "/>
 </template>
 
 <script>
@@ -9,7 +9,8 @@ export default {
     name: "Playlist",
     components: {
         PlaylistView,
-        },
+    },
+    props: ["model"],
 }
 </script>
 

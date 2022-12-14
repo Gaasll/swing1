@@ -1,12 +1,12 @@
 <template>
   <div>
-    <AppView :model="musicModel" />
+    <AppView :model="model" />
   </div>
 </template>
 
 <script>
 import AppView from '../views/AppView.vue'
-import MusicModel from '../MusicModel.js'
+import SwingModel from '../SwingModel.js'
 
 export default {
   name: 'App',
@@ -15,7 +15,7 @@ export default {
   },
   data() {
     return{
-      musicModel: new MusicModel()
+      model: new SwingModel()
     }
   },
   methods: {

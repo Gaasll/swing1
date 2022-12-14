@@ -21,10 +21,12 @@ const routes = [
     {
         path: '/playing',
         component: () => import('../presenters/PlaylistPresenter.vue'),
+        props: { model: true }
     },
     {
         path: '/weather',
         component: () => import('../presenters/WeatherPresenter.vue'),
+        props: { model: true }
     },
     {
         path: '/weathersidebar',
@@ -32,7 +34,8 @@ const routes = [
     },
     {
         path: '/test',
-        component: () => import('../views/TestView.vue')
+        component: () => import('../views/TestView.vue'),
+        props: { model: true }
       },
 ]
 

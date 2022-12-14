@@ -1,10 +1,8 @@
-import {BASE_URL, CONSUMER_KEY, CONSUMER_SECRET} from "./discogsApiConfig.js";
+import {BASE_URL_MUSIC, CONSUMER_KEY, CONSUMER_SECRET} from "./apiConfig.js";
 
 function search(searchParams){
-    let url = BASE_URL + "database/search?" + new URLSearchParams(searchParams);
+    let url = BASE_URL_MUSIC + "database/search?" + new URLSearchParams(searchParams);
     let auth = "Discogs key=" + CONSUMER_KEY + ", secret=" + CONSUMER_SECRET;
-    console.log(url);
-    console.log(auth);
     return fetch(url, {
         method: "GET",
         headers: {
