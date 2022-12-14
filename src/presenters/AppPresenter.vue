@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AppView :model="model" />
+    <AppView :model="model" :keys="keys" />
   </div>
 </template>
 
@@ -15,12 +15,15 @@ export default {
   },
   data() {
     return{
-      model: new SwingModel()
+      model: new SwingModel(this.rerender.bind(this)),
+      keys: {weather: 0,},
     }
   },
   methods: {
-    
-  },
+    rerender(){
+      this.keys.weather += 1;
+    },
+  }
 }
 <<<<<<< HEAD
 </script>

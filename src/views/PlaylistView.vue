@@ -6,7 +6,11 @@ export default{
     components: {
       Sidebar
     },
+<<<<<<< HEAD
     props: ["model"],
+=======
+    props: ["model", ],
+>>>>>>> 48f7d6f (now uses location and weather data from the model, plus weatherWidget loading text added)
 }
 </script>
 
@@ -16,6 +20,10 @@ export default{
         <Sidebar/>
       </div>
       <div class="header">
+<<<<<<< HEAD
+=======
+        <h1> {{ this.model.username }} </h1>
+>>>>>>> 48f7d6f (now uses location and weather data from the model, plus weatherWidget loading text added)
         <h2>PLAYING MUSIC FOR BEING
           <span v-for="emotion in model.selectedEmotions" :key="emotion">
             <span v-if="emotion != model.selectedEmotions[0]">
@@ -24,7 +32,10 @@ export default{
             {{ emotion }}
           </span>
         </h2>
-        <h2>THE WEATHER IS {{ model.weather }} </h2>
+        <h2 v-if="model.weatherPromiseState.data">
+          THE WEATHER IS {{ model.weatherPromiseState.data.weather }}
+          <img :src="this.model.weatherPromiseState.data.icon" alt="" class="icon" />
+        </h2>
       </div>
     </div>
     <div class="card">

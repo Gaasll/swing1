@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <router-view :model="model" />
+    <router-view :model="model" :keys="keys" />
     <Footer />
   </div>
 </template>
@@ -12,7 +12,7 @@ import Footer from "../presenters/FooterPresenter.vue";
 
 export default {
   name: "AppView",
-  props: ["model"],
+  props: ["model", "keys"],
   components: {
     Footer,
   },

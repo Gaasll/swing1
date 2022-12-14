@@ -7,14 +7,15 @@ export default {
   components: {
     WeatherWidget,
     NextButton
-  }
+  },
+  props: ["model", "keys"],
 }
 </script>
 
 <template>   
     <div class="weather">
       <h1> The weather in your current location, {{name}} </h1>
-      <WeatherWidget/>
+      <WeatherWidget :model="model" :key="keys['weather']"/>
       <NextButton path="/playing" />
     </div>   
 </template>
