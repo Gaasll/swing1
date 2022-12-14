@@ -1,10 +1,10 @@
 <script>
-import MusicModel from "../MusicModel.js";
+import SwingModel from "../SwingModel.js";
 export default {
     data() {
         return {
             reactive: "",
-            mm: new MusicModel(this.notify),
+            mm: new SwingModel(this.notify),
         }
     },
     methods: {

@@ -6,12 +6,7 @@ export default{
     components: {
       Sidebar
     },
-    props: {
-      username: {
-        type: String,
-        required: true
-      }
-    },
+    props: ["model", "username", ],
 }
 </script>
 
@@ -22,8 +17,15 @@ export default{
       </div>
       <div class="header">
         <h1> {{username}} </h1>
-        <h2>PLAYING MUSIC FOR BEING HAPPY </h2>
-        <h2>THE WEATHER IS SUNNY </h2>
+        <h2>PLAYING MUSIC FOR BEING
+          <span v-for="emotion in model.selectedEmotions" :key="emotion">
+            <span v-if="emotion != model.selectedEmotions[0]">
+              &
+            </span>
+            {{ emotion }}
+          </span>
+        </h2>
+        <h2>THE WEATHER IS {{ model.weather }} </h2>
       </div>
     </div>
     <div class="card">

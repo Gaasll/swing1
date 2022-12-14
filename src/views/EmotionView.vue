@@ -3,6 +3,7 @@
         <header>
           <div class="question"> How are you feeling today?</div>
         </header>
+<<<<<<< HEAD
           <!-- <form @submit="handleSubmit"> -->
             <div class="columns" v-for="emotion in emotions" :key="emotion">
               <input type="checkbox" name="acs" :value="emotion" id="emo"> {{emotion}}
@@ -14,6 +15,14 @@
           <input class="output" type="text" id="order" size="50"> 
         </div>
           <!-- </form> -->
+=======
+          <!--form @submit="handleSubmit"-->
+            <div class="columns" v-for="emotion in emotions" :key="emotion.emotion">
+              <input type="checkbox" id="emo" :onChange="onCheckboxChange" v-if=emotion.checked checked>
+              <input type="checkbox" id="emo" :onChange="onCheckboxChange" v-else> {{emotion.emotion}}
+            </div>
+          <!--/form-->
+>>>>>>> 810b16e (emotions handled by model plus half way to working weather widget)
         <NextButton path="weather" />
         <!-- <p>selected feelings: </p>
         <p v-for="emotion in emotions" :key="emotion" >{{emotion}}</p> -->
@@ -36,6 +45,7 @@ export default {
     },
   props: {
     emotions: Array,
+    onEmotionChange: Function,
   },
 
   created() {
@@ -46,6 +56,7 @@ console.log(this.emotions);
     counterIncrement() {
       this.$emit("counter-increment");
     },
+<<<<<<< HEAD
     handleSubmit(){
 
     },
@@ -53,6 +64,12 @@ console.log(this.emotions);
     printEmotions() {
       this.$emit("print-emo");
       },
+=======
+    onCheckboxChange(e){
+      console.log(e);
+      this.onEmotionChange(e);
+    },
+>>>>>>> 810b16e (emotions handled by model plus half way to working weather widget)
   },
   
 };

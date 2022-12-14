@@ -5,14 +5,13 @@ const lat = 59.40;
 const lon = 17.95;
 
 function formatWeatherDataACB(responseData){
-    let data = {weather: responseData.weather[0].main, country: responseData.name};
-    //console.log(responseData);
-    return data;
-    
+    let data = {weather: responseData.weather[0].main,
+                country: responseData.name,
+                icon:    responseData.weather[0].icon,
+                temperature: responseData.main.temp,
+            };
     console.log(responseData);
-    console.log(responseData.weather[0].main);
-    console.log(responseData.name);
-
+    return data;
 }
 
 
@@ -22,10 +21,16 @@ function treatHTTPResponseACB(response){
 }
 
 function getCurrentWeatherInfo(){
-    return fetch(BASE_URL_WEATHER+lat+'&lon='+lon+'&appid='+ API_KEY_WEATHER,{ 
-    "method": "GET"
-        }
-    ).then(treatHTTPResponseACB).then(formatWeatherDataACB);
+    let searchParams = new URLSearchParams({
+        lat: lat,
+        lon: lon,
+        appid: API_KEY_WEATHER,
+        units: "metric",
+    })
+    return fetch(BASE_URL_WEATHER + searchParams, {
+        "method": "GET"
+    })
+    .then(treatHTTPResponseACB).then(formatWeatherDataACB);
 
 
 }

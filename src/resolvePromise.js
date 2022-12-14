@@ -19,7 +19,7 @@ function resolvePromise(promise, promiseState, notify) {
         if(notify)
             notify();
     }
-    promise.then(saveDataACB).catch(saveErrorACB);
+    return promise.then(saveDataACB).catch(saveErrorACB);
 }
 
 export default resolvePromise

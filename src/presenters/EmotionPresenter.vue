@@ -13,6 +13,7 @@ export default {
         }
     },
     methods: {
+<<<<<<< HEAD
         printEmo() {
   var checkboxes = document.getElementsByName('acs');
   var txt = "";
@@ -24,6 +25,21 @@ export default {
   }
   document.getElementById("order").value = "" + txt;
 }
+=======
+        setEmotions(e) {
+            this.model.setEmotions(e.target.parentNode.__vnode.key, e.target.checked);
+            console.log(this.model.selectedEmotions);
+        },
+        getEmotions(){
+            return Object.keys(this.model.emotions).map((emo) => {
+                return {emotion: emo, checked: this.model.emotions[emo].checked}
+            })
+        }
+        // displayEmo() {
+        //     var checkboxes = document.getElementById("emo");
+            
+        // },
+>>>>>>> 810b16e (emotions handled by model plus half way to working weather widget)
     },
     
 };
@@ -31,6 +47,7 @@ export default {
 </script>
 
 <template>
+<<<<<<< HEAD
 <<<<<<< HEAD
     <EmotionView 
     :emotions="emotions" 
@@ -40,4 +57,7 @@ export default {
     <EmotionView :emotions="Object.keys(model.emotions)" >
 >>>>>>> d56bd0f6fd7f2945ccfb03dd9b7de052c06d6f29
     </EmotionView>
+=======
+    <EmotionView :emotions="getEmotions()" :onEmotionChange="setEmotions" />
+>>>>>>> 810b16e (emotions handled by model plus half way to working weather widget)
 </template>
