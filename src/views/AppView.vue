@@ -2,7 +2,8 @@
 
 <template>
   <div>
-    <router-view :model="model" />
+    <!-- <Sidebar v-if="" /> -->
+    <router-view :model="model" :keys="keys" />
     <Footer />
   </div>
 </template>
@@ -12,7 +13,7 @@ import Footer from "../presenters/FooterPresenter.vue";
 
 export default {
   name: "AppView",
-  props: ["model"],
+  props: ["model", "keys"],
   components: {
     Footer,
   },
@@ -29,6 +30,18 @@ export default {
   margin-top: 60px;
 }
 button {
+  background-image: url('../assets/button.jpg');
+  margin: 0.5em;
+  border-radius: 50%;
+  border: none;
+  height: 44px;
+  width: 44px;
+  outline: none;
+  color: rgb(248, 246, 246);
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+}
+/* button {
 		background: #000000d0;
 		margin: 0.5em;
 		border-radius: 50%;
@@ -39,7 +52,7 @@ button {
 		color: white;
 		cursor: pointer;
 		transition: 0.2s ease-in-out;
-	}
+	} */
 Footer{
   position: absolute;
   bottom: 0;

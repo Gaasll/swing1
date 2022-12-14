@@ -1,34 +1,31 @@
 <template>  
   <div class="wrapper">
-        <header>
-          <div class="question"> How are you feeling today?</div>
-        </header>
-          <!--form @submit="handleSubmit"-->
-            <div class="columns" v-for="emotion in emotions" :key="emotion.emotion">
-              <input type="checkbox" id="emo" :onChange="onCheckboxChange" v-if=emotion.checked checked>
-              <input type="checkbox" id="emo" :onChange="onCheckboxChange" v-else> {{emotion.emotion}}
-            </div>
-          <!--/form-->
-        <NextButton path="weather" />
-        <!-- <p>selected feelings: </p>
-        <p v-for="emotion in emotions" :key="emotion" >{{emotion}}</p> -->
-    </div>
+    <Sidebar v-if="showSidebar()"/>
+      <header>
+        <div class="question"> How are you feeling today?</div>
+      </header>  
+        <div class="columns" v-for="emotion in emotions" :key="emotion">
+          <!-- <input type="checkbox" id="emo"> {{emotion}} -->
+          <input type="checkbox" id="emo" :onChange="onCheckboxChange" v-if="emotion.checked" checked>
+          <input type="checkbox" id="emo" :onChange="onCheckboxChange" v-else> {{emotion}}
+        </div>
+      <NextButton v-if="showButton()" path="weather1"/>
+  </div>
 </template>
 
-<script>
+<script >
 //using the components checkbox and NextButton under component section below. 
 // import Checkbox from "../components/Checkbox.vue"
+import Sidebar from "../components/Sidebar.vue"
 import NextButton from "../components/NextButton.vue"
+import {useRoute} from 'vue-router';
 
 export default {
   name: "EmotionView",
   components: {
+    Sidebar,
     NextButton,
   },
-  data() { 
-        return {
-        }
-    },
   props: {
     emotions: Array,
     onEmotionChange: Function,
@@ -38,23 +35,30 @@ export default {
       this.$emit("counter-increment");
     },
     onCheckboxChange(e){
-      console.log(e);
+      // console.log(e);
       this.onEmotionChange(e);
     },
+    showSidebar() {
+      const route = useRoute();
+      // console.log(route.path);
+      return (route.path === '/emotion2');
+    },
+    showButton(){
+      const route = useRoute();
+      // console.log(route.path);
+      return (route.path === '/emotion1');
+    }
+
   },
-  
 };
 </script>
 
 <style scoped>
-  
     header{
         text-align: center;
         margin: 50px;
-        font-family: 'Didact Gothic';
-        
+        font-family: 'Didact Gothic'; 
     }
-
     .question{
       text-align:center;
       font-size: xx-large;
@@ -71,6 +75,7 @@ export default {
         column-width: 100px;
         column-gap: 0em;
         margin: 20px;
+        font-family: 'Didact Gothic';
         /* shorthand: columns: 250px 3; */
     }
 
@@ -95,15 +100,4 @@ export default {
     font-family: 'Didact Gothic';
   }
 }
-    
-    /* button{ 
-        align-self: center;
-        cursor: pointer;
-        border-radius: 20px;
-        background-color: black;
-        border: none;
-        color: white;
-        padding: 10px 50px;
-        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-        } */
 </style>

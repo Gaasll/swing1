@@ -25,12 +25,12 @@ const ToggleMenu = () => {
                 <span class="material-icons">home</span>
                     <span class="text">Home</span>
 			</router-link>
-			<router-link to="/emotionsidebar" class="button">
+			<router-link to="/emotion2" class="button">
 				<span ></span>
                 <span class="material-icons">add_reaction</span>
 				<span class="text">Emotions</span>
 			</router-link>
-			<router-link to="/weathersidebar" class="button">
+			<router-link to="/weather2" class="button">
 				<span class="material-icons">sunny</span>
 				<span class="text">Weather</span>
 			</router-link>
@@ -91,18 +91,19 @@ aside {
 			transition: 0.2s ease-in-out;
 			.material-icons {
 				font-size: 2rem;
-				color: var(--light);
 				transition: 0.2s ease-out;
                 
 			}
 			
 			&:hover {
 				.material-icons {
-					color: var(--primary);
 					transform: translateX(0.5rem);
 				}
 			}
 		}
+	}
+	.material-icons, .text {
+		color: rgb(54, 54, 54);
 	}
 	h3, .button .text {
 		opacity: 0;
@@ -110,7 +111,6 @@ aside {
         font-family: 'Didact Gothic';
 	}
 	h3 {
-		color: var(--grey);
 		font-size: 0.875rem;
 		margin-bottom: 0.5rem;
 		text-transform: uppercase;
@@ -126,25 +126,23 @@ aside {
 			padding: 0.5rem 1rem;
 			.material-icons {
 				font-size: 2rem;
-				color: var(--light);
 				transition: 0.2s ease-in-out;
 			}
 			.text {
-				color: var(--light);
 				transition: 0.2s ease-in-out;
                 font-family: 'Open Sans', sans-serif;
 			}
 			&:hover {
 				background-color: var(--dark-alt);
 				.material-icons, .text {
-					color: rgb(108, 179, 214);
+					color: rgb(120, 92, 130);
 				}
 			}
 			&.router-link-exact-active {
 				background-color: var(--dark-alt);
 				
 				.material-icons, .text {
-					color: rgb(108, 179, 214);
+					color: rgb(120, 92, 130);
 				}
 			}
 		}

@@ -1,16 +1,16 @@
 <script>
 import EmotionView from "../views/EmotionView.vue"
 export default {
-    name: "EmotionPresenter",
+    name: "Emotion",
     components: {
         EmotionView,
     },
     props: ["model"],
     data() {
         return {
-          emotions: ["happy", "sad", "angry", "excited", "stressed", "scared", 
+          emotions:["happy", "sad", "angry", "excited", "stressed", "scared", 
                     "confident", "embarassed", "horny", "cozy", "queer"],
-        }
+        };
     },
     methods: {
         setEmotions(e) {
@@ -22,15 +22,11 @@ export default {
                 return {emotion: emo, checked: this.model.emotions[emo].checked}
             })
         }
-        // displayEmo() {
-        //     var checkboxes = document.getElementById("emo");
-            
-        // },
     },
 };
-
 </script>
 
 <template>
-    <EmotionView :emotions="getEmotions()" :onEmotionChange="setEmotions" />
+    <EmotionView :emotions="emotions" :onEmotionChange="setEmotions" /> 
+    <!-- :emotions="getEmotions()" -->
 </template>

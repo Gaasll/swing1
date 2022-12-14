@@ -1,13 +1,12 @@
 import { BASE_URL_WEATHER, API_KEY_WEATHER } from "./apiConfig.js";
 
-
-const lat = 59.40; 
-const lon = 17.95;
+//const lat = 59.40; 
+//const lon = 17.95;
 
 function formatWeatherDataACB(responseData){
-    let data = {weather: responseData.weather[0].main,
-                country: responseData.name,
-                icon:    responseData.weather[0].icon,
+    let data = {weather:     responseData.weather[0].main,
+                city:        responseData.name,
+                icon:        "https://openweathermap.org/img/wn/" + responseData.weather[0].icon + ".png",
                 temperature: responseData.main.temp,
             };
     console.log(responseData);
@@ -20,10 +19,10 @@ function treatHTTPResponseACB(response){
     return response.json();
 }
 
-function getCurrentWeatherInfo(){
+function getCurrentWeatherInfo(location){
     let searchParams = new URLSearchParams({
-        lat: lat,
-        lon: lon,
+        lat: location.lat,
+        lon: location.lon,
         appid: API_KEY_WEATHER,
         units: "metric",
     })
@@ -31,8 +30,6 @@ function getCurrentWeatherInfo(){
         "method": "GET"
     })
     .then(treatHTTPResponseACB).then(formatWeatherDataACB);
-
-
 }
 
 export {getCurrentWeatherInfo};

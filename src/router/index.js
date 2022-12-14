@@ -10,13 +10,13 @@ const routes = [
         component: () => import('../presenters/HomePresenter.vue'),
     },
     {
-        path: '/emotion',
+        path: '/emotion1',
         component: () => import('../presenters/EmotionPresenter.vue'),
         props: { model: true }
     },
     {
-        path: '/emotionsidebar',
-        component: () => import('../presenters/EmotionSidebarPresenter.vue'),
+        path: '/emotion2',
+        component: () => import('../presenters/EmotionPresenter.vue'),
     },
     {
         path: '/playing',
@@ -24,13 +24,13 @@ const routes = [
         props: { model: true }
     },
     {
-        path: '/weather',
+        path: '/weather1',
         component: () => import('../presenters/WeatherPresenter.vue'),
-        props: { model: true }
+        props: { model: true , keys: true }
     },
     {
-        path: '/weathersidebar',
-        component: () => import('../presenters/WeatherSidebarPresenter.vue'),
+        path: '/weather2',
+        component: () => import('../presenters/WeatherPresenter.vue'),
     },
     {
         path: '/test',

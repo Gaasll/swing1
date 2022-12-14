@@ -9,7 +9,7 @@
         </div> -->
         <!-- <p>Hello {{username}}</p> -->
     </div>
-    <NextButton v-on:click="logName" path="emotion" />
+    <NextButton v-on:click="logName" path="emotion1" />
 </template>
 
 <script>
