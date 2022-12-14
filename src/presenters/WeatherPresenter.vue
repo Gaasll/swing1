@@ -6,12 +6,13 @@ export default {
     name: "Weather",
     components: {
         WeatherView,
-        }
+    },
+    props: ["model", "keys"],
 }
 </script>
 
 <template>
-    <WeatherView/>
+    <WeatherView :model="model" :keys="keys" />
 </template>
 
 

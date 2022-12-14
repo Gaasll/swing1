@@ -26,7 +26,7 @@ const routes = [
     {
         path: '/weather',
         component: () => import('../presenters/WeatherPresenter.vue'),
-        props: { model: true }
+        props: { model: true , keys: true }
     },
     {
         path: '/weathersidebar',

@@ -35,17 +35,13 @@ class SwingModel{
                         }
         this.selectedEmotions = [];
 
-        this.setWeatherData();
+        resolvePromise(getLocation(), this.locationPromiseState).then(this.getWeatherData.bind(this));
     }
 
-    setWeatherData(){
-        resolvePromise(getLocation(), this.locationPromiseState)
-        .then(resolvePromise(getCurrentWeatherInfo(), this.weatherPromiseState))
-        .then(function(){
-            this.weather = this.weatherPromiseState.data.weather;
-            this.location = this.weatherPromiseState.data.location;
-            this.timeOfDay = this.weatherPromiseState.data.location;
-        }.bind(this))
+    getWeatherData(){
+        resolvePromise(getCurrentWeatherInfo(this.locationPromiseState.data),
+                       this.weatherPromiseState,
+                       this.notifyObservers.bind(this));
     }
 
     setUsername(name){

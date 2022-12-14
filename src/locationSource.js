@@ -5,7 +5,7 @@ function getLocation(){
         method: "GET",
     },)
     .then(response => response.json())
-    .then(data => data)
+    .then(data => {return {lat: data.latitude, lon: data.longitude}})
 }
 
 export {getLocation};

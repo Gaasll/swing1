@@ -6,7 +6,7 @@ export default{
     components: {
       Sidebar
     },
-    props: ["model", "username", ],
+    props: ["model", ],
 }
 </script>
 
@@ -16,7 +16,7 @@ export default{
         <Sidebar/>
       </div>
       <div class="header">
-        <h1> {{username}} </h1>
+        <h1> {{ this.model.username }} </h1>
         <h2>PLAYING MUSIC FOR BEING
           <span v-for="emotion in model.selectedEmotions" :key="emotion">
             <span v-if="emotion != model.selectedEmotions[0]">
@@ -25,7 +25,10 @@ export default{
             {{ emotion }}
           </span>
         </h2>
-        <h2>THE WEATHER IS {{ model.weather }} </h2>
+        <h2 v-if="model.weatherPromiseState.data">
+          THE WEATHER IS {{ model.weatherPromiseState.data.weather }}
+          <img :src="this.model.weatherPromiseState.data.icon" alt="" class="icon" />
+        </h2>
       </div>
     </div>
     <div class="card">
