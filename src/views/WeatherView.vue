@@ -11,7 +11,12 @@ export default {
     NextButton,
     Sidebar,
   },
-  props: ["model", "keys"],
+  props: {
+    weather: String,
+    temperature: Number,
+    city: String,
+    iconPath: String,
+  },
   methods: {
     showSidebar() {
       const route = useRoute();
@@ -31,7 +36,10 @@ export default {
     <div class="weather">
       <Sidebar v-if="showSidebar()" />
       <h1> The weather in your current location, {{name}} </h1>
-      <WeatherWidget :model="model" :key="keys['weather']"/>
+      <WeatherWidget :weather="weather"
+                     :city="city"
+                     :temperature="temperature"
+                     :iconPath="iconPath" />
       <NextButton v-if="showButton()" path="/playing" />
     </div>   
 </template>

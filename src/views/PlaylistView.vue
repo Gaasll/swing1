@@ -6,7 +6,12 @@ export default{
     components: {
       Sidebar
     },
-    props: ["model", ],
+    props: ["selectedEmotions",
+            "username",
+            "weather",
+            "iconURL",
+            "trackURL",
+          ],
 }
 </script>
 
@@ -16,27 +21,46 @@ export default{
         <Sidebar/>
       </div>
       <div class="header">
-        <h1> {{ this.model.username }} </h1>
+        <h1> {{ username }} </h1>
         <h2>PLAYING MUSIC FOR FEELING
-          <span v-for="emotion in model.selectedEmotions" :key="emotion">
-            <span v-if="emotion != model.selectedEmotions[0]">
+          <span v-for="emotion in selectedEmotions" :key="emotion">
+            <span v-if="emotion != selectedEmotions[0]">
               &
             </span>
             {{ emotion }}
           </span>
         </h2>
-        <h2 v-if="model.weatherPromiseState.data">
-          THE WEATHER IS {{ model.weatherPromiseState.data.weather }}
-          <img :src="this.model.weatherPromiseState.data.icon" alt="" class="icon" />
+        <h2>
+          THE WEATHER IS {{ weather }}
+          <img :src="iconURL" alt="" class="icon" />
         </h2>
       </div>
     </div>
-    <div class="card">
+    <!--div class="card">
       <div class="box box1"><img src="../assets/song.jpg" alt="a balloon"></div>
       <br>
         <div  class="box desc" > Say What You Say</div>
         <div  class="box desc" > issa-e</div>
         <button> <span class="material-icons">favorite </span></button>
+    </div-->
+    <div>
+      <iframe width="60%" 
+              height="300"
+              scrolling="no" 
+              frameborder="no"
+              allow="autoplay"
+              :src="trackURL">
+      </iframe>
+      <div style="font-size: 10px;
+                  color: #cccccc;
+                  line-break: anywhere;
+                  word-break: normal;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                  font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
+                  font-weight: 100;">
+      </div>
     </div>
     <div class="scrolling">
 	</div>

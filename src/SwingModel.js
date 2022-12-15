@@ -1,6 +1,6 @@
 import {getLocation} from "./locationSource.js";
 import {getCurrentWeatherInfo} from "./weatherSource.js";
-import {search} from "./musicSource.js";
+import {soundCloudSearch} from "./musicSource.js";
 import resolvePromise from "./resolvePromise.js";
 
 const MAX_NO_ELEMENTS = 20;
@@ -11,27 +11,27 @@ class SwingModel{
     constructor(notify){
         this.observers = [notify];
 
-        this.username;
+        this.username = "user_name";
         
         this.locationPromiseState = {};
         this.weatherPromiseState = {};
 
-        this.searchParams = {q: "cloud", style_exact: "Acoustic"};
         this.songsPromiseState = {};
         this.playlist = [];
+        this.playerPromiseState = {};
 
         this.emotions = {
                          "happy":       {checked: false, style: "Disco"},
                          "sad":         {checked: false, style: "Shoegaze"},
-                         "angry":       {checked: false, style: ""},
-                         "excited":     {checked: false, style: ""},
-                         "stressed":    {checked: false, style: ""},
-                         "scared":      {checked: false, style: ""},
-                         "confident":   {checked: false, style: ""},
-                         "embarassed":  {checked: false, style: ""},
-                         "horny":       {checked: false, style: ""},
-                         "cozy":        {checked: false, style: ""},
-                         "queer":       {checked: false, style: ""}
+                         "angry":       {checked: false, style: "Death Metal"},
+                         "excited":     {checked: false, style: "Synth-pop"},
+                         "stressed":    {checked: false, style: "Downtempo"},
+                         "scared":      {checked: false, style: "Dark Ambient"},
+                         "confident":   {checked: false, style: "Modern Classical"},
+                         "embarassed":  {checked: false, style: "Musical"},
+                         "horny":       {checked: false, style: "Soul"},
+                         "cozy":        {checked: false, style: "Indie Pop"},
+                         "queer":       {checked: false, style: "IDM"}
                         }
         this.selectedEmotions = [];
 
@@ -68,10 +68,31 @@ class SwingModel{
         //    return this.emotions[emotion];
         //}
         
-        let searchParams = this.searchParams;
+        //let searchParams = {q: this.weatherPromiseState.data.weather,
+        //                    style_exact: this.selectedEmotions.length > 0 ? this.emotions[this.selectedEmotions[0]].style : ""};
 
-        searchParams["style_exact"] = this.selectedEmotions; //.map(emotionToStyle);
-        resolvePromise(search(this.searchParams), this.songsPromiseState, this.notifyObservers.bind(this));
+        //console.log(searchParams);
+        //resolvePromise(search(searchParams), this.songsPromiseState, this.notifyObservers.bind(this));
+
+        let searchParams = {q: this.weatherPromiseState.data.weather + " " + this.selectedEmotions[0],}
+        resolvePromise(soundCloudSearch(searchParams), this.songsPromiseState, this.notifyObservers.bind(this))
+        .then(this.exctractPlayerData.bind(this));
+    }
+
+    exctractPlayerData(){
+        let baseURL = "https://w.soundcloud.com/player/?"
+        let playerData = {
+            url: this.songsPromiseState.data[0].uri,
+            color: "#ff5500",
+            auto_play: false,
+            hide_related: false,
+            show_comments: false,
+            show_user: false,
+            show_reposts: false,
+            show_teaser: true,
+            visual: true,
+        }
+        this.trackURL = baseURL + new URLSearchParams(playerData);
     }
 
     randInt(){
