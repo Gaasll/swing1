@@ -90,6 +90,10 @@ class SwingModel{
 
         this.observers.forEach(callObserverCallback);
     }
+
+    addObserver(toAdd){
+        this.observers =[...this.observers, toAdd]
+    } //added for persistence implementation
 }
 
 export default SwingModel
