@@ -1,5 +1,9 @@
 <template>
-    <PlaylistView :username="username" :model="model "/>
+    <PlaylistView :username="model.username"
+                  :selectedEmotions="model.selectedEmotions"
+                  :weather="model.weatherPromiseState.data.weather"
+                  :iconURL="model.weatherPromiseState.data.icon"
+                  :trackURL="model.trackURL" />
 </template>
 
 <script>
@@ -11,6 +15,14 @@ export default {
         PlaylistView,
     },
     props: ["model"],
+    methods: {
+        showSearchResults(){
+            console.log(this.model.songsPromiseState.data);
+        }
+    },
+    created(){
+        this.showSearchResults();
+    }
 }
 </script>
 

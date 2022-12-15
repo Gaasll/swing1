@@ -1,7 +1,12 @@
 <script>
 export default{
   name: "WeatherWidget",
-  props: ["model"],
+  props: {
+    weather: String,
+    temperature: Number,
+    city: String,
+    iconPath: String,
+  },
 }
 </script>
 
@@ -16,7 +21,7 @@ export default{
     <link rel="stylesheet" href="./style.css">
     
   </head>
-  <div class="card" v-if="this.model.weatherPromiseState.data">
+  <div class="card">
     <!-- <div class="search">
       <input type="text" class="search-bar" placeholder="Search">
       <button><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024" height="1.5em"
@@ -27,17 +32,14 @@ export default{
         </svg></button>
     </div> -->
     
-      <h2 class="city">Weather in {{ this.model.weatherPromiseState.data.city }}</h2>
-      <h1 class="temp">{{ this.model.weatherPromiseState.data.temperature }}°C</h1>
+      <h2 class="city">Weather in {{ city }}</h2>
+      <h1 class="temp">{{ temperature }}°C</h1>
       <div class="flex">
-        <img :src="this.model.weatherPromiseState.data.icon" alt="" class="icon" />
-        <div class="description">{{ this.model.weatherPromiseState.data.weather }}</div>
+        <img :src="iconPath" alt="" class="icon" />
+        <div class="description">{{ weather }}</div>
       </div>
       <!--div class="humidity">Humidity: 60%</div>
       <div class="wind">Wind speed: 6.2 km/h</div-->
-  </div>
-  <div v-else>
-    loading...
   </div>
 </template>
 

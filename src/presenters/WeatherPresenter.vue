@@ -8,11 +8,29 @@ export default {
         WeatherView,
     },
     props: ["model", "keys"],
+    methods: {
+        searchMusic(){
+            this.model.searchSongs();
+        }
+    },
+    created(){
+        this.searchMusic();
+    },
 }
 </script>
 
 <template>
-    <WeatherView :model="model" :keys="keys" />
+    <div :key="keys.weather">
+        <WeatherView v-if="this.model.weatherPromiseState.data"
+                     :weather="model.weatherPromiseState.data.weather"
+                     :city="model.weatherPromiseState.data.city"
+                     :temperature="model.weatherPromiseState.data.temperature"
+                     :iconPath="model.weatherPromiseState.data.icon" 
+                     :key="keys.weather" />
+        <div v-else>
+            loading...
+        </div>
+    </div>
 </template>
 
 
