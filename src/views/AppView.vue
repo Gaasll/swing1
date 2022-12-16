@@ -29,4 +29,8 @@ export default {
   color: black;
   margin-top: 60px;
 }
+
+h1, h2, h3 {
+  font-weight: normal;
+}
 </style>

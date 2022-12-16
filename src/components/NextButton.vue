@@ -27,6 +27,7 @@ export default{
 #btn {
   background-image: url('~@/assets/button.jpg');
   margin: 0.5em;
+  margin-bottom: 2.5em;
   border-radius: 50%;
   border: none;
   height: 44px;

@@ -11,10 +11,5 @@ export default {
 </script>
 
 <template>
-    <HomeView/>
+    <HomeView />
 </template>
-
-
-<style scoped>
-
-</style>

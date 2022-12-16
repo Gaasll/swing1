@@ -12,6 +12,15 @@ export default{
             "iconURL",
             "trackURL",
           ],
+    methods: {
+      changeSoundCloudButtonColor(){
+        console.log(document.getElementsByClassName("teaser__button").style.background)
+        document.getElementsByClassName("teaser__button").style.background = "#5D3F7F";
+      },
+    },
+    created() {
+      window.onload = this.changeSoundCloudButtonColor;
+    }
 }
 </script>
 
@@ -43,7 +52,9 @@ export default{
         <div  class="box desc" > issa-e</div>
         <button> <span class="material-icons">favorite </span></button>
     </div-->
-    <div>
+    <div class="musicPlayer">
+      <div class="border-top-overlay">
+      </div>
       <iframe width="60%" 
               height="300"
               scrolling="no" 
@@ -51,16 +62,6 @@ export default{
               allow="autoplay"
               :src="trackURL">
       </iframe>
-      <div style="font-size: 10px;
-                  color: #cccccc;
-                  line-break: anywhere;
-                  word-break: normal;
-                  overflow: hidden;
-                  white-space: nowrap;
-                  text-overflow: ellipsis;
-                  font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;
-                  font-weight: 100;">
-      </div>
     </div>
     <div class="scrolling">
 	</div>
@@ -137,5 +138,14 @@ h1.temp {
 .description {
   text-transform: capitalize;
   margin-left: 8px;
+}
+
+.border-top-overlay{
+  position: relative;
+  top: 4px;
+  background-color: #5D3F7F;
+  min-height: 4px;
+  width: 60%;
+  margin: auto;
 }
 </style>
