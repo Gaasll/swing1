@@ -17,12 +17,7 @@ import NextButton from "../components/NextButton.vue";
 
 export default{
     name: "StartView",
-    props: {
-      username: {
-        type: String,
-        required: true
-      }
-    },
+    props: { },
     components: {
         NextButton
     },

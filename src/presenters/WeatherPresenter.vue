@@ -22,6 +22,7 @@ export default {
 <template>
     <div :key="keys.weather">
         <WeatherView v-if="this.model.weatherPromiseState.data"
+                     :username="model.username"
                      :weather="model.weatherPromiseState.data.weather"
                      :city="model.weatherPromiseState.data.city"
                      :temperature="model.weatherPromiseState.data.temperature"

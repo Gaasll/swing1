@@ -12,6 +12,7 @@ export default {
     Sidebar,
   },
   props: {
+    username: String,
     weather: String,
     temperature: Number,
     city: String,
@@ -35,7 +36,7 @@ export default {
 <template>   
     <div class="weather">
       <Sidebar v-if="showSidebar()" />
-      <h1> The weather in your current location, {{name}} </h1>
+      <h1> The weather in your current location, {{ username }} </h1>
       <WeatherWidget :weather="weather"
                      :city="city"
                      :temperature="temperature"

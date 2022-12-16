@@ -44,17 +44,18 @@ export default{
 </template>
 
 <style lang="scss" scoped>
-// body {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     height: 100vh;
-//     margin: 0;
-//     font-family: 'Open Sans', sans-serif;
-//     background: #222;
-//     background-image: url('https://source.unsplash.com/1600x900/?landscape');
-//     font-size: 120%;
-//   }
+body {
+     display: flex;/* 
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     margin: 0;
+     font-family: 'Open Sans', sans-serif;
+     background: #222;
+     background-image: url('https://source.unsplash.com/1600x900/?landscape');
+     font-size: 120%;
+   */
+   }
   
   .card {
     align-items: center;
@@ -69,51 +70,52 @@ export default{
     // width: 100%;
     max-width: 360px;
   }
-//   button {
-//     margin: 0.5em;
-//     border-radius: 50%;
-//     border: none;
-//     height: 44px;
-//     width: 44px;
-//     outline: none;
-//     background: #7c7c7c2b;
-//     color: white;
-//     cursor: pointer;
-//     transition: 0.2s ease-in-out;
-//   }
-  
-//   button:hover {
-//     background: #7c7c7c6b;
-//   }
-  
-//   h1.temp {
-//     margin: 0;
-//     margin-bottom: 0.4em;
-//   }
-  
-//   .flex {
-//     display: flex;
-//     align-items: center;
-//   }
-  
-//   .description {
-//     text-transform: capitalize;
-//     margin-left: 8px;
-//   }
-  
-//   .weather.loading {
-//     visibility: hidden;
-//     max-height: 20px;
-//     position: relative;
-//   }
-  
-//   .weather.loading:after {
-//     visibility: visible;
-//     content: "Loading...";
-//     color: white;
-//     position: absolute;
-//     top: 0;
-//     left: 20px;
-//   }
+/*   button {
+     margin: 0.5em;
+     border-radius: 50%;
+     border: none;
+     height: 44px;
+     width: 44px;
+     outline: none;
+     background: #7c7c7c2b;
+     color: white;
+     cursor: pointer;
+     transition: 0.2s ease-in-out;
+   }
+
+   button:hover {
+     background: #7c7c7c6b;
+   }
+
+   h1.temp {
+     margin: 0;
+     margin-bottom: 0.4em;
+   }
+
+   .flex {
+     display: flex;
+     align-items: center;
+   }
+
+   .description {
+     text-transform: capitalize;
+     margin-left: 8px;
+   }
+
+   .weather.loading {
+     visibility: hidden;
+     max-height: 20px;
+     position: relative;
+   }
+
+   .weather.loading:after {
+     visibility: visible;
+     content: "Loading...";
+     color: white;
+     position: absolute;
+     top: 0;
+     left: 20px;
+   }
+   */
 
 </style>

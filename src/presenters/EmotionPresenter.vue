@@ -21,12 +21,15 @@ export default {
             return Object.keys(this.model.emotions).map((emo) => {
                 return {emotion: emo, checked: this.model.emotions[emo].checked}
             })
+        },
+        checkIsFull(){
+            return this.model.emotionsFull();
         }
     },
 };
 </script>
 
 <template>
-    <EmotionView :emotions="emotions" :onEmotionChange="setEmotions" /> 
+    <EmotionView :emotions="getEmotions()" :onEmotionChange="setEmotions" :isFull="checkIsFull()" /> 
     <!-- :emotions="getEmotions()" -->
 </template>

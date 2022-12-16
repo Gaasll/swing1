@@ -3,12 +3,15 @@
     <Sidebar v-if="showSidebar()"/>
       <header>
         <div class="question"> How are you feeling today?</div>
-      </header>  
-        <div class="columns" v-for="emotion in emotions" :key="emotion">
+      </header>
+      <div class="check-form">
+        <div class="columns" v-for="emotion in emotions" :key="emotion.emotion">
           <!-- <input type="checkbox" id="emo"> {{emotion}} -->
-          <input type="checkbox" id="emo" :onChange="onCheckboxChange" v-if="emotion.checked" checked>
-          <input type="checkbox" id="emo" :onChange="onCheckboxChange" v-else> {{emotion}}
+          <input type="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" v-if="emotion.checked" checked>
+          <input type="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" :disabled="isFull" v-else>
+          <label :for="emotion.emotion"> {{ emotion.emotion }} </label>
         </div>
+      </div>
       <NextButton v-if="showButton()" path="weather1"/>
   </div>
 </template>
@@ -29,6 +32,7 @@ export default {
   props: {
     emotions: Array,
     onEmotionChange: Function,
+    isFull: Boolean,
   },
   methods: {
     counterIncrement() {
@@ -48,7 +52,6 @@ export default {
       // console.log(route.path);
       return (route.path === '/emotion1');
     }
-
   },
 };
 </script>
@@ -68,6 +71,13 @@ export default {
 
     span > input{
         background-color: lightgrey;
+    }
+
+    .check-form{
+      width: 80%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: auto auto auto;
     }
     .columns{
         text-align:left;
@@ -98,6 +108,11 @@ export default {
     display: flex;
     align-items: center;
     font-family: 'Didact Gothic';
+  }
+}
+@media (max-width: 490px){
+  .check-form{
+    grid-template-columns: auto;
   }
 }
 </style>
