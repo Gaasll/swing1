@@ -11,7 +11,7 @@ firebase.initializeApp(firebaseConfig);
 
 //  REF is the “root” Firebase path. NN is your TW2_TW3 group number
 const REF="swingmood";
-firebase.database().ref(REF+"/test").set("dummy");
+//firebase.database().ref(REF+"/test").set("dummy");
 
 
 function observerRecap(model) {
@@ -23,16 +23,16 @@ function updateFirebaseFromModel(model) {
 
     function fireBaseObsACB(payload){
         if (payload && payload.username)
-            firebase.database().ref(REF+"/numberOfGuests").set(model.username);
+            firebase.database().ref(REF+"/username").set(model.username);
 
         if (payload && payload.searchParams)
-                firebase.database().ref(REF+"/currentDish").set(model.searchParams);
+                firebase.database().ref(REF+"/searchParams").set(model.searchParams);
 
         if (payload && payload.playlist)
-            firebase.database().ref(REF+"/dishes/"+payload.dishAdded.id).set(model.playlist);
+            firebase.database().ref(REF+"/playlist"+payload.dishAdded.id).set(model.playlist);
 
         if (payload && payload.emotions)
-            firebase.database().ref(REF+"/dishes/"+payload.dishAdded.id).set(model.emotions);
+            firebase.database().ref(REF+"/emotions/"+payload.dishAdded.id).set(model.emotions);
 
     }
     model.addObserver(fireBaseObsACB);
