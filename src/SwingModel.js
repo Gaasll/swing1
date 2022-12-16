@@ -84,8 +84,17 @@ class SwingModel{
         .then(this.exctractPlayerData.bind(this));
     }
 
+    setPlaylist(songToAdd){
+        this.playlist =[...this.playlist, songToAdd]
+    }
+
+
     exctractPlayerData(){
         console.log(this.songsPromiseState.data);
+        
+        let songData = {title: this.songsPromiseState.data[0].title, url: this.songsPromiseState.data[0].permalink_url};
+        setPlaylist(songData);
+
         let baseURL = "https://w.soundcloud.com/player/?"
         let playerData = {
             url: this.songsPromiseState.data[0].uri,
