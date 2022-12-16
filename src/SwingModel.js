@@ -3,8 +3,14 @@ import {getCurrentWeatherInfo} from "./weatherSource.js";
 import {soundCloudSearch} from "./musicSource.js";
 import resolvePromise from "./resolvePromise.js";
 
+<<<<<<< HEAD
 // const MAX_NO_ELEMENTS = 20;
+=======
+>>>>>>> 60f0223 (tar helg nu)
 const MAX_SELECTED_EMOTIONS = 2;
+const MIN_DURATION = 45_000;
+const MAX_DURATION = 400_000;
+//const MAX_NO_ELEMENTS = 20;
 //const NO_PLAYLISTS = 5;
 //const NO_SONGS_PER_PLAYLIST = 4;
 
@@ -82,8 +88,10 @@ class SwingModel{
 
         //console.log(searchParams);
         //resolvePromise(search(searchParams), this.songsPromiseState, this.notifyObservers.bind(this));
-
-        let searchParams = {q: this.weatherPromiseState.data.weather + " " + this.selectedEmotions[0],}
+        
+        let emotions = this.selectedEmotions.join(" ");
+        let searchParams = {q: this.weatherPromiseState.data.weather + " " + emotions,
+                            "duration from": MIN_DURATION,  "duration to":  MAX_DURATION,}
         resolvePromise(soundCloudSearch(searchParams), this.songsPromiseState, this.notifyObservers.bind(this))
         .then(this.exctractPlayerData.bind(this));
     }
@@ -98,12 +106,22 @@ class SwingModel{
 
 =======
         console.log(this.songsPromiseState.data);
+<<<<<<< HEAD
 >>>>>>> 4910dfb (fixed inconsistent button behavior)
         let baseURL = "https://w.soundcloud.com/player/?"
         let playerData = {
             url: this.songsPromiseState.data[rand].uri,
             color: "#ff5500",
             auto_play: false,
+=======
+        let songURL = this.songsPromiseState.data[this.randInt(this.songsPromiseState.data.length)].uri;
+        let baseURL = "https://w.soundcloud.com/player/?"
+        let playerData = {
+            url: songURL,
+            //color: "#ff5500",
+            color: "#5D3F7F",
+            auto_play: true,
+>>>>>>> 60f0223 (tar helg nu)
             hide_related: false,
             show_comments: false,
             show_user: false,
@@ -113,9 +131,15 @@ class SwingModel{
         }
         this.trackURL = baseURL + new URLSearchParams(playerData);
     }
+<<<<<<< HEAD
     /*
     randInt(){
         return Math.floor(Math.random() * MAX_NO_ELEMENTS);
+=======
+
+    randInt(n){
+        return Math.floor(Math.random() * n);
+>>>>>>> 60f0223 (tar helg nu)
     }
     */
 

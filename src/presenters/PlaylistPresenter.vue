@@ -29,6 +29,7 @@ export default {
     },
     created(){
         this.showSearchResults();
+        window.location.hash = "sidebar";
     }
 }
 </script>

@@ -31,12 +31,19 @@
 =======
     <Sidebar v-if="showSidebar()"/>
       <header>
-        <div class="question"> How are you feeling today?</div>
+        <h1 class="question"> How are you feeling today?</h1>
       </header>
       <div class="check-form">
+<<<<<<< HEAD
         <div class="columns" v-for="emotion in emotions" :key="emotion.emotion">
           <input type="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" v-if="emotion.checked" checked>
           <input type="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" :disabled="isFull" v-else>
+=======
+        <div class="emotion" v-for="emotion in emotions" :key="emotion.emotion">
+          <!-- <input type="checkbox" id="emo"> {{emotion}} -->
+          <input type="checkbox" class="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" v-if="emotion.checked" checked>
+          <input type="checkbox" class="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" :disabled="isFull" v-else>
+>>>>>>> 60f0223 (tar helg nu)
           <label :for="emotion.emotion"> {{ emotion.emotion }} </label>
         </div>
       </div>
@@ -109,8 +116,8 @@ console.log(this.emotions);
 <style scoped>
   
     header{
-        text-align: center;
         margin: 50px;
+<<<<<<< HEAD
         font-family: 'Didact Gothic';
         
     }
@@ -124,6 +131,8 @@ console.log(this.emotions);
 
     span > input{
         background-color: lightgrey;
+=======
+>>>>>>> 60f0223 (tar helg nu)
     }
 
     .check-form{
@@ -133,34 +142,29 @@ console.log(this.emotions);
       display: grid;
       grid-template-columns: auto auto auto;
     }
-    .columns{
+
+    .emotion{
         text-align:left;
+<<<<<<< HEAD
         column-count: 3;
         column-width: 100px;
         column-gap: 0em;
         margin: 20px;
         /* shorthand: columns: 250px 3; */
+=======
+        margin: 18px;
+>>>>>>> 60f0223 (tar helg nu)
     }
 
-    button {
-		background: #0606062b;
-		margin: 0.5em;
-		border-radius: 50%;
-		border: none;
-		height: 44px;
-		width: 44px;
-		outline: none;
-		color: rgb(60, 59, 59);
-		cursor: pointer;
-		transition: 0.2s ease-in-out;
-	}
+    .checkbox{
+        background-color: lightgrey;
+    }
 
   @media (min-width: 1024px) {
   .about {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    font-family: 'Didact Gothic';
   }
 }
 <<<<<<< HEAD

@@ -52,6 +52,7 @@ export default {
   margin-top: 60px;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 button {
   background-image: url('../assets/button.jpg');
 		margin: 0.5em;
@@ -72,4 +73,10 @@ Footer{
 }
 =======
 >>>>>>> 4910dfb (fixed inconsistent button behavior)
+=======
+
+h1, h2, h3 {
+  font-weight: normal;
+}
+>>>>>>> 60f0223 (tar helg nu)
 </style>
