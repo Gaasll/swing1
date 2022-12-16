@@ -39,6 +39,10 @@ class SwingModel{
         resolvePromise(getLocation(), this.locationPromiseState).then(this.getWeatherData.bind(this));
     }
 
+    setPlaylist(song){
+        this.playlist =[...this.playlist, song]
+    }
+
     getWeatherData(){
         resolvePromise(getCurrentWeatherInfo(this.locationPromiseState.data),
                        this.weatherPromiseState,
@@ -84,16 +88,14 @@ class SwingModel{
         .then(this.exctractPlayerData.bind(this));
     }
 
-    setPlaylist(songToAdd){
-        this.playlist =[...this.playlist, songToAdd]
-    }
+
 
 
     exctractPlayerData(){
-        console.log(this.songsPromiseState.data);
-        
+    
         let songData = {title: this.songsPromiseState.data[0].title, url: this.songsPromiseState.data[0].permalink_url};
-        setPlaylist(songData);
+        this.setPlaylist(songData);
+        console.log(this.playlist[0].url);
 
         let baseURL = "https://w.soundcloud.com/player/?"
         let playerData = {
