@@ -85,6 +85,7 @@ class SwingModel{
     }
 
     exctractPlayerData(){
+        console.log(this.songsPromiseState.data);
         let baseURL = "https://w.soundcloud.com/player/?"
         let playerData = {
             url: this.songsPromiseState.data[0].uri,
