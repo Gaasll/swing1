@@ -9,7 +9,6 @@ import SwingModel from "./SwingModel";
 firebase.initializeApp(firebaseConfig);
 //firebase.initializeApp(firebaseConfig);  
 
-//  REF is the “root” Firebase path. NN is your TW2_TW3 group number
 const REF="swingmood";
 //firebase.database().ref(REF+"/test").set("dummy");
 
@@ -25,7 +24,7 @@ function updateFirebaseFromModel(model) {
         if (payload && payload.username)
             firebase.database().ref(REF+"/username").set(model.username);
 
-        if (payload && payload.playlist)
+        if (payload && payload.playlist)        ///songpromistetate.data 
             firebase.database().ref(REF+"/playlist"+payload.dishAdded.id).set(model.playlist);
 
         if (payload && payload.emotions)
@@ -35,12 +34,12 @@ function updateFirebaseFromModel(model) {
     model.addObserver(fireBaseObsACB);
 }   
 
-function updateModelFromFirebase(model) {
-    firebase.database().ref(REF+"/numberOfGuests").on("value", 
-    function guestsChangedInFirebaseACB(firebaseData){ model.setNumberOfGuests(firebaseData.val());});
+/*function updateModelFromFirebase(model) {
+    firebase.database().ref(REF+"/username").on("value", 
+    function guestsChangedInFirebaseACB(firebaseData){ model.setUserName(firebaseData.val());});
 
-    firebase.database().ref(REF+"/currentDish").on("value", 
-    function currentChangedInFirebaseACB(firebaseData){ model.setCurrentDish(firebaseData.val());});
+    firebase.database().ref(REF+"/emotions").on("value", 
+    function currentChangedInFirebaseACB(firebaseData){ model.setEmotions(firebaseData.val());});
 
     firebase.database().ref(REF+"/dishes/").on("child_added", 
     function dishAddedInFirebaseACB(data){
@@ -56,5 +55,6 @@ function updateModelFromFirebase(model) {
 
     return;
 }
+*/
 
 //still needs a bunch of stuff
