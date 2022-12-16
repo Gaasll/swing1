@@ -89,12 +89,16 @@ class SwingModel{
     }
 
     exctractPlayerData(){
+<<<<<<< HEAD
         let rand = this.randInt(10);
         console.log(rand);
         let songData = {title: this.songsPromiseState.data[rand].title, url: this.songsPromiseState.data[rand].permalink_url};
         this.setPlaylist(songData);
         console.log(this.playlist[0].url);
 
+=======
+        console.log(this.songsPromiseState.data);
+>>>>>>> 4910dfb (fixed inconsistent button behavior)
         let baseURL = "https://w.soundcloud.com/player/?"
         let playerData = {
             url: this.songsPromiseState.data[rand].uri,

@@ -44,13 +44,14 @@ export default {
 
 <style>
 #app {
-  font-family: Didact Gothic;
+  font-family: 'Didact Gothic';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: black;
   margin-top: 60px;
 }
+<<<<<<< HEAD
 button {
   background-image: url('../assets/button.jpg');
 		margin: 0.5em;
@@ -69,4 +70,6 @@ Footer{
   width: 100%;
   height: 2.5rem; 
 }
+=======
+>>>>>>> 4910dfb (fixed inconsistent button behavior)
 </style>
