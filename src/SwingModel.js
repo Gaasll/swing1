@@ -4,6 +4,7 @@ import {soundCloudSearch} from "./musicSource.js";
 import resolvePromise from "./resolvePromise.js";
 
 const MAX_NO_ELEMENTS = 20;
+const MAX_SELECTED_EMOTIONS = 2;
 //const NO_PLAYLISTS = 5;
 //const NO_SONGS_PER_PLAYLIST = 4;
 
@@ -61,6 +62,10 @@ class SwingModel{
                 this.selectedEmotions.splice(index, 1);
             }
         }        
+    }
+
+    emotionsFull(){
+        return this.selectedEmotions.length >= MAX_SELECTED_EMOTIONS;
     }
 
     searchSongs(){

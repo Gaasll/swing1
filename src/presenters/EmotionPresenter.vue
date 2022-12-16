@@ -34,6 +34,9 @@ export default {
             return Object.keys(this.model.emotions).map((emo) => {
                 return {emotion: emo, checked: this.model.emotions[emo].checked}
             })
+        },
+        checkIsFull(){
+            return this.model.emotionsFull();
         }
         // displayEmo() {
         //     var checkboxes = document.getElementById("emo");
@@ -49,6 +52,7 @@ export default {
 <template>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <EmotionView 
     :emotions="emotions" 
     @print-emo="printEmo"
@@ -60,4 +64,8 @@ export default {
 =======
     <EmotionView :emotions="getEmotions()" :onEmotionChange="setEmotions" />
 >>>>>>> 810b16e (emotions handled by model plus half way to working weather widget)
+=======
+    <EmotionView :emotions="getEmotions()" :onEmotionChange="setEmotions" :isFull="checkIsFull()" /> 
+    <!-- :emotions="getEmotions()" -->
+>>>>>>> 4742420 (fixes to model and checkboxes plus small cleanups)
 </template>

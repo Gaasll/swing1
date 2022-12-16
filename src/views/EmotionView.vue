@@ -1,5 +1,6 @@
 <template>  
   <div class="wrapper">
+<<<<<<< HEAD
         <header>
           <div class="question"> How are you feeling today?</div>
         </header>
@@ -27,6 +28,22 @@
         <!-- <p>selected feelings: </p>
         <p v-for="emotion in emotions" :key="emotion" >{{emotion}}</p> -->
     </div>
+=======
+    <Sidebar v-if="showSidebar()"/>
+      <header>
+        <div class="question"> How are you feeling today?</div>
+      </header>
+      <div class="check-form">
+        <div class="columns" v-for="emotion in emotions" :key="emotion.emotion">
+          <!-- <input type="checkbox" id="emo"> {{emotion}} -->
+          <input type="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" v-if="emotion.checked" checked>
+          <input type="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" :disabled="isFull" v-else>
+          <label :for="emotion.emotion"> {{ emotion.emotion }} </label>
+        </div>
+      </div>
+      <NextButton v-if="showButton()" path="weather1"/>
+  </div>
+>>>>>>> 4742420 (fixes to model and checkboxes plus small cleanups)
 </template>
 
 <script>
@@ -46,6 +63,7 @@ export default {
   props: {
     emotions: Array,
     onEmotionChange: Function,
+    isFull: Boolean,
   },
 
   created() {
@@ -69,7 +87,20 @@ console.log(this.emotions);
       console.log(e);
       this.onEmotionChange(e);
     },
+<<<<<<< HEAD
 >>>>>>> 810b16e (emotions handled by model plus half way to working weather widget)
+=======
+    showSidebar() {
+      const route = useRoute();
+      // console.log(route.path);
+      return (route.path === '/emotion2');
+    },
+    showButton(){
+      const route = useRoute();
+      // console.log(route.path);
+      return (route.path === '/emotion1');
+    }
+>>>>>>> 4742420 (fixes to model and checkboxes plus small cleanups)
   },
   
 };
@@ -93,6 +124,13 @@ console.log(this.emotions);
 
     span > input{
         background-color: lightgrey;
+    }
+
+    .check-form{
+      width: 80%;
+      margin: auto;
+      display: grid;
+      grid-template-columns: auto auto auto;
     }
     .columns{
         text-align:left;
@@ -124,6 +162,7 @@ console.log(this.emotions);
     font-family: 'Didact Gothic';
   }
 }
+<<<<<<< HEAD
     
     /* button{ 
         align-self: center;
@@ -144,4 +183,11 @@ outline: none;
 font-family: 'Didact Gothic';
 }
 
+=======
+@media (max-width: 490px){
+  .check-form{
+    grid-template-columns: auto;
+  }
+}
+>>>>>>> 4742420 (fixes to model and checkboxes plus small cleanups)
 </style>

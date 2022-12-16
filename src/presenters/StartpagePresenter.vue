@@ -8,12 +8,7 @@ export default {
         StartView,
         
     },
-    props: {
-      username: {
-        type: String,
-        required: true
-      }
-    },
+    props: ["model", "keys"],
 }
 </script>
 

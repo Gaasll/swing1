@@ -12,6 +12,7 @@ export default {
   props: ["model", "keys"],
 =======
   props: {
+    username: String,
     weather: String,
     temperature: Number,
     city: String,
@@ -35,11 +36,16 @@ export default {
 
 <template>   
     <div class="weather">
+<<<<<<< HEAD
       <h1> The weather in your current location, {{name}} </h1>
 <<<<<<< HEAD
       <WeatherWidget :model="model" :key="keys['weather']"/>
       <NextButton path="/playing" />
 =======
+=======
+      <Sidebar v-if="showSidebar()" />
+      <h1> The weather in your current location, {{ username }} </h1>
+>>>>>>> 4742420 (fixes to model and checkboxes plus small cleanups)
       <WeatherWidget :weather="weather"
                      :city="city"
                      :temperature="temperature"
