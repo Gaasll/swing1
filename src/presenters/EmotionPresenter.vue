@@ -1,11 +1,11 @@
 <script>
 import EmotionView from "../views/EmotionView.vue"
-import resolvePromise from "../resolvePromise.js";
+//import resolvePromise from "../resolvePromise.js";
 export default {
     name: "EmotionPresenter",
     components: {
         EmotionView,
-        resolvePromise,
+        //resolvePromise,
     },
     props: ["model"],
     data() {

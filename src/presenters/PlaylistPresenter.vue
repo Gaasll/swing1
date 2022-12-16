@@ -12,11 +12,13 @@
 
 <script>
 import PlaylistView from '../views/PlaylistView.vue'
+//import PromiseNoData from '../views/PromiseNoData.vue'
 
 export default { 
     name: "Playlist",
     components: {
         PlaylistView,
+<<<<<<< HEAD
     },
 <<<<<<< HEAD
     props: ["model", "promiseState"],
@@ -26,6 +28,9 @@ export default {
     methods: {
         showSearchResults(){
             console.log(this.model.songsPromiseState.data);
+=======
+        //PromiseNoData,
+>>>>>>> 934a5a4 (alternative promise results added)
         },
         promiseStateBoolean(){
             return this.model.weatherPromiseState.data && this.model.trackURL;

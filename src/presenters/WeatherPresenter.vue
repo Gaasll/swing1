@@ -1,6 +1,7 @@
 <script>
 // import { onErrorCaptured, ref } from 'vue'
 import WeatherView from '../views/WeatherView.vue'
+import PromiseNoData from '../views/PromiseNoData.vue'
 //import NextButton from "../components/NextButton.vue";
 import PromiseNoData from '../views/PromiseNoData.vue'
 
@@ -8,6 +9,7 @@ export default {
     name: "Weather",
     components: {
         WeatherView,
+<<<<<<< HEAD
         //NextButton,
         PromiseNoData,
     },
@@ -17,6 +19,9 @@ export default {
             if(this.model.weatherPromiseState.data){
                 this.model.searchSongs();
             }
+=======
+        PromiseNoData,
+>>>>>>> 934a5a4 (alternative promise results added)
         }
     },
     created(){
@@ -34,6 +39,7 @@ export default {
 </script>
 
 <template>
+<<<<<<< HEAD
     <!-- <div v-if="error"> {{error}} 
         <NextButton/> 
     </div> -->
@@ -50,6 +56,10 @@ export default {
             <NextButton/> 
         </div>
     </div>
+=======
+    <WeatherView v-if="promiseState.data"/> 
+    <PromiseNoData v-else :promiseState="promiseState"/>
+>>>>>>> 934a5a4 (alternative promise results added)
 </template>
 
 

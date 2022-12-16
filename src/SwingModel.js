@@ -4,6 +4,7 @@ import {soundCloudSearch} from "./musicSource.js";
 import resolvePromise from "./resolvePromise.js";
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 // const MAX_NO_ELEMENTS = 20;
 =======
 >>>>>>> 60f0223 (tar helg nu)
@@ -11,6 +12,10 @@ const MAX_SELECTED_EMOTIONS = 2;
 const MIN_DURATION = 45_000;
 const MAX_DURATION = 400_000;
 //const MAX_NO_ELEMENTS = 20;
+=======
+const MAX_NO_ELEMENTS = 20;
+const MAX_SELECTED_EMOTIONS = 2;
+>>>>>>> 934a5a4 (alternative promise results added)
 //const NO_PLAYLISTS = 5;
 //const NO_SONGS_PER_PLAYLIST = 4;
 
@@ -45,10 +50,13 @@ class SwingModel{
         resolvePromise(getLocation(), this.locationPromiseState).then(this.getWeatherData.bind(this));
     }
 
+<<<<<<< HEAD
     setPlaylist(song){
         this.playlist =[...this.playlist, song]
     }
 
+=======
+>>>>>>> 934a5a4 (alternative promise results added)
     getWeatherData(){
         resolvePromise(getCurrentWeatherInfo(this.locationPromiseState.data),
                        this.weatherPromiseState,
@@ -88,15 +96,21 @@ class SwingModel{
 
         //console.log(searchParams);
         //resolvePromise(search(searchParams), this.songsPromiseState, this.notifyObservers.bind(this));
+<<<<<<< HEAD
         
         let emotions = this.selectedEmotions.join(" ");
         let searchParams = {q: this.weatherPromiseState.data.weather + " " + emotions,
                             "duration from": MIN_DURATION,  "duration to":  MAX_DURATION,}
+=======
+
+        let searchParams = {q: this.weatherPromiseState.data.weather + " " + this.selectedEmotions[0],}
+>>>>>>> 934a5a4 (alternative promise results added)
         resolvePromise(soundCloudSearch(searchParams), this.songsPromiseState, this.notifyObservers.bind(this))
         .then(this.exctractPlayerData.bind(this));
     }
 
     exctractPlayerData(){
+<<<<<<< HEAD
 <<<<<<< HEAD
         let rand = this.randInt(10);
         console.log(rand);
@@ -122,6 +136,13 @@ class SwingModel{
             color: "#5D3F7F",
             auto_play: true,
 >>>>>>> 60f0223 (tar helg nu)
+=======
+        let baseURL = "https://w.soundcloud.com/player/?"
+        let playerData = {
+            url: this.songsPromiseState.data[0].uri,
+            color: "#ff5500",
+            auto_play: false,
+>>>>>>> 934a5a4 (alternative promise results added)
             hide_related: false,
             show_comments: false,
             show_user: false,
@@ -131,6 +152,7 @@ class SwingModel{
         }
         this.trackURL = baseURL + new URLSearchParams(playerData);
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
     /*
     randInt(){
@@ -149,6 +171,12 @@ class SwingModel{
         return Math.floor(Math.random() * (max - min) + min);
       }
       
+=======
+
+    randInt(){
+        return Math.floor(Math.random() * MAX_NO_ELEMENTS);
+    }
+>>>>>>> 934a5a4 (alternative promise results added)
 
     notifyObservers(payload){
         function callObserverCallback(obs){
@@ -162,9 +190,12 @@ class SwingModel{
 
         this.observers.forEach(callObserverCallback);
     }
+<<<<<<< HEAD
 
     addObserver(toAdd){
         this.observers =[...this.observers, toAdd]}
+=======
+>>>>>>> 934a5a4 (alternative promise results added)
 }
 
 export default SwingModel
