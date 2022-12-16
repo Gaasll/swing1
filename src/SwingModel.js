@@ -92,14 +92,15 @@ class SwingModel{
 
 
     exctractPlayerData(){
-    
-        let songData = {title: this.songsPromiseState.data[0].title, url: this.songsPromiseState.data[0].permalink_url};
+        let rand = this.randInt(10);
+        console.log(rand);
+        let songData = {title: this.songsPromiseState.data[rand].title, url: this.songsPromiseState.data[rand].permalink_url};
         this.setPlaylist(songData);
         console.log(this.playlist[0].url);
 
         let baseURL = "https://w.soundcloud.com/player/?"
         let playerData = {
-            url: this.songsPromiseState.data[0].uri,
+            url: this.songsPromiseState.data[rand].uri,
             color: "#ff5500",
             auto_play: false,
             hide_related: false,
@@ -111,10 +112,18 @@ class SwingModel{
         }
         this.trackURL = baseURL + new URLSearchParams(playerData);
     }
-
+    /*
     randInt(){
         return Math.floor(Math.random() * MAX_NO_ELEMENTS);
     }
+    */
+
+    randInt(max) {
+        let min = Math.ceil(1);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min);
+      }
+      
 
     notifyObservers(payload){
         function callObserverCallback(obs){

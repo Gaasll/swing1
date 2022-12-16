@@ -26,7 +26,7 @@ function updateFirebaseFromModel(model) {
             firebase.database().ref(REF+"/username").set(model.username);
 
         if (payload && payload.playlist)
-            firebase.database().ref(REF+"/playlist"+payload.dishAdded.id).set(model.playlist);
+            firebase.database().ref(REF+"/playlist"+payload.dishAdded.id).set(model.setPlaylist);
 
         if (payload && payload.emotions)
             firebase.database().ref(REF+"/emotions/"+payload.dishAdded.id).set(model.emotions);
