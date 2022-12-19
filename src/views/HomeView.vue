@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="greetings">
-      <h1>Swings</h1>
+      <h1>Swingmood</h1>
       <br>
       <h3>
         A change in the weather can be a nice change of mood at times. Other times it
