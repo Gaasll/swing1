@@ -1,29 +1,41 @@
 <template>
-    <PlaylistView :username="model.username"
-                  :selectedEmotions="model.selectedEmotions"
-                  :weather="model.weatherPromiseState.data.weather"
-                  :iconURL="model.weatherPromiseState.data.icon"
-                  :trackURL="model.trackURL" />
+    <Sidebar />
+    <div :key="rerenderKey">
+        <div v-if="this.model.weatherPromiseState.data">
+            <PlaylistView :username="model.username"
+                          :selectedEmotions="model.selectedEmotions"
+                          :weather="model.weatherPromiseState.data.weather"
+                          :iconURL="model.weatherPromiseState.data.icon"
+                          :trackURL="model.trackURL"
+                          :refreshTrackURL="searchMusic" />
+        </div>
+        <div v-else>
+            <PromiseNoData :promiseState="this.model.weatherPromiseState"
+                           :dependencyPromiseState="this.model.locationPromiseState" />
+        </div>
+    </div>
 </template>
 
 <script>
 import PlaylistView from '../views/PlaylistView.vue'
+import Sidebar from "../components/Sidebar.vue";
+import PromiseNoData from '@/views/PromiseNoData.vue';
 
 export default { 
     name: "Playlist",
     components: {
         PlaylistView,
+        Sidebar,
+        PromiseNoData,
     },
-    props: ["model", "keys"],
+    props: ["model", "rerenderKey"],
     methods: {
-        showSearchResults(){
-            console.log(this.model.songsPromiseState.data);
-        }
+        searchMusic(){
+            if(!this.model.trackURL && this.model.weatherPromiseState.data){
+                this.model.searchSongs();
+            }
+        },
     },
-    created(){
-        this.showSearchResults();
-        window.location.hash = "sidebar";
-    }
 }
 </script>
 

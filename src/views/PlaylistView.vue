@@ -1,27 +1,26 @@
 <script>
-import Sidebar from "../components/Sidebar.vue";
 
 export default{
     name: "PlaylistView",
     components: {
-      Sidebar
     },
     props: ["selectedEmotions",
             "username",
             "weather",
             "iconURL",
             "trackURL",
+            "refreshTrackURL",
           ],
-    mounted() {
+    created() {
+      this.refreshTrackURL();
     }
 }
 </script>
 
 <template>
     <div class="playing">
-      <Sidebar/>
+      <Sidebar />
       <div class="header">
-        <h1> {{ username }} </h1>
         <h2>PLAYING MUSIC FOR FEELING
           <span v-for="emotion in selectedEmotions" :key="emotion">
             <span v-if="emotion != selectedEmotions[0]">

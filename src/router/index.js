@@ -4,37 +4,42 @@ const routes = [
     {
         path: '/',
         component: () => import('../presenters/StartpagePresenter.vue'),
-        props: { model: false, keys: false },
+        props: { model: false, rerenderKey: false },
     },
     {
         path: '/home',
         component: () => import('../presenters/HomePresenter.vue'),
-        props: { model: false, keys: false },
+        props: { model: false, rerenderKey: false },
+    },
+    {
+        path: '/emotionSetup',
+        component: () => import('../presenters/EmotionPresenter.vue'),
+        props: { model: true, rerenderKey: false },
     },
     {
         path: '/emotion',
         component: () => import('../presenters/EmotionPresenter.vue'),
-        props: { model: true, keys: false},
-    },
-    {
-        path: '/emotion2',
-        component: () => import('../presenters/EmotionPresenter.vue'),
-        props: { model: true, keys: false},
+        props: { model: true, rerenderKey: false },
     },
     {
         path: '/playing',
         component: () => import('../presenters/PlaylistPresenter.vue'),
-        props: { model: true, keys: false },
+        props: { model: true, rerenderKey: true },
+    },
+    {
+        path: '/weatherSetup',
+        component: () => import('../presenters/WeatherPresenter.vue'),
+        props: { model: true, rerenderKey: true },
     },
     {
         path: '/weather',
         component: () => import('../presenters/WeatherPresenter.vue'),
-        props: { model: true , keys: true },
+        props: { model: true, rerenderKey: true },
     },
     {
-        path: '/weather2',
-        component: () => import('../presenters/WeatherPresenter.vue'),
-        props: { model: true , keys: true },
+        path: '/history',
+        component: () => import('../views/PromiseNoData.vue'),
+        props: { model: true, rerenderKey: false },
     },
 ]
 

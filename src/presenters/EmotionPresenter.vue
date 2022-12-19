@@ -1,17 +1,17 @@
 <script>
 import EmotionView from "../views/EmotionView.vue"
+import NextButton from "../components/NextButton.vue"
+import Sidebar from "../components/Sidebar.vue"
+import {useRoute} from 'vue-router';
+
 export default {
     name: "Emotion",
     components: {
+        Sidebar,
         EmotionView,
+        NextButton,
     },
     props: ["model"],
-    data() {
-        return {
-          emotions:["happy", "sad", "angry", "excited", "stressed", "scared", 
-                    "confident", "embarassed", "horny", "cozy", "queer"],
-        };
-    },
     methods: {
         setEmotions(e) {
             this.model.setEmotions(e.target.parentNode.__vnode.key, e.target.checked);
@@ -24,12 +24,24 @@ export default {
         },
         checkIsFull(){
             return this.model.emotionsFull();
-        }
+        },
+        showSidebar() {
+            const route = useRoute();
+            return (route.path === '/emotion');
+        },
+        showButton(){
+            const route = useRoute();
+            return (route.path === '/emotionSetup');
+        },
     },
 };
 </script>
 
 <template>
-    <EmotionView :emotions="getEmotions()" :onEmotionChange="setEmotions" :isFull="checkIsFull()" /> 
-    <!-- :emotions="getEmotions()" -->
+    <Sidebar v-if="showSidebar()" />
+    <EmotionView :emotions="getEmotions()"
+                 :onEmotionChange="setEmotions"
+                 :isFull="checkIsFull()"
+                 />
+    <NextButton v-if="showButton()" path="weatherSetup"/>
 </template>
