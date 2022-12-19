@@ -5,13 +5,13 @@
             Answer a couple of questions and we will create a soundtrack to your day.
         </h2>
         <form action="">
-            <input type="email">
-            <input type="password">
+            <input type="email" id="username">
+            <input type="password" id="passwd">
         </form>
         <!-- <h2>What is your name?</h2>
         <input type="text" v-on:keyup.enter="logName" autofocus>  -->
     </div>
-    <NextButton path="emotion1" />
+    <NextButton path="emotion1" :event="logName" />
     <!--NextButton v-on:click="logName" path="emotion1" /-->
 </template>
 

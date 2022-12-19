@@ -40,7 +40,7 @@ function signIn(email, password){
       });
 }
 
-function (){
+function fbAuthObs(){
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
           // User is signed in, see docs for a list of available properties
@@ -71,6 +71,7 @@ function firebaseModelPromise() {
         function createModelACB(emotionsArray){
             let model = new SwingModel();
             model.selectedEmotions = emotionsArray;
+            model.addObserver(this.fbAuthObs.bind(this));
             return model;
         }
         // return Promise.all(dishPromiseArray).then(createModelACB) // wait for all promise results 
