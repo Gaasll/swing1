@@ -11,8 +11,8 @@ const MAX_DURATION = 400_000;
 //const NO_SONGS_PER_PLAYLIST = 4;
 
 class SwingModel{
-    constructor(notify){
-        this.observers = [notify];
+    constructor(){
+        this.observers = [];
 
         this.username = "user_name";
         
@@ -116,7 +116,7 @@ class SwingModel{
     }
     
 
-    randInt(max) {
+    randInt2(max) {
         let min = Math.ceil(1);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min) + min);

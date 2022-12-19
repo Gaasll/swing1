@@ -1,6 +1,6 @@
 <template>  
   <div class="wrapper">
-    <!--Sidebar v-if="showSidebar()"/-->
+    <Sidebar v-if="showSidebar()"/>
       <header>
         <h1 class="question"> How are you feeling today?</h1>
       </header>

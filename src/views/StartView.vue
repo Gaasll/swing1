@@ -4,6 +4,10 @@
         <h2>We aim to provide you with the perfect playlist, taylored to your mood and current situation. <br> 
             Answer a couple of questions and we will create a soundtrack to your day.
         </h2>
+        <form action="">
+            <input type="email">
+            <input type="password">
+        </form>
         <!-- <h2>What is your name?</h2>
         <input type="text" v-on:keyup.enter="logName" autofocus>  -->
     </div>

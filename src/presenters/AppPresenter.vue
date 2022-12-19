@@ -7,18 +7,19 @@
 <script>
 import AppView from '../views/AppView.vue'
 import SwingModel from '../SwingModel.js'
-import { onErrorCaptured, ref, Suspense } from 'vue'
+import resolvePromise from "../resolvePromise.js";
+import { updateFirebaseFromModel, updateModelFromFirebase, firebaseModelPromise, signIn, createUser } from "../firebaseModel";
 
 export default {
   name: 'App',
   components: {
     AppView,
-    Suspense,
   },
   data() {
     return{
       model: new SwingModel(this.rerender.bind(this)),
       keys: {weather: 0,},
+      promiseState: {}
     }
   },
   methods: {
@@ -28,6 +29,14 @@ export default {
     showSidebar(){
       return window.location.hash == 'sidebar';
     },
-  }
+    notifyACB(){  
+        if (this.promiseState.data){
+            updateModelFromFirebase(this.promiseState.data);
+            updateFirebaseFromModel(this.promiseState.data);}
+        },
+  },
+  created(){ 
+    resolvePromise(firebaseModelPromise(), this.promiseState, this.notifyACB)
+  },
 }
 </script>

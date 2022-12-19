@@ -2,17 +2,82 @@
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-import { initializeApp } from "firebase/app";
+import firebase from "firebase/app";
 import firebaseConfig from "/src/firebaseConfig.js";
+import "firebase/auth";
 import SwingModel from "./SwingModel";
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-//firebase.initializeApp(firebaseConfig);  
+require('firebase/database');
 
-//  REF is the “root” Firebase path. NN is your TW2_TW3 group number
+firebase.initializeApp(firebaseConfig);  
+const auth = firebase.auth();
+
 const REF="swingmood";
-//firebase.database().ref(REF+"/test").set("dummy");
+// firebase.database().ref(REF+"/test").set("dummy");
 
+function createUser(email, password) {
+    auth.createUserWithEmailAndPassword(email, password).then((userCredential) => {
+    // Signed in 
+    var user = userCredential.user;
+    console.log(userCredential);
+    // ...
+    }).catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ..
+  });
+}
+
+function signIn(email, password){
+    auth.signInWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Signed in
+        var user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+      });
+}
+
+function (){
+    firebase.auth().onAuthStateChanged((user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          var uid = user.uid;
+          // ...
+        } else {
+          // User is signed out
+          // ...
+        }
+      });
+}
+
+function firebaseModelPromise() {
+    function makeBigPromiseACB(firebaseData) {
+        // function makePromise(dishId){
+        //     return getDishDetails(dishId);
+        // }
+        let selectedEmotions;
+        if(firebaseData.val() && firebaseData.val().selectedEmotions){
+            selectedEmotions = firebaseData.val().selectedEmotions;
+        } else { selectedEmotions = [] }
+        // const dishPromiseArray= Object.keys(dishes).map(makeDishPromiseCB);
+        // let nrGuests;
+        // if(firebaseData.val() && firebaseData.val().nrOfGuests){
+        //     nrGuests = firebaseData.val().nrOfGuests;
+        // } else { nrGuests=2; }
+        function createModelACB(emotionsArray){
+            let model = new SwingModel();
+            model.selectedEmotions = emotionsArray;
+            return model;
+        }
+        // return Promise.all(dishPromiseArray).then(createModelACB) // wait for all promise results 
+        return createModelACB(selectedEmotions);
+    }
+    return firebase.database().ref(REF).once("value").then(makeBigPromiseACB);
+}
 
 function observerRecap(model) {
     function obsACB(payload){console.log(payload);}
@@ -26,32 +91,26 @@ function updateFirebaseFromModel(model) {
             firebase.database().ref(REF+"/username").set(model.username);
 
         if (payload && payload.playlist)
-            firebase.database().ref(REF+"/playlist"+payload.dishAdded.id).set(model.setPlaylist);
+            firebase.database().ref(REF+"/playlist"+payload.playlist).set(model.setPlaylist);
 
         if (payload && payload.emotions)
-            firebase.database().ref(REF+"/emotions/"+payload.dishAdded.id).set(model.emotions);
+            firebase.database().ref(REF+"/emotions/"+payload.emotions).set(model.emotions);
 
     }
     model.addObserver(fireBaseObsACB);
 }   
 
 function updateModelFromFirebase(model) {
-    firebase.database().ref(REF+"/numberOfGuests").on("value", 
-    function guestsChangedInFirebaseACB(firebaseData){ model.setNumberOfGuests(firebaseData.val());});
+    firebase.database().ref(REF+"/username").on("value", 
+    function usernameChangedInFirebaseACB(firebaseData){ model.setUsername(firebaseData.val());});
 
-    firebase.database().ref(REF+"/currentDish").on("value", 
-    function currentChangedInFirebaseACB(firebaseData){ model.setCurrentDish(firebaseData.val());});
+    firebase.database().ref(REF+"/playlist").on("value", 
+    function currentChangedInFirebaseACB(firebaseData){ model.setPlaylist(firebaseData.val());});
 
-    firebase.database().ref(REF+"/dishes/").on("child_added", 
-    function dishAddedInFirebaseACB(data){
-        function isAlreadyInModelACB(dish){return (+data.key)===dish.id;}
-        if(!model.dishes.find(isAlreadyInModelACB)) getDishDetails(+data.key).then(
-            function addDishCB(dish){model.addToMenu(dish)})
-    })
+    // firebase.database().ref(REF+"/emotions/").on("child_added", 
+    // function dishAddedInFirebaseACB(firebaseData){ model.setEmotions(firebaseData.val(), isChecked)});
     
-    firebase.database().ref(REF+"/dishes/").on("child_removed", 
-    function dishRemovedInFirebaseACB(firebaseData){ model.removeFromMenu({id:+firebaseData.key});});
-    return;
 }
 
+export {firebaseModelPromise, updateFirebaseFromModel, updateModelFromFirebase, createUser, signIn}
 //still needs a bunch of stuff
