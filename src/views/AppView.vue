@@ -3,27 +3,22 @@
 <template>
   <div v-if="error"> {{error}} </div>
   <div>
-    <!-- <Suspense>
-      <template #default> -->
-        <router-view :model="model" :keys="keys" />
-      <!-- </template>
-      <template #fallback>
-        <div>Loading weather...</div>
-        <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!c1024wm0" class="loadingImage" />
-      </template>
-    </Suspense> -->
+    <Sidebar v-if="showSidebar" />
+    <router-view :model="model" :keys="keys" />
     <Footer />
   </div>
 </template>
 
 <script>
+import Sidebar from "../components/Sidebar.vue";
 import Footer from "../presenters/FooterPresenter.vue";
 //import { onErrorCaptured, ref, Suspense } from 'vue'
 
 export default {
   name: "AppView",
-  props: ["model", "keys"],
+  props: ["model", "keys", "showSidebar"],
   components: {
+    Sidebar,
     Footer,
     // Suspense,
   },
@@ -39,42 +34,24 @@ export default {
 </script>
 
 <style>
+body {
+  margin: 0;
+}
+
 #app {
-  font-family: Didact Gothic;
+  font-family: 'Didact Gothic';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: black;
   margin-top: 60px;
 }
-button {
-  background-image: url('../assets/button.jpg');
-  margin: 0.5em;
-  border-radius: 50%;
-  border: none;
-  height: 44px;
-  width: 44px;
-  outline: none;
-  color: rgb(248, 246, 246);
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
+
+router-view {
+  margin-top: 60px;
 }
-/* button {
-		background: #000000d0;
-		margin: 0.5em;
-		border-radius: 50%;
-		border: none;
-		height: 44px;
-		width: 44px;
-		outline: none;
-		color: white;
-		cursor: pointer;
-		transition: 0.2s ease-in-out;
-	} */
-Footer{
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem; 
+
+h1, h2, h3 {
+  font-weight: normal;
 }
 </style>

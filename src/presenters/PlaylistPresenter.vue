@@ -18,7 +18,7 @@ export default {
     components: {
         PlaylistView,
     },
-    props: ["model", "promiseState"],
+    props: ["model", "keys"],
     methods: {
         showSearchResults(){
             console.log(this.model.songsPromiseState.data);
@@ -29,6 +29,7 @@ export default {
     },
     created(){
         this.showSearchResults();
+        window.location.hash = "sidebar";
     }
 }
 </script>

@@ -22,21 +22,10 @@ export default {
     created(){
         this.searchMusic();
     },
-    // setup(){
-    //     const error = ref(null);
-    //     onErrorCaptured((e)=>{
-    //         error.value = e;
-    //         return true;
-    //     })
-    //     return { error };
-    // }
 }
 </script>
 
 <template>
-    <!-- <div v-if="error"> {{error}} 
-        <NextButton/> 
-    </div> -->
     <div :key="keys.weather">
         <WeatherView v-if="this.model.weatherPromiseState.data"
                     :username="model.username"

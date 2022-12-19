@@ -8,55 +8,62 @@ const ToggleMenu = () => {
 </script>
 
 <template>
-	<aside :class="`${is_expanded ? 'is-expanded' : ''}`">
-		<!-- <div class="logo"></div> -->
+	<div class="sidebar">
+		<aside :class="`${is_expanded ? 'is-expanded' : ''}`">
+			<!-- <div class="logo"></div> -->
 
-		<div class="menu-toggle-wrap">
-			<button class="menu-toggle" @click="ToggleMenu">
-				<span class="material-icons"> navigate_next </span>
-			</button>
-		</div>
-    
-		
-		<h3>Menu</h3>
-		<div class="menu">
-			<router-link to="/home" class="button">
-				<span ></span>
-                <span class="material-icons">home</span>
-                    <span class="text">Home</span>
-			</router-link>
-			<router-link to="/emotion2" class="button">
-				<span ></span>
-                <span class="material-icons">add_reaction</span>
-				<span class="text">Emotions</span>
-			</router-link>
-			<router-link to="/weather2" class="button">
-				<span class="material-icons">sunny</span>
-				<span class="text">Weather</span>
-			</router-link>
-            <router-link to="/playing" class="button">
-				<span class="material-icons">play_arrow</span>
-				<span class="text">Playing now</span>
-			</router-link>
-			<router-link to="/history" class="button">
-				<span class="material-icons">history</span>
-				<span class="text">History</span>
-			</router-link>
-		</div>
-	</aside>
+			<div class="menu-toggle-wrap">
+				<button class="menu-toggle" @click="ToggleMenu">
+					<span class="material-icons"> navigate_next </span>
+				</button>
+			</div>
+	
+			
+			<h3>Menu</h3>
+			<div class="menu">
+				<router-link to="/home" class="button">
+					<span class="material-icons">home</span>
+					<span class="text">Home</span>
+				</router-link>
+				<router-link to="/emotion2" class="button">
+					<span class="material-icons">add_reaction</span>
+					<span class="text">Emotions</span>
+				</router-link>
+				<router-link to="/weather2" class="button">
+					<span class="material-icons">sunny</span>
+					<span class="text">Weather</span>
+				</router-link>
+				<router-link to="/playing" class="button">
+					<span class="material-icons">play_arrow</span>
+					<span class="text">Playing now</span>
+				</router-link>
+				<router-link to="/playing#" class="button">
+					<span class="material-icons">history</span>
+					<span class="text">History</span>
+				</router-link>
+			</div>
+		</aside>
+	</div>
 </template>
 
 <style lang="scss" scoped>
+.sidebar {
+  position: fixed;
+  top: 50%;
+  transform: translate(0, -50%);
+  //height: 40%;
+  z-index: 1;
+}
+
 aside {
 	display: flex;
-	float: left;
 	margin-top: 0px;
 	flex-direction: column;
 	background: rgb(255, 253, 253);
 	color: var(--light);
-	width: calc(5rem + 32px);
+	width: calc(3rem + 22px);
 	overflow: hidden;
-	min-height: 100vh;
+	//min-height: 100vh;
 	padding: 1rem;
 	transition: 0.2s ease-in-out;
 	.flex {
@@ -156,7 +163,7 @@ aside {
 		}
 	}
 	&.is-expanded {
-		width: var(--sidebar-width);
+		width: calc(5rem + 32px);
 		.menu-toggle-wrap {
 			top: -1rem;
 			
@@ -178,7 +185,7 @@ aside {
 		}
 	}
 	@media (max-width: 1024px) {
-		position: absolute;
+		//position: absolute;
 		z-index: 99;
 	}
 }

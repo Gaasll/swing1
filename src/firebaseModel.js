@@ -51,9 +51,6 @@ function updateModelFromFirebase(model) {
     
     firebase.database().ref(REF+"/dishes/").on("child_removed", 
     function dishRemovedInFirebaseACB(firebaseData){ model.removeFromMenu({id:+firebaseData.key});});
-
-    
-
     return;
 }
 

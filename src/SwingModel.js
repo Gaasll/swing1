@@ -3,8 +3,10 @@ import {getCurrentWeatherInfo} from "./weatherSource.js";
 import {soundCloudSearch} from "./musicSource.js";
 import resolvePromise from "./resolvePromise.js";
 
-// const MAX_NO_ELEMENTS = 20;
 const MAX_SELECTED_EMOTIONS = 2;
+const MIN_DURATION = 45_000;
+const MAX_DURATION = 400_000;
+//const MAX_NO_ELEMENTS = 20;
 //const NO_PLAYLISTS = 5;
 //const NO_SONGS_PER_PLAYLIST = 4;
 
@@ -82,24 +84,23 @@ class SwingModel{
 
         //console.log(searchParams);
         //resolvePromise(search(searchParams), this.songsPromiseState, this.notifyObservers.bind(this));
-
-        let searchParams = {q: this.weatherPromiseState.data.weather + " " + this.selectedEmotions[0],}
+        
+        let emotions = this.selectedEmotions.join(" ");
+        let searchParams = {q: this.weatherPromiseState.data.weather + " " + emotions,
+                            "duration from": MIN_DURATION,  "duration to":  MAX_DURATION,}
         resolvePromise(soundCloudSearch(searchParams), this.songsPromiseState, this.notifyObservers.bind(this))
         .then(this.exctractPlayerData.bind(this));
     }
 
     exctractPlayerData(){
-        let rand = this.randInt(10);
-        console.log(rand);
-        let songData = {title: this.songsPromiseState.data[rand].title, url: this.songsPromiseState.data[rand].permalink_url};
-        this.setPlaylist(songData);
-        console.log(this.playlist[0].url);
-
+        console.log(this.songsPromiseState.data);
+        let songURL = this.songsPromiseState.data[this.randInt(this.songsPromiseState.data.length)].uri;
         let baseURL = "https://w.soundcloud.com/player/?"
         let playerData = {
-            url: this.songsPromiseState.data[rand].uri,
-            color: "#ff5500",
-            auto_play: false,
+            url: songURL,
+            //color: "#ff5500",
+            color: "#5D3F7F",
+            auto_play: true,
             hide_related: false,
             show_comments: false,
             show_user: false,
@@ -109,11 +110,11 @@ class SwingModel{
         }
         this.trackURL = baseURL + new URLSearchParams(playerData);
     }
-    /*
-    randInt(){
-        return Math.floor(Math.random() * MAX_NO_ELEMENTS);
+
+    randInt(n){
+        return Math.floor(Math.random() * n);
     }
-    */
+    
 
     randInt(max) {
         let min = Math.ceil(1);
