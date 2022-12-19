@@ -1,35 +1,53 @@
 <script>
+// import { onErrorCaptured, ref } from 'vue'
 import WeatherView from '../views/WeatherView.vue'
 //import NextButton from "../components/NextButton.vue";
+import PromiseNoData from '../views/PromiseNoData.vue'
 
 export default { 
     name: "Weather",
     components: {
         WeatherView,
+        //NextButton,
+        PromiseNoData,
     },
-    props: ["model", "keys"],
+    props: ["model", "keys", "promiseState"],
     methods: {
         searchMusic(){
-            this.model.searchSongs();
+            if(this.model.weatherPromiseState.data){
+                this.model.searchSongs();
+            }
         }
     },
     created(){
         this.searchMusic();
     },
+    // setup(){
+    //     const error = ref(null);
+    //     onErrorCaptured((e)=>{
+    //         error.value = e;
+    //         return true;
+    //     })
+    //     return { error };
+    // }
 }
 </script>
 
 <template>
+    <!-- <div v-if="error"> {{error}} 
+        <NextButton/> 
+    </div> -->
     <div :key="keys.weather">
         <WeatherView v-if="this.model.weatherPromiseState.data"
-                     :username="model.username"
-                     :weather="model.weatherPromiseState.data.weather"
-                     :city="model.weatherPromiseState.data.city"
-                     :temperature="model.weatherPromiseState.data.temperature"
-                     :iconPath="model.weatherPromiseState.data.icon" 
-                     :key="keys.weather" />
+                    :username="model.username"
+                    :weather="model.weatherPromiseState.data.weather"
+                    :city="model.weatherPromiseState.data.city"
+                    :temperature="model.weatherPromiseState.data.temperature"
+                    :iconPath="model.weatherPromiseState.data.icon" 
+                    :key="keys.weather" />
         <div v-else>
-            loading...
+            <PromiseNoData :promiseState="this.model.weatherPromiseState" />
+            <NextButton/> 
         </div>
     </div>
 </template>

@@ -4,10 +4,8 @@
         <h2>We aim to provide you with the perfect playlist, taylored to your mood and current situation. <br> 
             Answer a couple of questions and we will create a soundtrack to your day.
         </h2>
-        <!-- <div class="text">
-        <input type="text" v-on:keyup.enter="logName" autofocus> 
-        </div> -->
-        <!-- <p>Hello {{username}}</p> -->
+        <!-- <h2>What is your name?</h2>
+        <input type="text" v-on:keyup.enter="logName" autofocus>  -->
     </div>
     <NextButton v-on:click="logName" path="emotion1" />
 </template>
@@ -17,7 +15,9 @@ import NextButton from "../components/NextButton.vue";
 
 export default{
     name: "StartView",
-    props: { },
+    props: {
+        onNameInput: Function 
+    },
     components: {
         NextButton
     },
@@ -28,10 +28,11 @@ export default{
     },
     methods: {
         logName(e){
-            console.log(e);
-            this.$emit('setUsername', this.username); // target.value
-            // this.username = KeyboardEvent.target.value;
-            document.getElementById("nextPage").click();
+            this.onNameInput(e.target.username);
+            // console.log(e);
+            // this.$emit('setUsername', this.username); // target.value
+            // // this.username = KeyboardEvent.target.value;
+            // document.getElementById("nextPage").click();
         }
     }
 }

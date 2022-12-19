@@ -1,22 +1,40 @@
 // in App.vue you only want the components that you want visible on every page
 
 <template>
+  <div v-if="error"> {{error}} </div>
   <div>
-    <!-- <Sidebar v-if="" /> -->
-    <router-view :model="model" :keys="keys" />
+    <!-- <Suspense>
+      <template #default> -->
+        <router-view :model="model" :keys="keys" />
+      <!-- </template>
+      <template #fallback>
+        <div>Loading weather...</div>
+        <img src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!c1024wm0" class="loadingImage" />
+      </template>
+    </Suspense> -->
     <Footer />
   </div>
 </template>
 
 <script>
 import Footer from "../presenters/FooterPresenter.vue";
+//import { onErrorCaptured, ref, Suspense } from 'vue'
 
 export default {
   name: "AppView",
   props: ["model", "keys"],
   components: {
     Footer,
+    // Suspense,
   },
+  // setup(){
+  //       const error = ref(null);
+  //       onErrorCaptured((e)=>{
+  //           error.value = e;
+  //           return true;
+  //       })
+  //       return { error };
+  //   }
 }
 </script>
 

@@ -6,7 +6,6 @@
       </header>
       <div class="check-form">
         <div class="columns" v-for="emotion in emotions" :key="emotion.emotion">
-          <!-- <input type="checkbox" id="emo"> {{emotion}} -->
           <input type="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" v-if="emotion.checked" checked>
           <input type="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" :disabled="isFull" v-else>
           <label :for="emotion.emotion"> {{ emotion.emotion }} </label>
@@ -39,17 +38,14 @@ export default {
       this.$emit("counter-increment");
     },
     onCheckboxChange(e){
-      // console.log(e);
       this.onEmotionChange(e);
     },
     showSidebar() {
       const route = useRoute();
-      // console.log(route.path);
       return (route.path === '/emotion2');
     },
     showButton(){
       const route = useRoute();
-      // console.log(route.path);
       return (route.path === '/emotion1');
     }
   },
@@ -74,6 +70,7 @@ export default {
     }
 
     .check-form{
+      text-align:left; 
       width: 80%;
       margin: auto;
       display: grid;

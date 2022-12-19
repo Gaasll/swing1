@@ -17,6 +17,7 @@ export default {
     temperature: Number,
     city: String,
     iconPath: String,
+    // searchMusic: Function,
   },
   methods: {
     showSidebar() {
@@ -28,8 +29,14 @@ export default {
       const route = useRoute();
       // console.log(route.path);
       return (route.path === '/weather1');
-    }
-  }
+    },
+    // searchMusic(){
+    //     this.model.searchSongs();
+    // }
+  },
+  // created(){
+  //     this.searchMusic();
+  // }
 }
 </script>
 

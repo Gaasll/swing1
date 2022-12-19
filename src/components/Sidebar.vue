@@ -38,7 +38,7 @@ const ToggleMenu = () => {
 				<span class="material-icons">play_arrow</span>
 				<span class="text">Playing now</span>
 			</router-link>
-			<router-link to="/contact" class="button">
+			<router-link to="/history" class="button">
 				<span class="material-icons">history</span>
 				<span class="text">History</span>
 			</router-link>
@@ -135,14 +135,14 @@ aside {
 			&:hover {
 				background-color: var(--dark-alt);
 				.material-icons, .text {
-					color: rgb(120, 92, 130);
+					color: rgb(153, 86, 143);
 				}
 			}
 			&.router-link-exact-active {
 				background-color: var(--dark-alt);
 				
 				.material-icons, .text {
-					color: rgb(120, 92, 130);
+					color: rgb(153, 86, 143);
 				}
 			}
 		}
