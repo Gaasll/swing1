@@ -1,7 +1,11 @@
 <template>
   <div>
     <div class="greetings">
+<<<<<<< HEAD
       <h1>SwingMood</h1>
+=======
+      <h1>Swingmood</h1>
+>>>>>>> 11bec2c (possible fix to being able to select too many emotions)
       <br>
       <h3>
         We aim to provide you with the perfect playlist tailored to your mood and current situation.
