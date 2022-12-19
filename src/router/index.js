@@ -12,7 +12,7 @@ const routes = [
         props: { model: false, keys: false },
     },
     {
-        path: '/emotion1',
+        path: '/emotion',
         component: () => import('../presenters/EmotionPresenter.vue'),
         props: { model: true, keys: false},
     },
@@ -27,7 +27,7 @@ const routes = [
         props: { model: true, keys: false },
     },
     {
-        path: '/weather1',
+        path: '/weather',
         component: () => import('../presenters/WeatherPresenter.vue'),
         props: { model: true , keys: true },
     },
@@ -36,11 +36,6 @@ const routes = [
         component: () => import('../presenters/WeatherPresenter.vue'),
         props: { model: true , keys: true },
     },
-    {
-        path: '/test',
-        component: () => import('../views/TestView.vue'),
-        props: { model: true, keys: false },
-      },
 ]
 
 const router = createRouter({

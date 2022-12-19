@@ -1,11 +1,13 @@
 <script>
 import StartView from '../views/StartView.vue'
+import NextButton from "../components/NextButton.vue";
 //import NextButton from "../components/NextButton.vue";
 
 export default { 
     name: "Startpage",
     components: {
         StartView,
+        NextButton
         
     },
     props: ["model", "keys"],
@@ -14,7 +16,7 @@ export default {
 
 <template>
     <StartView />
-    <!-- <NextButton/> -->
+    <NextButton path="emotion" />
 </template>
 
 
