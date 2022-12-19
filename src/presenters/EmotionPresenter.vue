@@ -44,7 +44,7 @@ export default {
 }
 =======
         setEmotions(e) {
-            this.model.setEmotions(e.target.parentNode.__vnode.key, e.target.checked);
+            this.model.setEmotions(e.target.id, e.target.checked);
             console.log(this.model.selectedEmotions);
         },
         getEmotions(){

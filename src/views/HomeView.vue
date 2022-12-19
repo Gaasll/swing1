@@ -1,13 +1,12 @@
 <template>
   <div>
     <div class="greetings">
-      <h1>Swings</h1>
+      <h1>SwingMood</h1>
       <br>
       <h3>
-        A change in the weather can be a nice change of mood at times. Other times it
-        can be… frustrating. The combination of weather with our emotions can be
-        interesting. Does the weather affect our mood? Do we have a “weather type”?
-        Can music help?
+        We aim to provide you with the perfect playlist tailored to your mood and current situation.
+        We all know emotions affect our... well emotions. So does weather. The combination of weather and emotions is 
+        especially powerful. Music can either enhance or shift our feelings. What will it be?
       </h3>
     </div>  
   </div>
