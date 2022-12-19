@@ -1,6 +1,6 @@
 <template>  
   <div class="wrapper">
-    <Sidebar v-if="showSidebar()"/>
+    <!--Sidebar v-if="showSidebar()"/-->
       <header>
         <h1 class="question"> How are you feeling today?</h1>
       </header>
@@ -19,14 +19,14 @@
 <script >
 //using the components checkbox and NextButton under component section below. 
 // import Checkbox from "../components/Checkbox.vue"
-import Sidebar from "../components/Sidebar.vue"
+//import Sidebar from "../components/Sidebar.vue"
 import NextButton from "../components/NextButton.vue"
 import {useRoute} from 'vue-router';
 
 export default {
   name: "EmotionView",
   components: {
-    Sidebar,
+    //Sidebar,
     NextButton,
   },
   props: {
@@ -62,15 +62,17 @@ export default {
     }
 
     .check-form{
-      width: 80%;
+      width: 75%;
       margin: auto;
+      margin-left: 22.2%;
       display: grid;
       grid-template-columns: auto auto auto;
     }
 
     .emotion{
-        text-align:left;
-        margin: 18px;
+      font-size: larger;
+      text-align:left;
+      margin: 18px;
     }
 
     .checkbox{

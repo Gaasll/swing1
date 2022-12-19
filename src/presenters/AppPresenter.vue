@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AppView :model="model" :keys="keys" />
+    <AppView :model="model" :keys="keys" :showSidebar="showSidebar()" />
   </div>
 </template>
 
@@ -22,6 +22,9 @@ export default {
   methods: {
     rerender(){
       this.keys.weather += 1;
+    },
+    showSidebar(){
+      return window.location.hash == 'sidebar';
     },
   }
 }

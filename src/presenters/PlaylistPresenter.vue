@@ -14,7 +14,7 @@ export default {
     components: {
         PlaylistView,
     },
-    props: ["model"],
+    props: ["model", "keys"],
     methods: {
         showSearchResults(){
             console.log(this.model.songsPromiseState.data);

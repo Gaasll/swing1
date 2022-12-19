@@ -12,23 +12,14 @@ export default{
             "iconURL",
             "trackURL",
           ],
-    methods: {
-      changeSoundCloudButtonColor(){
-        console.log(document.getElementsByClassName("teaser__button").style.background)
-        document.getElementsByClassName("teaser__button").style.background = "#5D3F7F";
-      },
-    },
-    created() {
-      window.onload = this.changeSoundCloudButtonColor;
+    mounted() {
     }
 }
 </script>
 
 <template>
     <div class="playing">
-      <div class="sidebar">
-        <Sidebar/>
-      </div>
+      <Sidebar/>
       <div class="header">
         <h1> {{ username }} </h1>
         <h2>PLAYING MUSIC FOR FEELING
@@ -141,6 +132,7 @@ h1.temp {
 }
 
 .border-top-overlay{
+  display: block;
   position: relative;
   top: 4px;
   background-color: #5D3F7F;
