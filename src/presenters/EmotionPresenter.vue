@@ -1,10 +1,19 @@
 <script>
 import EmotionView from "../views/EmotionView.vue"
+<<<<<<< HEAD
 //import resolvePromise from "../resolvePromise.js";
+=======
+import NextButton from "../components/NextButton.vue"
+import Sidebar from "../components/Sidebar.vue"
+import {useRoute} from 'vue-router';
+
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
 export default {
     name: "EmotionPresenter",
     components: {
+        Sidebar,
         EmotionView,
+<<<<<<< HEAD
         //resolvePromise,
     },
     props: ["model"],
@@ -14,6 +23,11 @@ export default {
                     "confident", "embarassed", "horny", "cozy", "queer"],
         }
     },
+=======
+        NextButton,
+    },
+    props: ["model"],
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
     methods: {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -40,6 +54,7 @@ export default {
         },
         checkIsFull(){
             return this.model.emotionsFull();
+<<<<<<< HEAD
         }
         // displayEmo() {
         //     var checkboxes = document.getElementById("emo");
@@ -49,6 +64,17 @@ export default {
 =======
 
 >>>>>>> de8d190 (minor changes)
+=======
+        },
+        showSidebar() {
+            const route = useRoute();
+            return (route.path === '/emotion');
+        },
+        showButton(){
+            const route = useRoute();
+            return (route.path === '/emotionSetup');
+        },
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
     },
     
 };
@@ -56,6 +82,7 @@ export default {
 </script>
 
 <template>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -74,4 +101,12 @@ export default {
     <EmotionView :emotions="getEmotions()" :onEmotionChange="setEmotions" :isFull="checkIsFull()" /> 
     <!-- :emotions="getEmotions()" -->
 >>>>>>> 4742420 (fixes to model and checkboxes plus small cleanups)
+=======
+    <Sidebar v-if="showSidebar()" />
+    <EmotionView :emotions="getEmotions()"
+                 :onEmotionChange="setEmotions"
+                 :isFull="checkIsFull()"
+                 />
+    <NextButton v-if="showButton()" path="weatherSetup"/>
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
 </template>

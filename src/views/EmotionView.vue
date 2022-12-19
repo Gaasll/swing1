@@ -2,6 +2,7 @@
   <div class="wrapper">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <header>
           <div class="question"> How are you feeling today?</div>
         </header>
@@ -34,6 +35,8 @@
 =======
     <!--Sidebar v-if="showSidebar()"/-->
 >>>>>>> c56d858 (minor fixes)
+=======
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
       <header>
         <h1 class="question"> How are you feeling today?</h1>
       </header>
@@ -44,18 +47,17 @@
           <input type="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" :disabled="isFull" v-else>
 =======
         <div class="emotion" v-for="emotion in emotions" :key="emotion.emotion">
-          <!-- <input type="checkbox" id="emo"> {{emotion}} -->
           <input type="checkbox" class="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" v-if="emotion.checked" checked>
           <input type="checkbox" class="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" :disabled="isFull" v-else>
 >>>>>>> 60f0223 (tar helg nu)
           <label :for="emotion.emotion"> {{ emotion.emotion }} </label>
         </div>
       </div>
-      <NextButton v-if="showButton()" path="weather1"/>
   </div>
 >>>>>>> 4742420 (fixes to model and checkboxes plus small cleanups)
 </template>
 
+<<<<<<< HEAD
 <script>
 //using the components checkbox and NextButton under component section below. 
 // import Checkbox from "../components/Checkbox.vue"
@@ -78,10 +80,18 @@ export default {
         return {
         }
     },
+=======
+<script >
+
+export default {
+  name: "EmotionView",
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
   props: {
     emotions: Array,
     onEmotionChange: Function,
     isFull: Boolean,
+    showSidebar: Boolean,
+    showButton: Boolean,
   },
 
   created() {
@@ -89,6 +99,7 @@ console.log(this.emotions);
   },
 
   methods: {
+<<<<<<< HEAD
     counterIncrement() {
       this.$emit("counter-increment");
     },
@@ -120,12 +131,18 @@ console.log(this.emotions);
       return (route.path === '/emotion1');
     }
 >>>>>>> 4742420 (fixes to model and checkboxes plus small cleanups)
+=======
+    onCheckboxChange(e){
+      this.onEmotionChange(e);
+    },
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
   },
   
 };
 </script>
 
 <style scoped>
+<<<<<<< HEAD
   
     header{
         margin: 50px;
@@ -154,10 +171,14 @@ console.log(this.emotions);
 =======
       width: 75%;
 >>>>>>> c56d858 (minor fixes)
+=======
+    .check-form{
+      width: 70%;
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
       margin: auto;
-      margin-left: 22.2%;
+      margin-left: 19.2%;
       display: grid;
-      grid-template-columns: auto auto auto;
+      grid-template-columns: 1fr 1fr 1fr;
     }
 
     .emotion{
@@ -191,6 +212,7 @@ console.log(this.emotions);
   }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     /* button{ 
         align-self: center;
@@ -213,6 +235,9 @@ font-family: 'Didact Gothic';
 
 =======
 @media (max-width: 490px){
+=======
+@media (max-width: 520px){
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
   .check-form{
     grid-template-columns: auto;
   }

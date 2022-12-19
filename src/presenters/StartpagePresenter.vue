@@ -1,7 +1,6 @@
 <script>
 import StartView from '../views/StartView.vue'
 import NextButton from "../components/NextButton.vue";
-//import NextButton from "../components/NextButton.vue";
 
 export default { 
     name: "Startpage",
@@ -26,8 +25,12 @@ export default {
     <!-- <NextButton/> -->
 =======
     <StartView />
+<<<<<<< HEAD
     <NextButton path="emotion" />
 >>>>>>> 2be8521 (started cleanup)
+=======
+    <NextButton path="emotionSetup" />
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
 </template>
 
 

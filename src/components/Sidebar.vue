@@ -60,11 +60,11 @@ const ToggleMenu = () => {
 					<span class="material-icons">home</span>
 					<span class="text">Home</span>
 				</router-link>
-				<router-link to="/emotion2" class="button">
+				<router-link to="/emotion" class="button">
 					<span class="material-icons">add_reaction</span>
 					<span class="text">Emotions</span>
 				</router-link>
-				<router-link to="/weather2" class="button">
+				<router-link to="/weather" class="button">
 					<span class="material-icons">sunny</span>
 					<span class="text">Weather</span>
 				</router-link>
@@ -72,7 +72,7 @@ const ToggleMenu = () => {
 					<span class="material-icons">play_arrow</span>
 					<span class="text">Playing now</span>
 				</router-link>
-				<router-link to="/playing#" class="button">
+				<router-link to="/history" class="button">
 					<span class="material-icons">history</span>
 					<span class="text">History</span>
 				</router-link>

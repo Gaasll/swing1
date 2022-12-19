@@ -5,6 +5,7 @@
   <div>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <Sidebar v-if="showSidebar" />
 >>>>>>> c56d858 (minor fixes)
@@ -20,20 +21,21 @@
       </template>
     </Suspense> -->
 >>>>>>> 1869d29 (no data promise)
+=======
+    <router-view :model="model" :rerenderKey="rerenderKey" />
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
     <Footer />
   </div>
 </template>
 
 <script>
-import Sidebar from "../components/Sidebar.vue";
 import Footer from "../presenters/FooterPresenter.vue";
 //import { onErrorCaptured, ref, Suspense } from 'vue'
 
 export default {
   name: "AppView",
-  props: ["model", "keys", "showSidebar"],
+  props: ["model", "rerenderKey"],
   components: {
-    Sidebar,
     Footer,
     // Suspense,
   },
@@ -87,6 +89,12 @@ Footer{
 
 router-view {
   margin-top: 60px;
+}
+
+header{
+    margin: 50px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 h1, h2, h3 {

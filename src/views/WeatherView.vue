@@ -1,4 +1,5 @@
 <script>
+<<<<<<< HEAD
 import WeatherWidget from "../components/WeatherWidget.vue";
 import NextButton from "../components/NextButton.vue";
 
@@ -11,14 +12,18 @@ export default {
 <<<<<<< HEAD
   props: ["model", "keys"],
 =======
+=======
+export default {
+  name: "WeatherView",
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
   props: {
-    username: String,
     weather: String,
     temperature: Number,
     city: String,
     iconPath: String,
     // searchMusic: Function,
   },
+<<<<<<< HEAD
   methods: {
     showSidebar() {
       const route = useRoute();
@@ -43,11 +48,14 @@ export default {
   //     this.searchMusic();
   // }
 >>>>>>> 1869d29 (no data promise)
+=======
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
 }
 </script>
 
 <template>   
     <div class="weather">
+<<<<<<< HEAD
 <<<<<<< HEAD
       <h1> The weather in your current location, {{name}} </h1>
 <<<<<<< HEAD
@@ -64,6 +72,26 @@ export default {
                      :iconPath="iconPath" />
       <NextButton v-if="showButton()" path="/playing" />
 >>>>>>> c73262a (SoundCloud working! (kinda))
+=======
+      <h1> The weather in your current location</h1>
+      
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather </title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./style.css">
+      </head>
+      <div class="card">
+          <h2 class="city">Weather in {{ city }}</h2>
+          <h1 class="temp">{{ temperature }}°C</h1>
+          <div class="flex">
+            <img :src="iconPath" alt="" class="icon" />
+            <div class="description">{{ weather }}</div>
+          </div>
+      </div>
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
     </div>   
 </template>
   
@@ -72,4 +100,14 @@ export default {
   display: block;
 }
 
+.card {
+  align-items: center;
+  justify-content: center;
+  background: #000000d0;
+  color: white;
+  padding: 2em;
+  border-radius: 30px;
+  margin: auto;
+  max-width: 360px;
+}
 </style>

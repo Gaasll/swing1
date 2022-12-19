@@ -13,7 +13,7 @@
     </Suspense>
 =======
   <div>
-    <AppView :model="model" :keys="keys" :showSidebar="showSidebar()" />
+    <AppView :model="model" :rerenderKey="rerenderKey" />
   </div>
 >>>>>>> c56d858 (minor fixes)
 </template>
@@ -32,11 +32,12 @@ export default {
   data() {
     return{
       model: new SwingModel(this.rerender.bind(this)),
-      keys: {weather: 0,},
+      rerenderKey: 0,
     }
   },
   methods: {
     rerender(){
+<<<<<<< HEAD
       this.keys.weather += 1;
     },
 <<<<<<< HEAD
@@ -52,6 +53,9 @@ export default {
 =======
     showSidebar(){
       return window.location.hash == 'sidebar';
+=======
+      this.rerenderKey += 1;
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
     },
   }
 >>>>>>> c56d858 (minor fixes)

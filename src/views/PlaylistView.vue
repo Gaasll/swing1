@@ -1,10 +1,8 @@
 <script>
-import Sidebar from "../components/Sidebar.vue";
 
 export default{
     name: "PlaylistView",
     components: {
-      Sidebar
     },
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -18,7 +16,9 @@ export default{
             "weather",
             "iconURL",
             "trackURL",
+            "refreshTrackURL",
           ],
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> c73262a (SoundCloud working! (kinda))
@@ -34,6 +34,10 @@ export default{
 =======
     mounted() {
 >>>>>>> c56d858 (minor fixes)
+=======
+    created() {
+      this.refreshTrackURL();
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
     }
 >>>>>>> 60f0223 (tar helg nu)
 }
@@ -41,8 +45,9 @@ export default{
 
 <template>
     <div class="playing">
-      <Sidebar/>
+      <Sidebar />
       <div class="header">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -53,6 +58,8 @@ export default{
             <span v-if="emotion != model.selectedEmotions[0]">
 =======
         <h1> {{ username }} </h1>
+=======
+>>>>>>> 7517b70 (implemented promiseNoData loading view)
         <h2>PLAYING MUSIC FOR FEELING
           <span v-for="emotion in selectedEmotions" :key="emotion">
             <span v-if="emotion != selectedEmotions[0]">
