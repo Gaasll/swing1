@@ -4,6 +4,7 @@
         <h2>We aim to provide you with the perfect playlist, taylored to your mood and current situation. <br> 
             Answer a couple of questions and we will create a soundtrack to your day.
         </h2>
+<<<<<<< HEAD
         <!-- <h2>What is your name?</h2>
         <input type="text" v-on:keyup.enter="logName" autofocus>  -->
     </div>
@@ -41,20 +42,16 @@ export default{
         }
     }
 }
+=======
+    </div>
+</template>
+
+<script>
+>>>>>>> 2be8521 (started cleanup)
 </script>
 
 <style scoped>
     .text{
         margin: 5em;
-    }
-    input{
-        padding: 10px;
-        width: 40%;
-        box-shadow: none;
-
-    }
-    input[type=text]:focus {
-        border: 3px solid rgb(112, 112, 112);
-        box-shadow: none;
     }
 </style>

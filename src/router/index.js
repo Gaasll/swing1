@@ -46,11 +46,6 @@ const routes = [
         props: { model: true , keys: true },
 >>>>>>> 4742420 (fixes to model and checkboxes plus small cleanups)
     },
-    {
-        path: '/test',
-        component: () => import('../views/TestView.vue'),
-        props: { model: true, keys: false },
-      },
 ]
 
 const router = createRouter({
