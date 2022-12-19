@@ -1,9 +1,13 @@
 <template>
-    <PlaylistView :username="model.username"
-                  :selectedEmotions="model.selectedEmotions"
-                  :weather="model.weatherPromiseState.data.weather"
-                  :iconURL="model.weatherPromiseState.data.icon"
-                  :trackURL="model.trackURL" />
+    <PlaylistView v-if="promiseStateBoolean()"
+                :username="model.username"
+                :selectedEmotions="model.selectedEmotions"
+                :weather="model.weatherPromiseState.data.weather"
+                :iconURL="model.weatherPromiseState.data.icon"
+                :trackURL="model.trackURL" />
+    <div v-else>
+        <PromiseNoData :promiseState="this.model.songsPromiseState" />
+    </div>
 </template>
 
 <script>
@@ -14,10 +18,13 @@ export default {
     components: {
         PlaylistView,
     },
-    props: ["model"],
+    props: ["model", "promiseState"],
     methods: {
         showSearchResults(){
             console.log(this.model.songsPromiseState.data);
+        },
+        promiseStateBoolean(){
+            return this.model.weatherPromiseState.data && this.model.trackURL;
         }
     },
     created(){

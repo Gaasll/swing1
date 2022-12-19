@@ -9,11 +9,17 @@ export default {
         
     },
     props: ["model", "keys"],
+    methods: {
+        setName(name) {
+            this.model.setUsername(name);
+            console.log(this.model.setUsername);
+        },
+    }
 }
 </script>
 
 <template>
-    <StartView />
+    <StartView :onNameInput="setName" />
     <!-- <NextButton/> -->
 </template>
 

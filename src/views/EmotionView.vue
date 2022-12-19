@@ -35,7 +35,6 @@
       </header>
       <div class="check-form">
         <div class="columns" v-for="emotion in emotions" :key="emotion.emotion">
-          <!-- <input type="checkbox" id="emo"> {{emotion}} -->
           <input type="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" v-if="emotion.checked" checked>
           <input type="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" :disabled="isFull" v-else>
           <label :for="emotion.emotion"> {{ emotion.emotion }} </label>
@@ -84,7 +83,10 @@ console.log(this.emotions);
       },
 =======
     onCheckboxChange(e){
+<<<<<<< HEAD
       console.log(e);
+=======
+>>>>>>> 1869d29 (no data promise)
       this.onEmotionChange(e);
     },
 <<<<<<< HEAD
@@ -92,12 +94,10 @@ console.log(this.emotions);
 =======
     showSidebar() {
       const route = useRoute();
-      // console.log(route.path);
       return (route.path === '/emotion2');
     },
     showButton(){
       const route = useRoute();
-      // console.log(route.path);
       return (route.path === '/emotion1');
     }
 >>>>>>> 4742420 (fixes to model and checkboxes plus small cleanups)
@@ -127,6 +127,7 @@ console.log(this.emotions);
     }
 
     .check-form{
+      text-align:left; 
       width: 80%;
       margin: auto;
       display: grid;

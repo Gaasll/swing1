@@ -17,6 +17,7 @@ export default {
     temperature: Number,
     city: String,
     iconPath: String,
+    // searchMusic: Function,
   },
   methods: {
     showSidebar() {
@@ -28,9 +29,20 @@ export default {
       const route = useRoute();
       // console.log(route.path);
       return (route.path === '/weather1');
+<<<<<<< HEAD
     }
   }
 >>>>>>> c73262a (SoundCloud working! (kinda))
+=======
+    },
+    // searchMusic(){
+    //     this.model.searchSongs();
+    // }
+  },
+  // created(){
+  //     this.searchMusic();
+  // }
+>>>>>>> 1869d29 (no data promise)
 }
 </script>
 

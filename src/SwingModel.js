@@ -3,7 +3,7 @@ import {getCurrentWeatherInfo} from "./weatherSource.js";
 import {soundCloudSearch} from "./musicSource.js";
 import resolvePromise from "./resolvePromise.js";
 
-const MAX_NO_ELEMENTS = 20;
+// const MAX_NO_ELEMENTS = 20;
 const MAX_SELECTED_EMOTIONS = 2;
 //const NO_PLAYLISTS = 5;
 //const NO_SONGS_PER_PLAYLIST = 4;
@@ -37,6 +37,10 @@ class SwingModel{
         this.selectedEmotions = [];
 
         resolvePromise(getLocation(), this.locationPromiseState).then(this.getWeatherData.bind(this));
+    }
+
+    setPlaylist(song){
+        this.playlist =[...this.playlist, song]
     }
 
     getWeatherData(){
@@ -85,9 +89,15 @@ class SwingModel{
     }
 
     exctractPlayerData(){
+        let rand = this.randInt(10);
+        console.log(rand);
+        let songData = {title: this.songsPromiseState.data[rand].title, url: this.songsPromiseState.data[rand].permalink_url};
+        this.setPlaylist(songData);
+        console.log(this.playlist[0].url);
+
         let baseURL = "https://w.soundcloud.com/player/?"
         let playerData = {
-            url: this.songsPromiseState.data[0].uri,
+            url: this.songsPromiseState.data[rand].uri,
             color: "#ff5500",
             auto_play: false,
             hide_related: false,
@@ -99,10 +109,18 @@ class SwingModel{
         }
         this.trackURL = baseURL + new URLSearchParams(playerData);
     }
-
+    /*
     randInt(){
         return Math.floor(Math.random() * MAX_NO_ELEMENTS);
     }
+    */
+
+    randInt(max) {
+        let min = Math.ceil(1);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min);
+      }
+      
 
     notifyObservers(payload){
         function callObserverCallback(obs){
@@ -116,6 +134,9 @@ class SwingModel{
 
         this.observers.forEach(callObserverCallback);
     }
+
+    addObserver(toAdd){
+        this.observers =[...this.observers, toAdd]}
 }
 
 export default SwingModel
