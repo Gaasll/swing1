@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="greetings">
-      <h1>SwingMood</h1>
+      <h1>Swingmood</h1>
       <br>
       <h3>
         We aim to provide you with the perfect playlist tailored to your mood and current situation.
