@@ -1,6 +1,7 @@
 <template>  
   <div class="wrapper">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <header>
           <div class="question"> How are you feeling today?</div>
         </header>
@@ -30,6 +31,9 @@
     </div>
 =======
     <Sidebar v-if="showSidebar()"/>
+=======
+    <!--Sidebar v-if="showSidebar()"/-->
+>>>>>>> c56d858 (minor fixes)
       <header>
         <h1 class="question"> How are you feeling today?</h1>
       </header>
@@ -55,11 +59,19 @@
 <script>
 //using the components checkbox and NextButton under component section below. 
 // import Checkbox from "../components/Checkbox.vue"
+<<<<<<< HEAD
+=======
+//import Sidebar from "../components/Sidebar.vue"
+>>>>>>> c56d858 (minor fixes)
 import NextButton from "../components/NextButton.vue"
 
 export default {
   name: "EmotionView",
   components: {
+<<<<<<< HEAD
+=======
+    //Sidebar,
+>>>>>>> c56d858 (minor fixes)
     NextButton,
   },
   data() { 
@@ -136,14 +148,20 @@ console.log(this.emotions);
     }
 
     .check-form{
+<<<<<<< HEAD
       text-align:left; 
       width: 80%;
+=======
+      width: 75%;
+>>>>>>> c56d858 (minor fixes)
       margin: auto;
+      margin-left: 22.2%;
       display: grid;
       grid-template-columns: auto auto auto;
     }
 
     .emotion{
+<<<<<<< HEAD
         text-align:left;
 <<<<<<< HEAD
         column-count: 3;
@@ -154,6 +172,11 @@ console.log(this.emotions);
 =======
         margin: 18px;
 >>>>>>> 60f0223 (tar helg nu)
+=======
+      font-size: larger;
+      text-align:left;
+      margin: 18px;
+>>>>>>> c56d858 (minor fixes)
     }
 
     .checkbox{

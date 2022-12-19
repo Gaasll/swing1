@@ -20,6 +20,7 @@ export default{
             "trackURL",
           ],
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> c73262a (SoundCloud working! (kinda))
 =======
     methods: {
@@ -30,6 +31,9 @@ export default{
     },
     created() {
       window.onload = this.changeSoundCloudButtonColor;
+=======
+    mounted() {
+>>>>>>> c56d858 (minor fixes)
     }
 >>>>>>> 60f0223 (tar helg nu)
 }
@@ -37,9 +41,7 @@ export default{
 
 <template>
     <div class="playing">
-      <div class="sidebar">
-        <Sidebar/>
-      </div>
+      <Sidebar/>
       <div class="header">
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -162,6 +164,7 @@ h1.temp {
 }
 
 .border-top-overlay{
+  display: block;
   position: relative;
   top: 4px;
   background-color: #5D3F7F;

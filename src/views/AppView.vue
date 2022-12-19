@@ -4,6 +4,10 @@
   <div v-if="error"> {{error}} </div>
   <div>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    <Sidebar v-if="showSidebar" />
+>>>>>>> c56d858 (minor fixes)
     <router-view :model="model" :keys="keys" />
 =======
     <!-- <Suspense>
@@ -21,13 +25,15 @@
 </template>
 
 <script>
+import Sidebar from "../components/Sidebar.vue";
 import Footer from "../presenters/FooterPresenter.vue";
 //import { onErrorCaptured, ref, Suspense } from 'vue'
 
 export default {
   name: "AppView",
-  props: ["model", "keys"],
+  props: ["model", "keys", "showSidebar"],
   components: {
+    Sidebar,
     Footer,
     // Suspense,
   },
@@ -43,6 +49,10 @@ export default {
 </script>
 
 <style>
+body {
+  margin: 0;
+}
+
 #app {
   font-family: 'Didact Gothic';
   -webkit-font-smoothing: antialiased;
@@ -74,6 +84,10 @@ Footer{
 =======
 >>>>>>> 4910dfb (fixed inconsistent button behavior)
 =======
+
+router-view {
+  margin-top: 60px;
+}
 
 h1, h2, h3 {
   font-weight: normal;

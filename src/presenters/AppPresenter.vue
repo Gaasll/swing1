@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <!-- <div v-if="error"> {{error}} </div> -->
     <Suspense>
         <template #default>
@@ -10,6 +11,11 @@
           <div>Loading</div>
         </template>
     </Suspense>
+=======
+  <div>
+    <AppView :model="model" :keys="keys" :showSidebar="showSidebar()" />
+  </div>
+>>>>>>> c56d858 (minor fixes)
 </template>
 
 <script>
@@ -33,6 +39,7 @@ export default {
     rerender(){
       this.keys.weather += 1;
     },
+<<<<<<< HEAD
   },
   setup(){
         const error = ref(null);
@@ -42,6 +49,12 @@ export default {
         })
         return { error };
     }
+=======
+    showSidebar(){
+      return window.location.hash == 'sidebar';
+    },
+  }
+>>>>>>> c56d858 (minor fixes)
 }
 <<<<<<< HEAD
 </script>

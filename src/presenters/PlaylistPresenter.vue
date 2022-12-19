@@ -18,7 +18,11 @@ export default {
     components: {
         PlaylistView,
     },
+<<<<<<< HEAD
     props: ["model", "promiseState"],
+=======
+    props: ["model", "keys"],
+>>>>>>> c56d858 (minor fixes)
     methods: {
         showSearchResults(){
             console.log(this.model.songsPromiseState.data);

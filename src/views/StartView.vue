@@ -7,7 +7,12 @@
         <!-- <h2>What is your name?</h2>
         <input type="text" v-on:keyup.enter="logName" autofocus>  -->
     </div>
+<<<<<<< HEAD
     <NextButton v-on:click="logName" path="emotion" />
+=======
+    <NextButton path="emotion1" />
+    <!--NextButton v-on:click="logName" path="emotion1" /-->
+>>>>>>> c56d858 (minor fixes)
 </template>
 
 <script>
