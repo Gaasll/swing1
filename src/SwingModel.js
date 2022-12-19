@@ -22,6 +22,7 @@ class SwingModel{
         this.songsPromiseState = {};
         this.playlist = [];
         this.playerPromiseState = {};
+        this.trackURL;
 
         this.emotions = {
                          "happy":       {checked: false, style: "Disco"},
@@ -88,7 +89,7 @@ class SwingModel{
         let emotions = this.selectedEmotions.join(" ");
         let searchParams = {q: this.weatherPromiseState.data.weather + " " + emotions,
                             "duration from": MIN_DURATION,  "duration to":  MAX_DURATION,}
-        resolvePromise(soundCloudSearch(searchParams), this.songsPromiseState, this.notifyObservers.bind(this))
+        resolvePromise(soundCloudSearch(searchParams), this.songsPromiseState)
         .then(this.exctractPlayerData.bind(this));
     }
 
@@ -109,18 +110,18 @@ class SwingModel{
             visual: true,
         }
         this.trackURL = baseURL + new URLSearchParams(playerData);
+        this.notifyObservers();
     }
 
     randInt(n){
         return Math.floor(Math.random() * n);
     }
-    
 
-    randInt(max) {
-        let min = Math.ceil(1);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min) + min);
-      }
+    // randInt(max) {
+    //     let min = Math.ceil(1);
+    //     max = Math.floor(max);
+    //     return Math.floor(Math.random() * (max - min) + min);
+    // }
       
 
     notifyObservers(payload){

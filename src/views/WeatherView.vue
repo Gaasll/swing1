@@ -1,54 +1,36 @@
 <script>
-import WeatherWidget from "../components/WeatherWidget.vue";
-import Sidebar from "../components/Sidebar.vue"
-import NextButton from "../components/NextButton.vue"
-import {useRoute} from 'vue-router';
-
 export default {
   name: "WeatherView",
-  components: {
-    WeatherWidget,
-    NextButton,
-    Sidebar,
-  },
   props: {
-    username: String,
     weather: String,
     temperature: Number,
     city: String,
     iconPath: String,
     // searchMusic: Function,
   },
-  methods: {
-    showSidebar() {
-      const route = useRoute();
-      // console.log(route.path);
-      return (route.path === '/weather2');
-    },
-    showButton(){
-      const route = useRoute();
-      // console.log(route.path);
-      return (route.path === '/weather1');
-    },
-    // searchMusic(){
-    //     this.model.searchSongs();
-    // }
-  },
-  // created(){
-  //     this.searchMusic();
-  // }
 }
 </script>
 
 <template>   
     <div class="weather">
-      <Sidebar v-if="showSidebar()" />
-      <h1> The weather in your current location, {{ username }} </h1>
-      <WeatherWidget :weather="weather"
-                     :city="city"
-                     :temperature="temperature"
-                     :iconPath="iconPath" />
-      <NextButton v-if="showButton()" path="/playing" />
+      <h1> The weather in your current location</h1>
+      
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather </title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./style.css">
+      </head>
+      <div class="card">
+          <h2 class="city">Weather in {{ city }}</h2>
+          <h1 class="temp">{{ temperature }}°C</h1>
+          <div class="flex">
+            <img :src="iconPath" alt="" class="icon" />
+            <div class="description">{{ weather }}</div>
+          </div>
+      </div>
     </div>   
 </template>
   
@@ -57,4 +39,14 @@ export default {
   display: block;
 }
 
+.card {
+  align-items: center;
+  justify-content: center;
+  background: #000000d0;
+  color: white;
+  padding: 2em;
+  border-radius: 30px;
+  margin: auto;
+  max-width: 360px;
+}
 </style>

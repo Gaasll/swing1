@@ -1,70 +1,44 @@
 <template>  
   <div class="wrapper">
-    <!--Sidebar v-if="showSidebar()"/-->
       <header>
         <h1 class="question"> How are you feeling today?</h1>
       </header>
       <div class="check-form">
         <div class="emotion" v-for="emotion in emotions" :key="emotion.emotion">
-          <!-- <input type="checkbox" id="emo"> {{emotion}} -->
           <input type="checkbox" class="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" v-if="emotion.checked" checked>
           <input type="checkbox" class="checkbox" :id="emotion.emotion" :onChange="onCheckboxChange" :disabled="isFull" v-else>
           <label :for="emotion.emotion"> {{ emotion.emotion }} </label>
         </div>
       </div>
-      <NextButton v-if="showButton()" path="weather1"/>
   </div>
 </template>
 
 <script >
-//using the components checkbox and NextButton under component section below. 
-// import Checkbox from "../components/Checkbox.vue"
-//import Sidebar from "../components/Sidebar.vue"
-import NextButton from "../components/NextButton.vue"
-import {useRoute} from 'vue-router';
 
 export default {
   name: "EmotionView",
-  components: {
-    //Sidebar,
-    NextButton,
-  },
   props: {
     emotions: Array,
     onEmotionChange: Function,
     isFull: Boolean,
+    showSidebar: Boolean,
+    showButton: Boolean,
   },
   methods: {
-    counterIncrement() {
-      this.$emit("counter-increment");
-    },
     onCheckboxChange(e){
       this.onEmotionChange(e);
     },
-    showSidebar() {
-      const route = useRoute();
-      return (route.path === '/emotion2');
-    },
-    showButton(){
-      const route = useRoute();
-      return (route.path === '/emotion1');
-    }
   },
 };
 </script>
 
 <style scoped>
-    header{
-        margin: 50px;
-    }
-
     .check-form{
-      text-align:left; 
-      width: 80%;
+      width: 70%;
       margin: auto;
-      margin-left: 22.2%;
+      margin-left: 19.2%;
       display: grid;
-      grid-template-columns: auto auto auto;
+      grid-template-columns: 1fr 1fr 1fr;
     }
 
     .emotion{
@@ -84,7 +58,7 @@ export default {
     align-items: center;
   }
 }
-@media (max-width: 490px){
+@media (max-width: 520px){
   .check-form{
     grid-template-columns: auto;
   }

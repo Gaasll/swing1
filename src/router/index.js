@@ -4,43 +4,43 @@ const routes = [
     {
         path: '/',
         component: () => import('../presenters/StartpagePresenter.vue'),
-        props: { model: false, keys: false },
+        props: { model: false, rerenderKey: false },
     },
     {
         path: '/home',
         component: () => import('../presenters/HomePresenter.vue'),
-        props: { model: false, keys: false },
+        props: { model: false, rerenderKey: false },
     },
     {
-        path: '/emotion1',
+        path: '/emotionSetup',
         component: () => import('../presenters/EmotionPresenter.vue'),
-        props: { model: true, keys: false},
+        props: { model: true, rerenderKey: false },
     },
     {
-        path: '/emotion2',
+        path: '/emotion',
         component: () => import('../presenters/EmotionPresenter.vue'),
-        props: { model: true, keys: false},
+        props: { model: true, rerenderKey: false },
     },
     {
         path: '/playing',
         component: () => import('../presenters/PlaylistPresenter.vue'),
-        props: { model: true, keys: false },
+        props: { model: true, rerenderKey: true },
     },
     {
-        path: '/weather1',
+        path: '/weatherSetup',
         component: () => import('../presenters/WeatherPresenter.vue'),
-        props: { model: true , keys: true },
+        props: { model: true, rerenderKey: true },
     },
     {
-        path: '/weather2',
+        path: '/weather',
         component: () => import('../presenters/WeatherPresenter.vue'),
-        props: { model: true , keys: true },
+        props: { model: true, rerenderKey: true },
     },
     {
-        path: '/test',
-        component: () => import('../views/TestView.vue'),
-        props: { model: true, keys: false },
-      },
+        path: '/history',
+        component: () => import('../presenters/HistoryPresenter.vue'),
+        props: { model: true, rerenderKey: false },
+    },
 ]
 
 const router = createRouter({

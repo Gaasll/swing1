@@ -3,22 +3,19 @@
 <template>
   <div v-if="error"> {{error}} </div>
   <div>
-    <Sidebar v-if="showSidebar" />
-    <router-view :model="model" :keys="keys" />
+    <router-view :model="model" :rerenderKey="rerenderKey" />
     <Footer />
   </div>
 </template>
 
 <script>
-import Sidebar from "../components/Sidebar.vue";
 import Footer from "../presenters/FooterPresenter.vue";
 //import { onErrorCaptured, ref, Suspense } from 'vue'
 
 export default {
   name: "AppView",
-  props: ["model", "keys", "showSidebar"],
+  props: ["model", "rerenderKey"],
   components: {
-    Sidebar,
     Footer,
     // Suspense,
   },
@@ -49,6 +46,12 @@ body {
 
 router-view {
   margin-top: 60px;
+}
+
+header{
+    margin: 50px;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 h1, h2, h3 {
