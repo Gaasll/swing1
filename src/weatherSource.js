@@ -1,15 +1,12 @@
 import { BASE_URL_WEATHER, API_KEY_WEATHER } from "./apiConfig.js";
 
-//const lat = 59.40; 
-//const lon = 17.95;
-
 function formatWeatherDataACB(responseData){
     let data = {weather:     responseData.weather[0].main,
                 city:        responseData.name,
                 icon:        "https://openweathermap.org/img/wn/" + responseData.weather[0].icon + ".png",
                 temperature: responseData.main.temp,
             };
-    console.log(responseData);
+    //console.log(responseData);
     return data;
 }
 
