@@ -23,6 +23,9 @@ export default {
     rerender(){
       this.rerenderKey += 1;
     },
-  }
+  },
+    created() {
+        console.log(window.location);
+    }
 }
 </script>

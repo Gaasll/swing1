@@ -10,7 +10,8 @@ export default {
     components: {
         Sidebar,
         HistoryView,
-    }
+    },
+    props: ["model", "rerenderKey"],
 }
 </script>
 

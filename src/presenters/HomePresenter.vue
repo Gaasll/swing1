@@ -7,7 +7,8 @@ export default {
     components: {
         HomeView,
         Sidebar,
-        }
+    },
+    props: ["model", "rerenderKey"],
 }
 </script>
 

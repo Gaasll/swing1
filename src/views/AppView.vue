@@ -1,7 +1,6 @@
 // in App.vue you only want the components that you want visible on every page
 
 <template>
-  <div v-if="error"> {{error}} </div>
   <div>
     <router-view :model="model" :rerenderKey="rerenderKey" />
     <Footer />
@@ -17,16 +16,7 @@ export default {
   props: ["model", "rerenderKey"],
   components: {
     Footer,
-    // Suspense,
   },
-  // setup(){
-  //       const error = ref(null);
-  //       onErrorCaptured((e)=>{
-  //           error.value = e;
-  //           return true;
-  //       })
-  //       return { error };
-  //   }
 }
 </script>
 

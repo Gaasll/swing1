@@ -11,7 +11,7 @@ export default {
         EmotionView,
         NextButton,
     },
-    props: ["model"],
+    props: ["model", "rerenderKey"],
     methods: {
         setEmotions(e) {
             this.model.setEmotions(e.target.id, e.target.checked);

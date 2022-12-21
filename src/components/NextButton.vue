@@ -1,9 +1,14 @@
 <script>
+//import {router} from "vue-router";
+
 export default{
-    props: ['path'],
+    props: ['path', 'event'],
     methods: {
         click(){
-            window.location.hash="{{path}}"
+            if (this.event)
+                this.event();
+            //window.location.hash=this.path;
+            this.$router.push(this.path);
         }
     },
 }
@@ -12,11 +17,11 @@ export default{
 
 <template>
     <div class="wrapper">
-        <router-link :to={path} v-on:keyup.enter="click" id="nextPage">
-            <button type="submit" id="btn" >
+        <!--router-link :to={path} v-on:keyup.enter="click" id="nextPage"-->
+            <button type="submit" id="btn" @click="click">
                 <span class="material-icons">chevron_right</span>
             </button>
-        </router-link>
+        <!--/router-link-->
     </div>
     <!-- v-on:keyup.enter="click()" 
     :event="['click', 'keydown.enter']"

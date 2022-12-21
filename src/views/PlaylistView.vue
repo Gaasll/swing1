@@ -19,7 +19,6 @@ export default{
 
 <template>
     <div class="playing">
-      <Sidebar />
       <div class="header">
         <h2>PLAYING MUSIC FOR FEELING
           <span v-for="emotion in selectedEmotions" :key="emotion">
