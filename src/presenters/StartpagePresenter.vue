@@ -1,7 +1,7 @@
 <script>
 import StartView from '../views/StartView.vue';
 import NextButton from "../components/NextButton.vue";
-//import {createUser} from "../firebaseModel.js";
+import {createUser} from "../firebaseModel.js";
 
 export default { 
     name: "Startpage",
@@ -17,9 +17,9 @@ export default {
             //this.model.setUsername(name);
             //console.log(this.model.setUsername);
             console.log([email, pw]);
-            //createUser(email, pw);
+            createUser(email, pw);
         },
-    },
+    }
 }
 </script>
 
