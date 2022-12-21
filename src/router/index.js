@@ -7,6 +7,11 @@ const routes = [
         props: { model: false, keys: false },
     },
     {
+        path: '/register',
+        component: () => import('../presenters/RegisterPresenter.vue'),
+        props: { model: false, keys: false },
+    },
+    {
         path: '/home',
         component: () => import('../presenters/HomePresenter.vue'),
         props: { model: false, keys: false },

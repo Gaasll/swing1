@@ -1,5 +1,7 @@
 <script>
 import StartView from '../views/StartView.vue'
+// import { ref } from 'vue'
+// import firebase from 'firebase';
 //import NextButton from "../components/NextButton.vue";
 
 export default { 
@@ -14,12 +16,13 @@ export default {
             this.model.setUsername(name);
             console.log(this.model.setUsername);
         },
-    }
+    },
+    
 }
 </script>
 
 <template>
-    <StartView :onNameInput="setName" />
+    <StartView :login="login" />
     <!-- <NextButton/> -->
 </template>
 
