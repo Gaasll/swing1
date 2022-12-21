@@ -8,12 +8,12 @@
             <input type="email" placeholder="email" v-model="email">
             <input type="password" placeholder="password" v-model="password">
             <input type="submit" value="login">
-        <p>Register here <router-link to="/register"></router-link></p>
+        <p><router-link to="/register">Register here</router-link></p>
         </form>
         <!-- <h2>What is your name?</h2>
         <input type="text" v-on:keyup.enter="logName" autofocus>  -->
     </div>
-    <NextButton path="emotion1" @click="signIn" />
+    <NextButton path="emotion1"/>
 </template>
 
 <script>

@@ -1,9 +1,10 @@
 <script>
 export default{
-    props: ['path'],
+    props: ['path', 'event'],
     methods: {
         click(){
-            window.location.hash="{{path}}"
+            this.event();
+            window.location.hash="{{path}}";
         }
     },
 }
@@ -13,7 +14,7 @@ export default{
 <template>
     <div class="wrapper">
         <router-link :to={path} v-on:keyup.enter="click" id="nextPage">
-            <button type="submit" id="btn" >
+            <button type="submit" id="btn" @click="click">
                 <span class="material-icons">chevron_right</span>
             </button>
         </router-link>

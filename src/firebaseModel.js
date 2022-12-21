@@ -71,6 +71,7 @@ function firebaseModelPromise() {
         function createModelACB(emotionsArray){
             let model = new SwingModel();
             model.selectedEmotions = emotionsArray;
+            model.addObserver(this.fbAuthObs.bind(this));
             return model;
         }
         // return Promise.all(dishPromiseArray).then(createModelACB) // wait for all promise results 
