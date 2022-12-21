@@ -41,6 +41,14 @@ const ToggleMenu = () => {
 					<span class="material-icons">history</span>
 					<span class="text">History</span>
 				</router-link>
+				<router-link to="/login" class="button">
+					<span class="material-icons">lock</span>
+					<span class="text">Login</span>
+				</router-link>
+				<router-link to="/register" class="button">
+					<span class="material-icons">manage_accounts</span>
+					<span class="text">Register</span>
+				</router-link>
 			</div>
 		</aside>
 	</div>

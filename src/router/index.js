@@ -41,6 +41,16 @@ const routes = [
         component: () => import('../presenters/HistoryPresenter.vue'),
         props: { model: true, rerenderKey: false },
     },
+    {
+        path: '/login',
+        component: () => import('../presenters/LoginPresenter.vue'),
+        props: { model: true, rerenderKey: false },
+    },
+    {
+        path: '/register',
+        component: () => import('../presenters/RegisterPresenter.vue'),
+        props: { model: true, rerenderKey: false },
+    },
 ]
 
 const router = createRouter({
