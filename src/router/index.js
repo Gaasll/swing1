@@ -2,7 +2,12 @@ import {createRouter, createWebHistory} from 'vue-router'
 
 const routes = [
     {
-        path: '/',
+        path: '/login',
+        component: () => import('../presenters/SignInPresenter.vue'),
+        props: { model: false, rerenderKey: false },
+    },
+    {
+        path: '/welcome',
         component: () => import('../presenters/StartpagePresenter.vue'),
         props: { model: false, rerenderKey: false },
     },

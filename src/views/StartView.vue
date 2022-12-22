@@ -4,10 +4,6 @@
         <h2>We aim to provide you with the perfect playlist, tailored to your mood and current situation. <br> 
             Answer a couple of questions and we will create a soundtrack to your day.
         </h2>
-        <form action="">
-            <input type="email" id="email">
-            <input type="password" id="passwd">
-        </form>
     </header>
 </template>
 

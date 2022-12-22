@@ -41,6 +41,7 @@ const ToggleMenu = () => {
 					<span class="material-icons">history</span>
 					<span class="text">History</span>
 				</router-link>
+				<a href="">Sign out</a>
 			</div>
 		</aside>
 	</div>
