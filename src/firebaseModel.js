@@ -47,6 +47,18 @@ function signIn(email, password){
       });
 }
 
+function signOut(){
+  firebase.auth().signOut().then(() => {
+    console.log("signed out");
+    // Sign-out successful.
+  }).catch((error) => {
+    console.log(error.code);
+    console.log(error.message);
+    // An error happened.
+  });
+}
+
+
 function fbAuthObs(){
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {
@@ -121,5 +133,5 @@ function updateModelFromFirebase(model) {
     
 }
 
-export {firebaseModelPromise, updateFirebaseFromModel, updateModelFromFirebase, createUser, signIn, fbAuthObs}
+export {firebaseModelPromise, updateFirebaseFromModel, updateModelFromFirebase, createUser, signIn, signOut, fbAuthObs}
 //still needs a bunch of stuff
