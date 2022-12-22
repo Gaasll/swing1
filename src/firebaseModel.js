@@ -49,15 +49,13 @@ function signIn(email, password){
 
 function signOut(){
   firebase.auth().signOut().then(() => {
-    console.log("signed out");
+    return true;
     // Sign-out successful.
   }).catch((error) => {
-    console.log(error.code);
-    console.log(error.message);
+    console.log('signout failed');
     // An error happened.
   });
 }
-
 
 function fbAuthObs(){
     firebase.auth().onAuthStateChanged((user) => {

@@ -16,14 +16,14 @@
                 <input type="password" placeholder="re-type password" v-model="password_confirm">
             </span>
             <input type="submit" class="submit-button" value="Register">
-            <p>Already have an account? <router-link to="/register">Sign in here</router-link></p>
+            <p>Already have an account? <a href="#" @click="viewStateChange()">Sign in here</a></p>
         </form>
     </div>
 </template>
 
 <script>
 export default {
-    props: ['registerUser'],
+    props: ['registerUser', 'viewStateChange'],
     data() {
         return {
             email: '',

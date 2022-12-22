@@ -1,18 +1,26 @@
 <template>
   <div>
-      <LoginView/>
+      <SignInView/>
       <RegisterView/>
   </div>
 </template>
 
 <script>
-import LoginView from '../views/LoginView'
+import SignInView from '../views/SignInView'
 import RegisterView from '../views/RegisterView'
 export default {
     components: {
-        LoginView,
+        SignInView,
         RegisterView
-    }
+    },
+
+    methods: {
+        signInUser(email, password) {
+            console.log(email);
+            console.log(password);
+            signIn(email, password);
+        },
+    },
 
 }
 </script>
