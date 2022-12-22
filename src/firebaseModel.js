@@ -47,6 +47,16 @@ function signIn(email, password){
       });
 }
 
+function signOut(){
+  firebase.auth().signOut().then(() => {
+    return true;
+    // Sign-out successful.
+  }).catch((error) => {
+    console.log('signout failed');
+    // An error happened.
+  });
+}
+
 function fbAuthObs(){
     firebase.auth().onAuthStateChanged((user) => {
         if (user) {

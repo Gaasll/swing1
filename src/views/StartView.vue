@@ -10,8 +10,31 @@
 <script>
 </script>
 
-<style scoped>
+<style>
     .text{
         margin: 5em;
     }
+
+    .form-fields {
+    display: grid;
+    grid-template-columns: 9fr 11fr;
+    grid-template-rows: repeat(30px);
+    width: 55%;
+    margin: auto;
+    text-align: right;
+    vertical-align: auto;
+}
+
+.form-fields > * {
+    margin: 10px;
+}
+
+.submit-button {
+    margin-top: 25px;
+}
+/*.register-form > * {
+    display: block;
+    margin: 30px;
+}*/
+
 </style>

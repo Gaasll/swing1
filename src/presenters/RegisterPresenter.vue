@@ -4,7 +4,7 @@ import RegisterView from "../views/RegisterView.vue"
 //import NextButton from "../components/NextButton.vue"
 //import Sidebar from "../components/Sidebar.vue"
 //import {useRoute} from 'vue-router';
-//import {createUser} from "../firebaseModel.js";
+import {createUser} from "../firebaseModel.js";
 
 export default {
     name: "Register",
@@ -36,7 +36,7 @@ export default {
                 //this.model.setUsername(name);
                 //console.log(this.model.setUsername);
                 console.log([email, password]);
-                //createUser(email, password);
+                createUser(email, password);
             }
         },
     },
