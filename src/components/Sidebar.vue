@@ -1,5 +1,4 @@
 <script setup>
-
 import { ref } from 'vue'
 const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
 const ToggleMenu = () => {

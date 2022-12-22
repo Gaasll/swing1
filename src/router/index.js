@@ -7,7 +7,7 @@ const routes = [
         props: { model: false, rerenderKey: false },
     },
     {
-        path: '/welcome',
+        path: '/',
         component: () => import('../presenters/StartpagePresenter.vue'),
         props: { model: false, rerenderKey: false },
     },
@@ -44,6 +44,11 @@ const routes = [
     {
         path: '/history',
         component: () => import('../presenters/HistoryPresenter.vue'),
+        props: { model: true, rerenderKey: false },
+    },
+    {
+        path: '/register',
+        component: () => import('../presenters/RegisterPresenter.vue'),
         props: { model: true, rerenderKey: false },
     },
 ]
