@@ -44,7 +44,7 @@ export default {
     }
   },
   beforeMount() {
-    this.redirect();
+    //this.redirect();
   }
 }
 </script>
