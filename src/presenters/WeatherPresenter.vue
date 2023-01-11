@@ -1,6 +1,5 @@
 <script>
 import WeatherView from '../views/WeatherView.vue';
-import Sidebar from "../components/Sidebar.vue";
 import NextButton from "../components/NextButton.vue";
 import {useRoute} from 'vue-router';
 import PromiseNoData from "../views/PromiseNoData.vue";
@@ -8,17 +7,12 @@ import PromiseNoData from "../views/PromiseNoData.vue";
 export default { 
     name: "Weather",
     components: {
-        Sidebar,
         WeatherView,
         NextButton,
         PromiseNoData,
     },
     props: ["model", "rerenderKey"],
     methods: {
-        showSidebar() {
-            const route = useRoute();
-            return (route.path === '/weather');
-        },
         showButton(){
             const route = useRoute();
             return (route.path === '/weatherSetup');
@@ -36,7 +30,6 @@ export default {
 </script>
 
 <template>
-    <Sidebar v-if="showSidebar()" />
     <div :key="rerenderKey">
         <div  v-if="this.model.weatherPromiseState.data">
             <WeatherView :weather="model.weatherPromiseState.data.weather"
