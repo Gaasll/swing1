@@ -1,7 +1,7 @@
 <template>
     <h2>Sign in</h2>
    <form @submit.prevent="onFormSubmit" class="register-form">
-
+       <p>Don't have an account? <a href="#" @click="viewStateChange()">Sign up here</a></p>
         <span class="form-fields">
                 <span>E-mail: </span>
                 <input type="email" class="inputField" placeholder="enter e-mail..." v-model="email">
@@ -11,7 +11,7 @@
         </span>
             <NextButton @click="onFormSubmit()"/>
             <!-- <input type="submit" class="submit-button" value="Sign in"> -->
-            <p>Don't have an account? <a href="#" @click="viewStateChange()">Sign up here</a></p>
+            
     </form>
 
 </template>
@@ -43,14 +43,14 @@ h2{
     text-align: center;
 }
 .form-fields {
-    text-align: left;
+    /* text-align: left; */
     display: grid;
     grid-template-columns: 9fr 11fr;
-    /* grid-template-rows: repeat(30px); */
-    width: 25%;
+    grid-template-rows: repeat(30px);
+    width: 55%;
     margin: auto;
-    /* text-align: right; */
-    /* vertical-align: auto; */
+    text-align: right;
+    vertical-align: auto;
 }
 
 .form-fields > * {

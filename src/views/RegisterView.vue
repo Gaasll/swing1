@@ -2,10 +2,11 @@
     <div class="register-form-container">
         <form @submit.prevent="onFormSubmit" class="register-form">
             <h2>Sign up</h2>
+            <p>Already have an account? <a href="#" @click="viewStateChange()">Sign in here</a></p>
             <span class="form-fields">
                 <span>Display name: </span>
                 <input class="inputField" type="text" placeholder="enter name here..." v-model="username">
-                
+
                 <span>Email: </span>
                 <input class="inputField" type="email" placeholder="your email here..." v-model="email">
                 
@@ -17,7 +18,6 @@
             </span>
             <NextButton @click="onFormSubmit()"/>
             <!-- <input type="submit" class="submit-button" value="Register"> -->
-            <p>Already have an account? <a href="#" @click="viewStateChange()">Sign in here</a></p>
         </form>
     </div>
 </template>
