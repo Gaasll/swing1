@@ -2,7 +2,7 @@
 import StartView from '../views/StartView.vue';
 import SignInView from '../views/SignInView.vue';
 import RegisterView from '../views/RegisterView.vue';
-import NextButton from "../components/NextButton.vue";
+// import NextButton from "../components/NextButton.vue";
 import {signIn, createUser} from "../firebaseModel.js";
 
 export default { 
@@ -11,7 +11,7 @@ export default {
         RegisterView,
         SignInView,
         StartView,
-        NextButton,
+        // NextButton,
     },
     props: ["model", "rerenderKey"],
     data (){
@@ -71,7 +71,7 @@ export default {
     <StartView />
     <SignInView v-if="showView" :viewStateChange="viewState" :signInUser="signInUser"/>
     <RegisterView v-else :viewStateChange="viewState" :registerUser="registerUser" />
-    <NextButton path="emotionSetup"/>
+    <!-- <NextButton path="emotionSetup"/> -->
 </template>
 
 

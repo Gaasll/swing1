@@ -1,5 +1,5 @@
 <template>
-    <SidebarView :signOut="signOut"/>
+    <SidebarView :signOut="signOut" :logInState="logInState"/>
 </template>
 
 <script>
@@ -18,6 +18,9 @@ export default {
         signOut(){
             console.log("Signing out");
             signOut();
+        },
+        logInState(){
+            this.isSignedIn();
         }
     }
 }

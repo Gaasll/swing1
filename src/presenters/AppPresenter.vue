@@ -31,13 +31,11 @@ export default {
       return ! (this.sidebarHidden.find((entry) => entry === useRoute().path));
     },
     redirect(){
-      console.log("You have reached the function")
       const router = useRouter();
       const route = useRoute();
       firebase.auth().onAuthStateChanged((user=>{
         console.log("getting promise...", user)
         if (!user){
-          alert("You have to create a user")
           console.log("You have to create a user")
           router.replace('/login')
         } else if (route.path == '/login' || route.path == '/register') {

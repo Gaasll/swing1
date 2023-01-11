@@ -55,6 +55,7 @@ class SwingModel{
     setUsername(name){
         this.username = name;
         console.log("this is your username", this.username);
+        this.notifyObservers({username: this.username});
     }
 
     setEmotions(emotion, isChecked){

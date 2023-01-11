@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 export default {
-	props: ["signOut"],
+	props: ["signOut", "logInState"],
 	setup() {
 		const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
 		const ToggleMenu = () => {
@@ -11,6 +11,11 @@ export default {
 		};
 		return {is_expanded, ToggleMenu};	
 	},
+	methods: {
+		isLoggedIn(){
+			this.logInState();
+		}
+	}
 }
 </script>
 
@@ -49,10 +54,10 @@ export default {
 					<span class="text">History</span>
 				</router-link>
 				
-				<a href="#" @click="signOut">Sign out</a>
-				<button v-if="isLoggedIn" class="text" v-on:click="logout" >logout</button>
-                <button v-else class="text" v-on:click="login" >login</button>
-                <button id="logout-button" @click.prevent="handleLogout" :disabled="isLoggedOut">Log out</button>
+				<!-- <a href="#" @click="signOut">Sign out</a> -->
+				<button v-if="isLoggedIn()" class="text" v-on:click="signOut" >Log out</button>
+                <router-link v-else to="/"><button class="text" v-on:click="login" >Log in</button></router-link>
+                <!-- <button id="logout-button" @click.prevent="handleLogout" :disabled="isLoggedOut">Log out</button> -->
 			</div>
 		</aside>
 	</div>
