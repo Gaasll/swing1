@@ -49,7 +49,8 @@ export default {
             return true;
         },
         
-        registerUser(email, password, password_confirm) {
+        registerUser(username, email, password, password_confirm) {
+            console.log(username);
             console.log(email);
             console.log(password);
             console.log(password_confirm);
@@ -59,6 +60,7 @@ export default {
                 //console.log(this.model.setUsername);
                 console.log([email, password]);
                 createUser(email, password);
+                this.model.setUsername(username);
             }
         },
     }
