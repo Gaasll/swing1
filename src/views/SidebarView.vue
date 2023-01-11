@@ -1,9 +1,17 @@
-<script setup>
+<script>
 import { ref } from 'vue'
-const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
-const ToggleMenu = () => {
-	is_expanded.value = !is_expanded.value
-	localStorage.setItem("is_expanded", is_expanded.value)}
+
+export default {
+	props: ["signOut"],
+	setup() {
+		const is_expanded = ref(localStorage.getItem("is_expanded") === "true")
+		const ToggleMenu = () => {
+			is_expanded.value = !is_expanded.value
+			localStorage.setItem("is_expanded", is_expanded.value)
+		};
+		return {is_expanded, ToggleMenu};	
+	},
+}
 </script>
 
 <template>
@@ -40,7 +48,11 @@ const ToggleMenu = () => {
 					<span class="material-icons">history</span>
 					<span class="text">History</span>
 				</router-link>
-				<a href="">Sign out</a>
+				
+				<a href="#" @click="signOut">Sign out</a>
+				<button v-if="isLoggedIn" class="text" v-on:click="logout" >logout</button>
+                <button v-else class="text" v-on:click="login" >login</button>
+                <button id="logout-button" @click.prevent="handleLogout" :disabled="isLoggedOut">Log out</button>
 			</div>
 		</aside>
 	</div>

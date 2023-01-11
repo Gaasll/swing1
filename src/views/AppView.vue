@@ -2,7 +2,7 @@
 
 <template>
   <div>
-    <SidebarPresenter v-if="hasSidebar()" />
+    <SidebarPresenter v-if="hasSidebar()" :model="model" />
     <router-view :model="model" :rerenderKey="rerenderKey" />
     <Footer />
   </div>
