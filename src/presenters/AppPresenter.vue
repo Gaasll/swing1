@@ -9,6 +9,7 @@ import AppView from '../views/AppView.vue'
 import SwingModel from '../SwingModel.js'
 import firebase from 'firebase/app';
 import '../firebaseModel.js';
+import { updateFirebaseFromModel } from '../firebaseModel.js';
 import { useRouter, useRoute } from 'vue-router';
 
 export default {
@@ -16,6 +17,10 @@ export default {
   components: {
     AppView,
   },
+  created(){
+    updateFirebaseFromModel(this.model.bind(this));
+  },
+
   data() {
     return{
       model: new SwingModel(this.rerender.bind(this)),

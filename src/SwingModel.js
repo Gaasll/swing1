@@ -15,6 +15,7 @@ class SwingModel{
         this.observers = [notify];
 
         this.username = "";
+        this.userUID = "";
         
         this.locationPromiseState = {};
         this.weatherPromiseState = {};
