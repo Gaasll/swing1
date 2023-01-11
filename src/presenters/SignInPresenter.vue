@@ -9,6 +9,7 @@
 import SignInView from '../views/SignInView';
 import RegisterView from '../views/RegisterView';
 import {signIn} from '../firebaseModel.js';
+import {useRoute} from 'vue-router';
 
 export default {
     components: {
@@ -21,6 +22,7 @@ export default {
             console.log(email);
             console.log(password);
             signIn(email, password);
+            useRoute().path("/emotion");
         },
     },
 
