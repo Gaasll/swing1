@@ -4,26 +4,31 @@
             <h2>Sign up</h2>
             <span class="form-fields">
                 <span>Display name: </span>
-                <input type="text" placeholder="enter name here..." v-model="username">
+                <input class="inputField" type="text" placeholder="enter name here..." v-model="username">
                 
                 <span>Email: </span>
-                <input type="email" placeholder="your email here..." v-model="email">
+                <input class="inputField" type="email" placeholder="your email here..." v-model="email">
                 
                 <span>Password: </span>
-                <input type="password" placeholder="choose a password" v-model="password">
+                <input class="inputField" type="password" placeholder="choose a password" v-model="password">
 
                 <span>Confirm password: </span>
-                <input type="password" placeholder="re-type password" v-model="password_confirm">
+                <input class="inputField" type="password" placeholder="re-type password" v-model="password_confirm">
             </span>
-            <input type="submit" class="submit-button" value="Register">
+            <NextButton @click="onFormSubmit()"/>
+            <!-- <input type="submit" class="submit-button" value="Register"> -->
             <p>Already have an account? <a href="#" @click="viewStateChange()">Sign in here</a></p>
         </form>
     </div>
 </template>
 
 <script>
+import NextButton from "../components/NextButton.vue"
 export default {
     props: ['registerUser', 'viewStateChange'],
+    components: {
+        NextButton
+    },
     data() {
         return {
             email: '',
@@ -53,6 +58,13 @@ export default {
 
 .form-fields > * {
     margin: 10px;
+}
+.inputField {
+    border-radius: 25px;
+    border: 2px solid #609;
+    padding: 10px; 
+    width: 200px;
+    height: 15px; 
 }
 
 .submit-button {
