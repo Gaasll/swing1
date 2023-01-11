@@ -53,6 +53,7 @@ function signOut(){
     // Sign-out successful.
   }).catch((error) => {
     console.log('signout failed');
+    console.err(error);
     // An error happened.
   });
 }

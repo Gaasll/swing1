@@ -6,8 +6,10 @@
 </template>
 
 <script>
-import SignInView from '../views/SignInView'
-import RegisterView from '../views/RegisterView'
+import SignInView from '../views/SignInView';
+import RegisterView from '../views/RegisterView';
+import {signIn} from '../firebaseModel.js';
+
 export default {
     components: {
         SignInView,
