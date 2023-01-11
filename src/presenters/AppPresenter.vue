@@ -16,10 +16,6 @@ export default {
   components: {
     AppView,
   },
-  created(){
-    updateFirebaseFromModel(this.model.bind(this));
-  },
-
   data() {
     return{
       model: new SwingModel(this.rerender.bind(this)),
