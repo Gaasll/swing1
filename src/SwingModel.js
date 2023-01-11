@@ -14,7 +14,7 @@ class SwingModel{
     constructor(notify){
         this.observers = [notify];
 
-        this.username = "user_name";
+        this.username = "user_name_default";
         
         this.locationPromiseState = {};
         this.weatherPromiseState = {};
@@ -54,6 +54,7 @@ class SwingModel{
 
     setUsername(name){
         this.username = name;
+        console.log("this is your username", this.username);
     }
 
     setEmotions(emotion, isChecked){

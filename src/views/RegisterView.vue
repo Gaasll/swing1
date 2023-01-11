@@ -34,7 +34,7 @@ export default {
     },
     methods: {
         onFormSubmit() {
-            this.registerUser(this.email, this.password, this.password_confirm);
+            this.registerUser(this.username, this.email, this.password, this.password_confirm);
         }
     },
 }
