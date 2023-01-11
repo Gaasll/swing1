@@ -8,7 +8,7 @@
 import AppView from '../views/AppView.vue'
 import SwingModel from '../SwingModel.js'
 import firebase from 'firebase/app';
-import '../firebaseModel.js';
+import {getUID, updateFirebaseFromModel} from '../firebaseModel.js';
 import { useRouter, useRoute } from 'vue-router';
 
 export default {
@@ -37,18 +37,22 @@ export default {
       firebase.auth().onAuthStateChanged((user=>{
         console.log("getting promise...", user)
         if (!user){
-          alert("You have to create a user")
+          //alert("You have to create a user")
           console.log("You have to create a user")
-          router.replace('/login')
-        } else if (route.path == '/login' || route.path == '/register') {
-          console.log("You are logged in")
           router.replace('/')
+        } else if (route.path == '/') {
+          console.log("You are logged in")
+          router.replace('/home')
         }
       }))
     }
   },
   beforeMount() {
-    //this.redirect();
+    this.redirect();
+  },
+  created() {
+    getUID(this.model);
+    updateFirebaseFromModel(this.model);
   }
 }
 </script>

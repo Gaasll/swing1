@@ -1,5 +1,5 @@
 <template>
-    <SidebarView :signOut="signOut"/>
+    <SidebarView :signOut="signOut" :isSignedIn="isSignedIn"/>
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
     },
     methods: {
         isSignedIn(){
-            return this.model.username == true;
+            return this.model.uid;
         },
         signOut(){
             console.log("Signing out");

@@ -49,6 +49,7 @@ function signIn(email, password){
 
 function signOut(){
   firebase.auth().signOut().then(() => {
+    console.log("Signed out");
     return true;
     // Sign-out successful.
   }).catch((error) => {
@@ -104,13 +105,20 @@ function firebaseModelPromise() {
 //    model.addObserver(obsACB);
 //}
 
-function getUID(){
+function getUID(model){
   firebase.auth().onAuthStateChanged((user) => {
+    console.log(user);
     if (user) {
+      console.log("here is reached!")
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
-      return user.uid;
-    }});
+      model.setUID(user.uid);
+    }
+    else
+    {
+      model.setUID(null);
+    }
+  });
 }
 
 function updateFirebaseFromModel(model) {
@@ -118,13 +126,13 @@ function updateFirebaseFromModel(model) {
 
     function fireBaseObsACB(payload){
         if (payload && payload.username)
-            firebase.database().ref(REF+"/"+ getUID +"/username").set(model.username);
+            firebase.database().ref(REF+"/"+ model.uid +"/username").set(model.username);
 
         if (payload && payload.playlist)
-            firebase.database().ref(REF+"/"+ getUID +"/playlist"+payload.playlist).set(model.playlist);
+            firebase.database().ref(REF+"/"+ model.uid +"/playlist"+payload.playlist).set(model.playlist);
 
         if (payload && payload.emotions)
-            firebase.database().ref(REF+"/" + getUID +"/emotions"+payload.emotions).set(model.emotions);
+            firebase.database().ref(REF+"/" + model.uid +"/emotions").set(model.selectedEmotions);
 
       }
     model.addObserver(fireBaseObsACB);
@@ -142,5 +150,5 @@ function updateModelFromFirebase(model) {
     
 }
 
-export {firebaseModelPromise, updateFirebaseFromModel, updateModelFromFirebase, createUser, signIn, signOut, fbAuthObs}
+export {firebaseModelPromise, updateFirebaseFromModel, updateModelFromFirebase, createUser, signIn, signOut, fbAuthObs, getUID}
 //still needs a bunch of stuff

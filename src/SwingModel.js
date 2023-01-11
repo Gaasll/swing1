@@ -25,17 +25,17 @@ class SwingModel{
         this.trackURL;
 
         this.emotions = {
-                         "happy":       {checked: false, style: "Disco"},
-                         "sad":         {checked: false, style: "Shoegaze"},
-                         "angry":       {checked: false, style: "Death Metal"},
-                         "excited":     {checked: false, style: "Synth-pop"},
-                         "stressed":    {checked: false, style: "Downtempo"},
-                         "scared":      {checked: false, style: "Dark Ambient"},
-                         "confident":   {checked: false, style: "Modern Classical"},
-                         "embarassed":  {checked: false, style: "Musical"},
-                         "horny":       {checked: false, style: "Soul"},
-                         "cozy":        {checked: false, style: "Indie Pop"},
-                         "queer":       {checked: false, style: "IDM"}
+                         "happy":       {checked: false,},
+                         "sad":         {checked: false,},
+                         "angry":       {checked: false,},
+                         "excited":     {checked: false,},
+                         "stressed":    {checked: false,},
+                         "scared":      {checked: false,},
+                         "confident":   {checked: false,},
+                         "embarassed":  {checked: false,},
+                         "horny":       {checked: false,},
+                         "cozy":        {checked: false,},
+                         "queer":       {checked: false,}
                         }
         this.selectedEmotions = [];
 
@@ -57,6 +57,10 @@ class SwingModel{
         console.log("this is your username", this.username);
     }
 
+    setUID(uid){
+        this.uid = uid;
+    }
+
     setEmotions(emotion, isChecked){
         console.log(emotion);
         this.emotions[emotion].checked = isChecked;
@@ -69,7 +73,9 @@ class SwingModel{
             if (index > -1){
                 this.selectedEmotions.splice(index, 1);
             }
-        }        
+        }
+
+        this.notifyObservers({emotions: this.selectedEmotions});
     }
 
     emotionsFull(){
