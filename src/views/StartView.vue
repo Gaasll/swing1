@@ -10,7 +10,7 @@
 <script>
 </script>
 
-<style>
+<style scoped>
     .text{
         margin: 5em;
     }
