@@ -15,6 +15,7 @@ class SwingModel{
         this.observers = [notify];
 
         this.username = "";
+        this.userUID = "";
         
         this.locationPromiseState = {};
         this.weatherPromiseState = {};
@@ -55,6 +56,7 @@ class SwingModel{
     setUsername(name){
         this.username = name;
         console.log("this is your username", this.username);
+        this.notifyObservers({username: this.username});
     }
 
     setUID(uid){

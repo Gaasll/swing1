@@ -16,6 +16,10 @@ export default {
   components: {
     AppView,
   },
+  created(){
+    updateFirebaseFromModel(this.model.bind(this));
+  },
+
   data() {
     return{
       model: new SwingModel(this.rerender.bind(this)),
@@ -31,7 +35,6 @@ export default {
       return ! (this.sidebarHidden.find((entry) => entry === useRoute().path));
     },
     redirect(){
-      console.log("You have reached the function")
       const router = useRouter();
       const route = useRoute();
       firebase.auth().onAuthStateChanged((user=>{

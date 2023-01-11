@@ -11,6 +11,11 @@ export default {
 		};
 		return {is_expanded, ToggleMenu};	
 	},
+	methods: {
+		isLoggedIn(){
+			this.logInState();
+		}
+	}
 }
 </script>
 

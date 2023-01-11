@@ -18,6 +18,9 @@ export default {
         signOut(){
             console.log("Signing out");
             signOut();
+        },
+        logInState(){
+            this.isSignedIn();
         }
     }
 }
