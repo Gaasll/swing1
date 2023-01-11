@@ -2,19 +2,22 @@
 
 <template>
   <div>
+    <SidebarPresenter v-if="hasSidebar()" />
     <router-view :model="model" :rerenderKey="rerenderKey" />
     <Footer />
   </div>
 </template>
 
 <script>
+import SidebarPresenter from "../presenters/SidebarPresenter.vue";
 import Footer from "../presenters/FooterPresenter.vue";
 //import { onErrorCaptured, ref, Suspense } from 'vue'
 
 export default {
   name: "AppView",
-  props: ["model", "rerenderKey"],
+  props: ["model", "rerenderKey", "hasSidebar", ],
   components: {
+    SidebarPresenter,
     Footer,
   },
 }

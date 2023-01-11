@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AppView :model="model" :rerenderKey="rerenderKey" />
+    <AppView :model="model" :rerenderKey="rerenderKey" :hasSidebar="hasSidebar"/>
   </div>
 </template>
 
@@ -20,11 +20,15 @@ export default {
     return{
       model: new SwingModel(this.rerender.bind(this)),
       rerenderKey: 0,
+      sidebarHidden: ['/', '/emotionSetup', '/weatherSetup'],
     }
   },
   methods: {
     rerender(){
       this.rerenderKey += 1;
+    },
+    hasSidebar(){
+      return ! (this.sidebarHidden.find((entry) => entry === useRoute().path));
     },
     redirect(){
       console.log("You have reached the function")

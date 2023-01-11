@@ -1,5 +1,4 @@
 <template>
-    <Sidebar />
     <div :key="rerenderKey">
         <div v-if="this.model.weatherPromiseState.data">
             <PlaylistView :username="model.username"
@@ -18,14 +17,12 @@
 
 <script>
 import PlaylistView from '../views/PlaylistView.vue'
-import Sidebar from "../components/Sidebar.vue";
 import PromiseNoData from '@/views/PromiseNoData.vue';
 
 export default { 
     name: "Playlist",
     components: {
         PlaylistView,
-        Sidebar,
         PromiseNoData,
     },
     props: ["model", "rerenderKey"],

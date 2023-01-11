@@ -1,13 +1,11 @@
 <script>
 import EmotionView from "../views/EmotionView.vue"
 import NextButton from "../components/NextButton.vue"
-import Sidebar from "../components/Sidebar.vue"
 import {useRoute} from 'vue-router';
 
 export default {
     name: "Emotion",
     components: {
-        Sidebar,
         EmotionView,
         NextButton,
     },
@@ -25,10 +23,6 @@ export default {
         checkIsFull(){
             return this.model.emotionsFull();
         },
-        showSidebar() {
-            const route = useRoute();
-            return (route.path === '/emotion');
-        },
         showButton(){
             const route = useRoute();
             return (route.path === '/emotionSetup');
@@ -38,7 +32,6 @@ export default {
 </script>
 
 <template>
-    <Sidebar v-if="showSidebar()" />
     <EmotionView :emotions="getEmotions()"
                  :onEmotionChange="setEmotions"
                  :isFull="checkIsFull()"
