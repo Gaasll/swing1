@@ -3,7 +3,7 @@ import StartView from '../views/StartView.vue';
 import SignInView from '../views/SignInView.vue';
 import RegisterView from '../views/RegisterView.vue';
 import NextButton from "../components/NextButton.vue";
-import {signIn} from "../firebaseModel.js";
+import {signIn, createUser} from "../firebaseModel.js";
 
 export default { 
     name: "Startpage",
@@ -34,7 +34,33 @@ export default {
 
         viewState(){
             this.showView = !this.showView;
-        }
+        },
+        
+        validatePassword(pw, pw_conf){
+            if (pw.length < 8) {
+                alert("Password needs to be at least 8 characters");
+                return false;
+            }
+            else if (pw != pw_conf){
+                alert("Password does not match");
+                return false;
+            }
+
+            return true;
+        },
+        
+        registerUser(email, password, password_confirm) {
+            console.log(email);
+            console.log(password);
+            console.log(password_confirm);
+
+            if(this.validatePassword(password, password_confirm)) {
+                //this.model.setUsername(name);
+                //console.log(this.model.setUsername);
+                console.log([email, password]);
+                createUser(email, password);
+            }
+        },
     }
 }
 </script>
@@ -42,7 +68,7 @@ export default {
 <template>
     <StartView />
     <SignInView v-if="showView" :viewStateChange="viewState" :signInUser="signInUser"/>
-    <RegisterView v-else :viewStateChange="viewState"/>
+    <RegisterView v-else :viewStateChange="viewState" :registerUser="registerUser" />
     <NextButton path="emotionSetup"/>
 </template>
 
