@@ -70,6 +70,10 @@ export default {
 .submit-button {
     margin-top: 25px;
 }
+
+form.register-form {
+    margin-bottom: 50px;
+}
 /*.register-form > * {
     display: block;
     margin: 30px;

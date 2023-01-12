@@ -68,4 +68,8 @@ h2{
 .submit-button {
     margin-top: 25px;
 }
+
+form.register-form {
+    margin-bottom: 50px;
+}
 </style>
