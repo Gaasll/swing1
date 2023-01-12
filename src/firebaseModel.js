@@ -93,7 +93,15 @@ function firebaseModelPromise(notify) {
         return createModelACB(emotions);
     }
     return firebase.database().ref(REF).once("value").then(makeBigPromiseACB);
-}
+
+
+
+    
+
+
+
+
+  }
 
 //function observerRecap(model) {
 //    function obsACB(payload){console.log(payload);}
@@ -120,15 +128,18 @@ function updateFirebaseFromModel(model) {
 
 
     function fireBaseObsACB(payload){
+      
         if (payload && payload.username)
             firebase.database().ref(REF+"/"+ model.uid +"/username").set(model.username);
 
         if (payload && payload.playlist)
-            firebase.database().ref(REF+"/"+ model.uid +"/playlist"+payload.playlist).set(model.playlist);
+            firebase.database().ref(REF+"/"+ model.uid +"/playlist").set(payload.playlist);
 
         if (payload && payload.emotions)
             firebase.database().ref(REF+"/" + model.uid +"/emotions").set(payload.emotions);
 
+        if (payload && payload.lastPlayed)
+            firebase.database().ref(REF+"/" + model.uid +"/lastPlayed").set(payload.emotions);
       }
     model.addObserver(fireBaseObsACB);
 }   
@@ -162,6 +173,11 @@ function updateModelFromFirebase(model) {
     firebase.database().ref(REF+"/" + model.uid + "/emotions").on("child_added", 
     function emotionsUpdatedInFirebase(firebaseData){
       model.setEmotions(firebaseData.key, firebaseData.val().checked)
+    });
+
+    firebase.database().ref(REF+"/" + model.uid + "/lastPlayed").on("child_added", 
+    function lastPlayedUpdatedInFirebase(){
+      model.extractPlayerData()
     });
   }
 }

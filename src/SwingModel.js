@@ -24,6 +24,8 @@ class SwingModel{
         this.playlist = [];
         this.playerPromiseState = {};
         this.trackURL;
+        this.lastPlayed = "heyyo";
+        
 
         this.emotions = emotions || {
                          "happy":       {checked: false,},
@@ -118,6 +120,7 @@ class SwingModel{
             show_teaser: true,
             visual: true,
         }
+        this.lastPlayed = { url: songURL};
         this.trackURL = baseURL + new URLSearchParams(playerData);
         this.notifyObservers();
     }
