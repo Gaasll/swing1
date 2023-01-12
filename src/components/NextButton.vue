@@ -7,8 +7,8 @@ export default{
         click(){
             if (this.event)
                 this.event();
-            //window.location.hash=this.path;
-            this.$router.push(this.path);
+            if (this.path)
+                this.$router.push(this.path);
         }
     },
 }

@@ -4,7 +4,7 @@
 
 <script>
 import SidebarView from '../views/SidebarView.vue'
-import {signOut, } from "../firebaseModel.js";
+import {signOut, getUser} from "../firebaseModel.js";
 
 export default {
     props: ['model'],
@@ -13,7 +13,7 @@ export default {
     },
     methods: {
         isSignedIn(){
-            return this.model.uid;
+            return getUser();
         },
         signOut(){
             console.log("Signing out");

@@ -9,7 +9,7 @@
                 <span>Password: </span>
                 <input type="password" class="inputField" placeholder="enter password..." v-model="password">
         </span>
-            <NextButton @click="onFormSubmit()"/>
+            <NextButton @click="onFormSubmit"/>
             <!-- <input type="submit" class="submit-button" value="Sign in"> -->
             
     </form>

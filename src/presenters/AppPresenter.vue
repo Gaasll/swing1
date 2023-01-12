@@ -47,10 +47,12 @@ export default {
       firebase.auth().onAuthStateChanged((user=>{
         //console.log("getting promise...", user)
         if (!user){
+          resolvePromise(firebaseModelPromise(this.rerender.bind(this)), this.modelPromiseState, this.modelCreated);
           //alert("You have to create a user")
           console.log("You have to create a user")
           router.replace('/')
-        } else if (route.path == '/') {
+        } else if (route.path === '/') {
+          updateModelFromFirebase(this.modelPromiseState.data);
           console.log("You are logged in")
           router.replace('/emotionSetup')
         }

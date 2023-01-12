@@ -59,15 +59,13 @@ class SwingModel{
         this.notifyObservers({username: this.username});
     }
 
-    setUID(uid){
-        this.uid = uid;
-    }
-
     setEmotions(emotion, isChecked){
+        if (this.emotions[emotion].checked == isChecked) { return; }
+        console.log(this.observers);
         //console.log(emotion);
         this.emotions[emotion].checked = isChecked;
         
-        if (isChecked){            
+        if (isChecked){
             this.selectedEmotions = [...this.selectedEmotions, emotion];
         }
         else{
@@ -103,6 +101,8 @@ class SwingModel{
     }
 
     exctractPlayerData(){
+        if (!this.songsPromiseState.data) { return; }
+        
         //console.log(this.songsPromiseState.data);
         let songURL = this.songsPromiseState.data[this.randInt(this.songsPromiseState.data.length)].uri;
         let baseURL = "https://w.soundcloud.com/player/?"

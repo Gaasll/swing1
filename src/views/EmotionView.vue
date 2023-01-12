@@ -1,7 +1,7 @@
 <template>  
   <div class="wrapper">
       <header>
-        <h1 class="question"> How are you feeling today?</h1>
+        <h1 class="question"> Hi {{username}}! How are you feeling today?</h1>
       </header>
       <div class="check-form">
         <div class="emotion" v-for="emotion in emotions" :key="emotion.emotion">
@@ -23,6 +23,7 @@ export default {
     isFull: Boolean,
     showSidebar: Boolean,
     showButton: Boolean,
+    username: String, 
   },
   methods: {
     onCheckboxChange(e){

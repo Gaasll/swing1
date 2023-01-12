@@ -27,8 +27,8 @@ export default {
         },
 
         signInUser(email, password) {
-            console.log(email);
-            console.log(password);
+            //console.log(email);
+            //console.log(password);
             signIn(email, password);
         },
 
@@ -50,17 +50,14 @@ export default {
         },
         
         registerUser(username, email, password, password_confirm) {
-            console.log(username);
-            console.log(email);
-            console.log(password);
-            console.log(password_confirm);
+            //console.log(username);
+            //console.log(email);
+            //console.log(password);
+            //console.log(password_confirm);
 
             if(this.validatePassword(password, password_confirm)) {
-                //this.model.setUsername(name);
-                //console.log(this.model.setUsername);
-                console.log([email, password]);
-                createUser(email, password);
-                this.model.setUsername(username);
+                createUser(email, password, username);
+                //this.model.setUsername(username);
             }
         },
     }

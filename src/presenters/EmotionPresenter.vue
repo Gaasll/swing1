@@ -35,6 +35,7 @@ export default {
     <EmotionView :emotions="getEmotions()"
                  :onEmotionChange="setEmotions"
                  :isFull="checkIsFull()"
+                 :username="model.username"
                  />
     <NextButton v-if="showButton()" path="weatherSetup"/>
 </template>
