@@ -1,17 +1,11 @@
 <script>
 import RegisterView from "../views/RegisterView.vue"
-//import {ref} from 'vue';
-//import NextButton from "../components/NextButton.vue"
-//import Sidebar from "../components/Sidebar.vue"
-//import {useRoute} from 'vue-router';
 import {createUser} from "../firebaseModel.js";
 
 export default {
     name: "Register",
     components: {
-        //Sidebar,
         RegisterView,
-        //NextButton,
     },
     props: ["model", "rerenderKey"],
     methods: {
@@ -33,9 +27,6 @@ export default {
             console.log(password_confirm);
 
             if(this.validatePassword(password, password_confirm)) {
-                //this.model.setUsername(name);
-                //console.log(this.model.setUsername);
-                console.log([email, password]);
                 createUser(email, password);
             }
         },
@@ -44,7 +35,5 @@ export default {
 </script>
 
 <template>
-    <!--Sidebar v-if="showSidebar()" /-->
     <RegisterView :registerUser="registerUser" />
-    <!--NextButton path="" event="" /-->
 </template>

@@ -34,13 +34,6 @@ export default{
         </h2>
       </div>
     </div>
-    <!--div class="card">
-      <div class="box box1"><img src="../assets/song.jpg" alt="a balloon"></div>
-      <br>
-        <div  class="box desc" > Say What You Say</div>
-        <div  class="box desc" > issa-e</div>
-        <button> <span class="material-icons">favorite </span></button>
-    </div-->
     <div class="musicPlayer">
       <div class="border-top-overlay">
       </div>
@@ -71,8 +64,6 @@ export default{
   margin-right: 25%;
   padding: 2em;
   border-radius: 30px;
-  /* max-width: 50%; */
-  /* max-width: 420px; */
 }
 
 .box {

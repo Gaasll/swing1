@@ -2,7 +2,6 @@
         <footer>
             <p>Copyright &copy; 2022</p>
         </footer>
-        <!-- <a href="">About</a> -->
 </template>
 
 <script>

@@ -7,7 +7,6 @@
 
 <script>
 import AppView from '../views/AppView.vue'
-//import SwingModel from '../SwingModel.js'
 import firebase from 'firebase/app';
 import {firebaseModelPromise, updateFirebaseFromModel, updateModelFromFirebase} from '../firebaseModel.js';
 import resolvePromise from '@/resolvePromise';
@@ -22,7 +21,6 @@ export default {
 },
   data() {
     return{
-      //model: new SwingModel(this.rerender.bind(this)),
       modelPromiseState: {},
       rerenderKey: 0,
       sidebarHidden: ['/', '/emotionSetup', '/weatherSetup'],
@@ -45,10 +43,8 @@ export default {
       const router = useRouter();
       const route = useRoute();
       firebase.auth().onAuthStateChanged((user=>{
-        //console.log("getting promise...", user)
         if (!user){
           resolvePromise(firebaseModelPromise(this.rerender.bind(this)), this.modelPromiseState, this.modelCreated);
-          //alert("You have to create a user")
           console.log("You have to create a user")
           router.replace('/')
         } else if (route.path === '/') {

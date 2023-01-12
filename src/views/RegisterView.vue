@@ -17,7 +17,6 @@
                 <input class="inputField" type="password" placeholder="re-type password" v-model="password_confirm">
             </span>
             <NextButton @click="onFormSubmit()"/>
-            <!-- <input type="submit" class="submit-button" value="Register"> -->
         </form>
     </div>
 </template>
@@ -74,8 +73,4 @@ export default {
 form.register-form {
     margin-bottom: 50px;
 }
-/*.register-form > * {
-    display: block;
-    margin: 30px;
-}*/
 </style>

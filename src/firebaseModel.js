@@ -18,7 +18,6 @@ function createUser(email, password, username) {
     console.log('creating user...');
     auth.createUserWithEmailAndPassword(email, password).then(() => {
         console.log('signed in');
-        //console.log(userCredential);
 
         firebase.database().ref(REF+"/"+ getUser().uid +"/username").set(username);
     }).catch((error) => {
@@ -26,7 +25,6 @@ function createUser(email, password, username) {
     var errorMessage = error.message;
     console.log(errorCode);
     console.log(errorMessage);
-    // ..
   });
 }
 
@@ -34,9 +32,6 @@ function signIn(email, password){
     auth.signInWithEmailAndPassword(email, password)
       .then(() => {
         // Signed in
-        //var user = userCredential.user;
-        // ...
-        //console.log(userCredential);
       })
       .catch((error) => {
         var errorCode = error.code;
@@ -81,11 +76,6 @@ function firebaseModelPromise(notify) {
 
     return firebase.database().ref(REF+"/"+uid).once("value").then(makeBigPromiseACB);
 }
-
-//function observerRecap(model) {
-//    function obsACB(payload){console.log(payload);}
-//    model.addObserver(obsACB);
-//}
 
 function getUser(){
   const user = firebase.auth().currentUser;

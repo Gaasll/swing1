@@ -10,7 +10,6 @@
                 <input type="password" class="inputField" placeholder="enter password..." v-model="password">
         </span>
             <NextButton @click="onFormSubmit"/>
-            <!-- <input type="submit" class="submit-button" value="Sign in"> -->
             
     </form>
 
@@ -34,7 +33,6 @@ export default {
             this.signInUser(this.email, this.password);
         }
     },
-
 }
 </script>
 
@@ -43,7 +41,6 @@ h2{
     text-align: center;
 }
 .form-fields {
-    /* text-align: left; */
     display: grid;
     grid-template-columns: 9fr 11fr;
     grid-template-rows: repeat(30px);
@@ -55,7 +52,6 @@ h2{
 
 .form-fields > * {
     margin: 10px;
-    /* border: none; */
 }
 .inputField {
     border-radius: 25px;

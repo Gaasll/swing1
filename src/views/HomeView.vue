@@ -24,14 +24,13 @@ h1 {
 }
 .greetings h3 {
   text-align: left;
-  margin-left: 200px;
-  margin-right: 200px;
+  margin-left: 150px;
+  margin-right: 150px;
 }
-/* 
-@media (min-width: 1024px) {
-  .greetings h1,
+
+@media (max-width: 512px) {
   .greetings h3 {
-    text-align: left;
+  margin-right: 5px;
   }
-} */
+}
 </style>

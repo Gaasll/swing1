@@ -22,8 +22,6 @@ export default {
 <template>
 	<div class="sidebar">
 		<aside :class="`${is_expanded ? 'is-expanded' : ''}`">
-			<!-- <div class="logo"></div> -->
-
 			<div class="menu-toggle-wrap">
 				<button class="menu-toggle" @click="ToggleMenu">
 					<span class="material-icons"> navigate_next </span>
@@ -62,12 +60,6 @@ export default {
 					<span class="text">Log out</span>
 				</router-link>
 				
-				<!--a href="#" @click="signOut">Sign out</a>
-				<button v-if="isSignedIn()" class="text" @click="signOut" >logout</button>
-				<router-link v-else to="/">
-					<button class="button" v-on:click="login" >login</button>
-				</router-link>
-                button id="logout-button" @click.prevent="handleLogout" :disabled="isLoggedOut">Log out</button-->
 			</div>
 		</aside>
 	</div>
@@ -78,7 +70,6 @@ export default {
   position: fixed;
   top: 50%;
   transform: translate(0, -50%);
-  //height: 40%;
   z-index: 1;
 }
 
@@ -90,7 +81,6 @@ aside {
 	color: var(--light);
 	width: calc(3rem + 22px);
 	overflow: hidden;
-	//min-height: 100vh;
 	padding: 1rem;
 	transition: 0.2s ease-in-out;
 	.flex {
@@ -212,7 +202,6 @@ aside {
 		}
 	}
 	@media (max-width: 1024px) {
-		//position: absolute;
 		z-index: 99;
 	}
 }

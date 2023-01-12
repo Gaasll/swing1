@@ -1,5 +1,3 @@
-// in App.vue you only want the components that you want visible on every page
-
 <template>
   <div>
     <SidebarPresenter v-if="hasSidebar()" :model="model" />
@@ -11,7 +9,6 @@
 <script>
 import SidebarPresenter from "../presenters/SidebarPresenter.vue";
 import Footer from "../presenters/FooterPresenter.vue";
-//import { onErrorCaptured, ref, Suspense } from 'vue'
 
 export default {
   name: "AppView",
