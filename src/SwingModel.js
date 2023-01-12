@@ -11,19 +11,18 @@ const MAX_DURATION = 400_000;
 //const NO_SONGS_PER_PLAYLIST = 4;
 
 class SwingModel{
-    constructor(notify, emotions){
+    constructor(notify, username, emotions, lastPlayed){
         this.observers = [notify];
 
-        this.username = "";
-        this.userUID = "";
+        this.username = username || "";
         
         this.locationPromiseState = {};
         this.weatherPromiseState = {};
 
         this.songsPromiseState = {};
-        this.playlist = [];
         this.playerPromiseState = {};
-        this.trackURL;
+        this.lastPlayed = lastPlayed || {name: null, url: null};
+        
 
         this.emotions = emotions || {
                          "happy":       {checked: false,},
@@ -43,10 +42,6 @@ class SwingModel{
         resolvePromise(getLocation(), this.locationPromiseState).then(this.getWeatherData.bind(this));
     }
 
-    setPlaylist(song){
-        this.playlist =[...this.playlist, song]
-    }
-
     getWeatherData(){
         resolvePromise(getCurrentWeatherInfo(this.locationPromiseState.data),
                        this.weatherPromiseState,
@@ -61,7 +56,6 @@ class SwingModel{
 
     setEmotions(emotion, isChecked){
         if (this.emotions[emotion].checked == isChecked) { return; }
-        console.log(this.observers);
         //console.log(emotion);
         this.emotions[emotion].checked = isChecked;
         
@@ -103,8 +97,11 @@ class SwingModel{
     exctractPlayerData(){
         if (!this.songsPromiseState.data) { return; }
         
-        //console.log(this.songsPromiseState.data);
-        let songURL = this.songsPromiseState.data[this.randInt(this.songsPromiseState.data.length)].uri;
+        console.log(this.songsPromiseState.data);
+        const song = this.songsPromiseState.data[this.randInt(this.songsPromiseState.data.length)];
+        this.setLastPlayed({name: song.title, url: song.permalink_url});
+
+        let songURL = song.uri;
         let baseURL = "https://w.soundcloud.com/player/?"
         let playerData = {
             url: songURL,
@@ -119,7 +116,13 @@ class SwingModel{
             visual: true,
         }
         this.trackURL = baseURL + new URLSearchParams(playerData);
-        this.notifyObservers();
+    }
+
+    setLastPlayed(songInfo) {
+        if (songInfo.name === this.lastPlayed.name) { return; }
+
+        this.lastPlayed = songInfo;
+        this.notifyObservers({lastPlayed: this.lastPlayed});
     }
 
     randInt(n){

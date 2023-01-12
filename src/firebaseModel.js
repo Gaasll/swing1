@@ -61,20 +61,19 @@ function signOut(){
 function firebaseModelPromise(notify) {
     
     function makeBigPromiseACB(firebaseData) {
-        let emotions;
-        if(firebaseData.val() && firebaseData.val().emotions) {
-            emotions = firebaseData.val().emotions;
-        }
-        else {
-            emotions = null;
+        let username, emotions, lastPlayed;
+        if(firebaseData.val()) {
+          username = firebaseData.val().username;
+          emotions = firebaseData.val().emotions;
+          lastPlayed = firebaseData.val().lastPlayed;
         }
 
-        function createModelACB(emotionsObj){
-            let model = new SwingModel(notify, emotionsObj);
+        function createModelACB(user, emotionsObj, history){
+            let model = new SwingModel(notify, user, emotionsObj, history);
             return model;
         }
 
-        return createModelACB(emotions);
+        return createModelACB(username, emotions, lastPlayed);
     }
 
     const user = getUser();
@@ -111,12 +110,11 @@ function updateFirebaseFromModel(model) {
         if (payload && payload.username)
             firebase.database().ref(REF+"/"+ user.uid +"/username").set(model.username);
 
-        if (payload && payload.playlist)
-            firebase.database().ref(REF+"/"+ user.uid +"/playlist"+payload.playlist).set(model.playlist);
-
         if (payload && payload.emotions)
             firebase.database().ref(REF+"/" + user.uid +"/emotions").set(payload.emotions);
 
+        if (payload && payload.lastPlayed)
+            firebase.database().ref(REF+"/" + user.uid +"/lastPlayed").set(payload.lastPlayed);
       }
     model.addObserver(fireBaseObsACB);
 }   
@@ -127,23 +125,20 @@ function updateModelFromFirebase(model) {
       return;
     }
 
-  //function getFirebaseData() {
     firebase.database().ref(REF+"/" + user.uid + "/username").on("value", 
     function usernameChangedInFirebaseACB(firebaseData){
       model.setUsername(firebaseData.val());
-    });
-
-    firebase.database().ref(REF+ "/" + user.uid + "/playlist").on("value", 
-    function currentChangedInFirebaseACB(firebaseData){
-      model.setPlaylist(firebaseData.val());
     });
 
     firebase.database().ref(REF+"/" + user.uid + "/emotions").on("child_added", 
     function emotionsUpdatedInFirebase(firebaseData){
       model.setEmotions(firebaseData.key, firebaseData.val().checked)
     });
-  //}
+
+    firebase.database().ref(REF+"/" + user.uid + "/lastPlayed").on("value", 
+    function lastPlayedUpdatedInFirebase(firebaseData){
+      model.setLastPlayed(firebaseData.val());
+    });
 }
 
 export {firebaseModelPromise, updateFirebaseFromModel, updateModelFromFirebase, createUser, signIn, signOut, getUser}
-//still needs a bunch of stuff

@@ -52,7 +52,7 @@ export default {
           console.log("You have to create a user")
           router.replace('/')
         } else if (route.path === '/') {
-          updateModelFromFirebase(this.modelPromiseState.data);
+          if (this.modelPromiseState.data) {updateModelFromFirebase(this.modelPromiseState.data);}
           console.log("You are logged in")
           router.replace('/emotionSetup')
         }

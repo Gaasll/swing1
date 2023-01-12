@@ -1,11 +1,21 @@
 <template>
-<h2>Your played songs</h2>
-  <p>to be implemented...</p>
+  <div v-if="songTitle">
+    <h2>Your last played songs</h2>
+    <p>
+      <a :href="songURL" target="_blank">{{songTitle}}</a>
+    </p>
+  </div>
+  <div v-else>
+    History is empty
+  </div>
 </template>
 
 <script>
-export default {
-
+export default{
+    name: "HistoryView",
+    components: {
+    },
+    props: ["songTitle", "songURL", ],
 }
 </script>
 
