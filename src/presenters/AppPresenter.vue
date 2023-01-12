@@ -8,7 +8,7 @@
 import AppView from '../views/AppView.vue'
 import SwingModel from '../SwingModel.js'
 import firebase from 'firebase/app';
-import {getUID, updateFirebaseFromModel} from '../firebaseModel.js';
+import {updateFirebaseFromModel, updateModelFromFirebase} from '../firebaseModel.js';
 import { useRouter, useRoute } from 'vue-router';
 
 export default {
@@ -46,12 +46,12 @@ export default {
       }))
     }
   },
+  created() {
+    updateModelFromFirebase(this.model);
+    updateFirebaseFromModel(this.model);
+  },
   beforeMount() {
     this.redirect();
   },
-  created() {
-    getUID(this.model);
-    updateFirebaseFromModel(this.model);
-  }
 }
 </script>

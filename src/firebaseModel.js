@@ -132,22 +132,43 @@ function updateFirebaseFromModel(model) {
             firebase.database().ref(REF+"/"+ model.uid +"/playlist"+payload.playlist).set(model.playlist);
 
         if (payload && payload.emotions)
-            firebase.database().ref(REF+"/" + model.uid +"/emotions").set(model.selectedEmotions);
+            firebase.database().ref(REF+"/" + model.uid +"/emotions").set(payload.emotions);
 
       }
     model.addObserver(fireBaseObsACB);
 }   
 
 function updateModelFromFirebase(model) {
-    firebase.database().ref(REF+"/" + getUID + "/username").on("value", 
-    function usernameChangedInFirebaseACB(firebaseData){ model.setUsername(firebaseData.val());});
+  firebase.auth().onAuthStateChanged((user) => {
+    //console.log(user);
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      model.setUID(user.uid);
+      getFirebaseData();
+    }
+    else
+    {
+      model.setUID(null);
+    }
+  });
 
-    firebase.database().ref(REF+ "/" + getUID + "/playlist").on("value", 
-    function currentChangedInFirebaseACB(firebaseData){ model.setPlaylist(firebaseData.val());});
+  function getFirebaseData() {
+    firebase.database().ref(REF+"/" + model.uid + "/username").on("value", 
+    function usernameChangedInFirebaseACB(firebaseData){
+      model.setUsername(firebaseData.val());
+    });
 
-    // firebase.database().ref(REF+"/emotions/").on("child_added", 
-    // function dishAddedInFirebaseACB(firebaseData){ model.setEmotions(firebaseData.val(), isChecked)});
-    
+    firebase.database().ref(REF+ "/" + model.uid + "/playlist").on("value", 
+    function currentChangedInFirebaseACB(firebaseData){
+      model.setPlaylist(firebaseData.val());
+    });
+
+    firebase.database().ref(REF+"/" + model.uid + "/emotions").on("child_added", 
+    function emotionsUpdatedInFirebase(firebaseData){
+      model.setEmotions(firebaseData.key, firebaseData.val().checked)
+    });
+  }
 }
 
 export {firebaseModelPromise, updateFirebaseFromModel, updateModelFromFirebase, createUser, signIn, signOut, fbAuthObs, getUID}

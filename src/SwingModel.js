@@ -68,7 +68,7 @@ class SwingModel{
         this.emotions[emotion].checked = isChecked;
         
         if (isChecked){            
-            this.selectedEmotions.push(emotion);
+            this.selectedEmotions = [...this.selectedEmotions, emotion];
         }
         else{
             let index = this.selectedEmotions.indexOf(emotion);
@@ -77,7 +77,7 @@ class SwingModel{
             }
         }
 
-        this.notifyObservers({emotions: this.selectedEmotions});
+        this.notifyObservers({emotions: this.emotions});
     }
 
     emotionsFull(){
