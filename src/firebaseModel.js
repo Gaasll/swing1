@@ -139,7 +139,7 @@ function updateFirebaseFromModel(model) {
             firebase.database().ref(REF+"/" + model.uid +"/emotions").set(payload.emotions);
 
         if (payload && payload.lastPlayed)
-            firebase.database().ref(REF+"/" + model.uid +"/lastPlayed").set(payload.emotions);
+            firebase.database().ref(REF+"/" + model.uid +"/lastPlayed").set(payload.lastPlayed);
       }
     model.addObserver(fireBaseObsACB);
 }   
