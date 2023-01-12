@@ -1,29 +1,40 @@
 <template>
   <div>
-    <AppView :model="model" :rerenderKey="rerenderKey" :hasSidebar="hasSidebar"/>
+    <AppView v-if="modelPromiseState.data" :model="modelPromiseState.data" :rerenderKey="rerenderKey" :hasSidebar="hasSidebar"/>
+    <PromiseNoData v-else :promiseState="modelPromiseState" />
   </div>
 </template>
 
 <script>
 import AppView from '../views/AppView.vue'
-import SwingModel from '../SwingModel.js'
+//import SwingModel from '../SwingModel.js'
 import firebase from 'firebase/app';
-import {updateFirebaseFromModel, updateModelFromFirebase} from '../firebaseModel.js';
+import {firebaseModelPromise, updateFirebaseFromModel, updateModelFromFirebase} from '../firebaseModel.js';
+import resolvePromise from '@/resolvePromise';
 import { useRouter, useRoute } from 'vue-router';
+import PromiseNoData from '@/views/PromiseNoData.vue';
 
 export default {
   name: 'App',
   components: {
     AppView,
-  },
+    PromiseNoData
+},
   data() {
     return{
-      model: new SwingModel(this.rerender.bind(this)),
+      //model: new SwingModel(this.rerender.bind(this)),
+      modelPromiseState: {},
       rerenderKey: 0,
       sidebarHidden: ['/', '/emotionSetup', '/weatherSetup'],
     }
   },
   methods: {
+    modelCreated(){
+      if (this.modelPromiseState.data) {
+        updateModelFromFirebase(this.modelPromiseState.data);
+        updateFirebaseFromModel(this.modelPromiseState.data);
+      }
+    },
     rerender(){
       this.rerenderKey += 1;
     },
@@ -34,21 +45,20 @@ export default {
       const router = useRouter();
       const route = useRoute();
       firebase.auth().onAuthStateChanged((user=>{
-        console.log("getting promise...", user)
+        //console.log("getting promise...", user)
         if (!user){
           //alert("You have to create a user")
           console.log("You have to create a user")
           router.replace('/')
         } else if (route.path == '/') {
           console.log("You are logged in")
-          router.replace('/home')
+          router.replace('/emotionSetup')
         }
       }))
     }
   },
   created() {
-    updateModelFromFirebase(this.model);
-    updateFirebaseFromModel(this.model);
+    resolvePromise(firebaseModelPromise(this.rerender.bind(this)), this.modelPromiseState, this.modelCreated);
   },
   beforeMount() {
     this.redirect();

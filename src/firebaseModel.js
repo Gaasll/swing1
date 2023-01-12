@@ -74,28 +74,23 @@ function fbAuthObs(){
       });
 }
 
-function firebaseModelPromise() {
+function firebaseModelPromise(notify) {
     function makeBigPromiseACB(firebaseData) {
-        // function makePromise(dishId){
-        //     return getDishDetails(dishId);
-        // }
-        let selectedEmotions;
-        if(firebaseData.val() && firebaseData.val().selectedEmotions){
-            selectedEmotions = firebaseData.val().selectedEmotions;
-        } else { selectedEmotions = [] }
-        // const dishPromiseArray= Object.keys(dishes).map(makeDishPromiseCB);
+        let emotions;
+        if(firebaseData.val() && firebaseData.val().emotions){
+            emotions = firebaseData.val().emotions;
+            console.log(emotions);
+        } else { emotions = null }
         // let nrGuests;
         // if(firebaseData.val() && firebaseData.val().nrOfGuests){
         //     nrGuests = firebaseData.val().nrOfGuests;
         // } else { nrGuests=2; }
-        function createModelACB(emotionsArray){
-            let model = new SwingModel();
-            model.selectedEmotions = emotionsArray;
-            model.addObserver(this.fbAuthObs.bind(this));
+        function createModelACB(emotionsObj){
+            let model = new SwingModel(notify, emotionsObj);
             return model;
         }
         // return Promise.all(dishPromiseArray).then(createModelACB) // wait for all promise results 
-        return createModelACB(selectedEmotions);
+        return createModelACB(emotions);
     }
     return firebase.database().ref(REF).once("value").then(makeBigPromiseACB);
 }

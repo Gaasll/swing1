@@ -4,14 +4,14 @@ import {soundCloudSearch} from "./musicSource.js";
 import resolvePromise from "./resolvePromise.js";
 
 const MAX_SELECTED_EMOTIONS = 2;
-const MIN_DURATION = 45_000;
+const MIN_DURATION = 55_000;
 const MAX_DURATION = 400_000;
 //const MAX_NO_ELEMENTS = 20;
 //const NO_PLAYLISTS = 5;
 //const NO_SONGS_PER_PLAYLIST = 4;
 
 class SwingModel{
-    constructor(notify){
+    constructor(notify, emotions){
         this.observers = [notify];
 
         this.username = "";
@@ -25,7 +25,7 @@ class SwingModel{
         this.playerPromiseState = {};
         this.trackURL;
 
-        this.emotions = {
+        this.emotions = emotions || {
                          "happy":       {checked: false,},
                          "sad":         {checked: false,},
                          "angry":       {checked: false,},
@@ -55,7 +55,7 @@ class SwingModel{
 
     setUsername(name){
         this.username = name;
-        console.log("this is your username", this.username);
+        //console.log("this is your username", this.username);
         this.notifyObservers({username: this.username});
     }
 
@@ -64,7 +64,7 @@ class SwingModel{
     }
 
     setEmotions(emotion, isChecked){
-        console.log(emotion);
+        //console.log(emotion);
         this.emotions[emotion].checked = isChecked;
         
         if (isChecked){            
@@ -73,7 +73,7 @@ class SwingModel{
         else{
             let index = this.selectedEmotions.indexOf(emotion);
             if (index > -1){
-                this.selectedEmotions.splice(index, 1);
+                this.selectedEmotions = this.selectedEmotions.filter((em) => em !== emotion);
             }
         }
 
@@ -103,7 +103,7 @@ class SwingModel{
     }
 
     exctractPlayerData(){
-        console.log(this.songsPromiseState.data);
+        //console.log(this.songsPromiseState.data);
         let songURL = this.songsPromiseState.data[this.randInt(this.songsPromiseState.data.length)].uri;
         let baseURL = "https://w.soundcloud.com/player/?"
         let playerData = {
