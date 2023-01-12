@@ -53,13 +53,21 @@ export default {
 					<span class="material-icons">history</span>
 					<span class="text">History</span>
 				</router-link>
+
+				<router-link to="/" class="button">
+					<span v-if="isSignedIn()" class="material-icons" @click="signOut" >logout</span>
+					<router-link v-else to="/">
+					<button class="button" v-on:click="login" >login</button>
+				</router-link>
+					<span class="text">Log out</span>
+				</router-link>
 				
-				<!--a href="#" @click="signOut">Sign out</a-->
+				<!--a href="#" @click="signOut">Sign out</a>
 				<button v-if="isSignedIn()" class="text" @click="signOut" >logout</button>
 				<router-link v-else to="/">
-					<button class="text" v-on:click="login" >login</button>
+					<button class="button" v-on:click="login" >login</button>
 				</router-link>
-                <!--button id="logout-button" @click.prevent="handleLogout" :disabled="isLoggedOut">Log out</button-->
+                button id="logout-button" @click.prevent="handleLogout" :disabled="isLoggedOut">Log out</button-->
 			</div>
 		</aside>
 	</div>
