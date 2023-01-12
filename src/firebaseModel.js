@@ -15,10 +15,8 @@ const REF="swingmood";
 firebase.database().ref(REF+"/test").set("dummy");
 
 function createUser(email, password, username) {
-    console.log('creating user...');
     auth.createUserWithEmailAndPassword(email, password).then(() => {
         console.log('signed in');
-
         firebase.database().ref(REF+"/"+ getUser().uid +"/username").set(username);
     }).catch((error) => {
     var errorCode = error.code;
@@ -38,6 +36,7 @@ function signIn(email, password){
         var errorMessage = error.message;
         console.log(errorCode);
         console.log(errorMessage);
+        alert("Wrong password or email")
       });
 }
 

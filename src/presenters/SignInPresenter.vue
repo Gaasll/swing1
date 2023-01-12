@@ -19,8 +19,6 @@ export default {
 
     methods: {
         signInUser(email, password) {
-            console.log(email);
-            console.log(password);
             signIn(email, password);
             useRoute().path("/emotion");
         },
