@@ -12,7 +12,6 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
 const REF="swingmood";
-firebase.database().ref(REF+"/test").set("dummy");
 
 function createUser(email, password, username) {
     auth.createUserWithEmailAndPassword(email, password).then(() => {
