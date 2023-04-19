@@ -1,6 +1,8 @@
 <template>
   <div>
+    <header>
     <SidebarPresenter v-if="hasSidebar()" :model="model" />
+    </header>
     <router-view :model="model" :rerenderKey="rerenderKey" />
     <Footer />
   </div>
@@ -38,10 +40,13 @@ router-view {
   margin-top: 60px;
 }
 
-header{
-    margin: 50px;
-    margin-left: 15%;
-    margin-right: 15%;
+header {
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
 }
 
 h1, h2, h3 {

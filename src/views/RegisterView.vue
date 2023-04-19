@@ -1,32 +1,47 @@
 <template>
+
+    <br><br><br><br><br><br>
     <div class="register-form-container">
         <form @submit.prevent="onFormSubmit" class="register-form">
             <h2>Sign up</h2>
-            <p>Already have an account? <a href="#" @click="viewStateChange()">Sign in here</a></p>
-            <span class="form-fields">
-                <span>Display name: </span>
-                <input class="inputField" type="text" placeholder="enter name here..." v-model="username">
-
-                <span>Email: </span>
-                <input class="inputField" type="email" placeholder="your email here..." v-model="email">
-                
-                <span>Password: </span>
-                <input class="inputField" type="password" placeholder="choose a password" v-model="password">
-
-                <span>Confirm password: </span>
-                <input class="inputField" type="password" placeholder="re-type password" v-model="password_confirm">
-            </span>
-            <NextButton @click="onFormSubmit()"/>
+            <p>Already have an account? <br><a href="#" @click="viewStateChange()">Sign in here.</a></p>
+            <div class="form-fields">
+                <div>
+                    
+                    <input id="username" class="input-field" type="text" placeholder="Display name"
+                        v-model="username">
+                </div>
+                <br>
+                <div>
+                    
+                    <input id="email" class="input-field" type="email" placeholder="E-mail"
+                        v-model="email">
+                </div>
+                <br>
+                <div>
+                    
+                    <input id="password" class="input-field" type="password" placeholder="Password"
+                        v-model="password">
+                </div>
+                <br>
+                <div>
+                    
+                    <input id="password_confirm" class="input-field" type="password" placeholder="Confirm password"
+                        v-model="password_confirm">
+                </div>
+                <NextButton @click="onFormSubmit"/>
+            </div>
+            
         </form>
     </div>
 </template>
 
 <script>
-import NextButton from "../components/NextButton.vue"
+import NextButton from "../components/NextButton.vue";
 export default {
     props: ['registerUser', 'viewStateChange'],
     components: {
-        NextButton
+        NextButton,
     },
     data() {
         return {
@@ -46,31 +61,54 @@ export default {
 
 <style scoped>
 .form-fields {
-    display: grid;
-    grid-template-columns: 9fr 11fr;
-    grid-template-rows: repeat(30px);
-    width: 55%;
-    margin: auto;
-    text-align: right;
-    vertical-align: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
 }
 
-.form-fields > * {
-    margin: 10px;
-}
-.inputField {
+.input-field {
     border-radius: 25px;
     border: 2px solid #609;
-    padding: 10px; 
-    width: 200px;
-    height: 15px; 
+    padding: 10px;
+    width: 100%;
 }
 
 .submit-button {
-    margin-top: 25px;
+    border-radius: 25px;
+    background-color: #609;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    font-size: 16px;
 }
 
 form.register-form {
-    margin-bottom: 50px;
+    width: 60%;
+    margin: auto;
+    text-align: center;
 }
-</style>
+
+@media (max-width: 768px) {
+    .form-fields {
+        grid-template-columns: 100px 1fr;
+       
+    }
+
+    .submit-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+     .input-field::placeholder {
+        font-size: 12px;
+    }
+
+ 
+
+     p {
+        font-size: 14px;
+    }
+}</style>

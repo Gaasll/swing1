@@ -23,4 +23,9 @@ footer{
 p{
   margin: 5px;
 }
+@media screen and (max-width: 480px) {
+    p {
+        font-size: 10px;
+    }
+  }
 </style>

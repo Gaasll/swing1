@@ -18,20 +18,21 @@ export default{
 </script>
 
 <template>
+ 
     <div class="playing">
       <div class="header">
-        <h2>PLAYING MUSIC FOR FEELING
+        <h1>Playing now</h1>
+        <h3>Playing music for feeling
           <span v-for="emotion in selectedEmotions" :key="emotion">
             <span v-if="emotion != selectedEmotions[0]">
               &
             </span>
             {{ emotion }}
           </span>
-        </h2>
-        <h2>
-          THE WEATHER IS {{ weather }}
-          <img :src="iconURL" alt="" class="icon" />
-        </h2>
+       
+          . <br>The weather is {{ weather }}.
+          <br><img :src="iconURL" alt="" class="icon" />
+        </h3>
       </div>
     </div>
     <div class="musicPlayer">
@@ -50,49 +51,7 @@ export default{
 </template>
   
 <style>
-.header{
-  display: block;
-  margin-left: 25%;
-  margin-right: 25%;
-}
 
-.card {
-  justify-content: center;
-  background: #000000d0;
-  color: white;
-  margin-left: 25%;
-  margin-right: 25%;
-  padding: 2em;
-  border-radius: 30px;
-}
-
-.box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.box img {
-    width: 100%;
-    height: 100%;
-}
-
-.box1 img {
-    object-fit: cover;
-}
-
-button {
-  margin: 0.5em;
-  border-radius: 50%;
-  border: none;
-  height: 44px;
-  width: 44px;
-  outline: none;
-  background: #7c7c7c2b;
-  color: white;
-  cursor: pointer;
-  transition: 0.2s ease-in-out;
-}
 
 .box desc {
   border: none;
@@ -105,6 +64,23 @@ button {
   font-size: 105%;
   width: calc(100% - 100px);
 }
+
+h1 {
+  font-weight: 500;
+  font-size: 40px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeUp 1s ease-in-out forwards;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 20px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeUp 2s ease-in-out forwards;
+}
+
 
 button:hover {
   background: #7c7c7c6b;
@@ -128,5 +104,36 @@ h1.temp {
   min-height: 4px;
   width: 60%;
   margin: auto;
+}
+
+@media (max-width: 512px) {
+  .greetings h3 {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-size: 14px;
+  }
+
+  h1{
+    font-size: 20px;
+  }
+   h3{
+    font-size: 14px;
+  }
+
+  .card{
+    max-width: 200px;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
