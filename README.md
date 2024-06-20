@@ -22,6 +22,7 @@ playback music. The OpenWeather API is used to retrieve weather data.
     </td>
   </tr>
 </table>
+
 ## Features
 So far, the app includes the following features and functionality:
 * A front end user interface.
