@@ -15,9 +15,9 @@ current mood from a checkbox style list of hardcoded moods/feelings/emotions. Th
 the current weather where the user is situated – is used to generate a custom playlist perfectly suited for 
 the listener's mood at any given time.
 To achieve this, the app uses two seperate API:s. Mainly, the Spotify API is used to search for- and 
-playback music. The OpenWeather API is used to retrieve weather data.
+playback music. The OpenWeather API is used to retrieve weather data. 
 
-
+![alt text](https://github.com/Gaasll/swing1/blob/main/read.png?raw=true)
 **Features**
 =======================================
 So far, the app includes the following features and functionality:
