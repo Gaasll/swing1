@@ -6,14 +6,7 @@ the current weather where the user is situated – is used to generate a custom 
 the listener's mood at any given time.
 To achieve this, the app uses two seperate API:s. Mainly, the Soundcloud API is used to search for- and 
 playback music. The OpenWeather API is used to retrieve weather data.
-#SwingMood
-The SwingMood aims to create a tailored listening experience for the lazy or 
-uninspired music listener. A simple scaled down interface, devoid of distractions lets the user input their 
-current mood from a checkbox style list of hardcoded moods/feelings/emotions. This data – along with 
-the current weather where the user is situated – is used to generate a custom playlist perfectly suited for 
-the listener's mood at any given time.
-To achieve this, the app uses two seperate API:s. Mainly, the Spotify API is used to search for- and 
-playback music. The OpenWeather API is used to retrieve weather data. 
+
 
 <table style="width:100%; border: 0;">
   <tr>
