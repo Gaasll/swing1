@@ -17,7 +17,7 @@ the listener's mood at any given time.
 To achieve this, the app uses two seperate API:s. Mainly, the Spotify API is used to search for- and 
 playback music. The OpenWeather API is used to retrieve weather data. 
 
-![alt text](https://github.com/Gaasll/swing1/blob/main/read.png?raw=true)
+![alt text](https://github.com/Gaasll/swing1/blob/main/happy.png?raw=true)
 **Features**
 =======================================
 So far, the app includes the following features and functionality:
